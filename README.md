@@ -1,2 +1,2 @@
-# alex-titarenko.github.io
+# alextitarenko.me
 My personal website/portfolio
