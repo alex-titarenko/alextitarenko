@@ -6,8 +6,7 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "export": "next export && node scripts/next-sitemap-generator.js",
-    "deploy": "next build && npm run export && git add out/ && git commit -m \"Deploy Next.js to master\" && push-dir --dir=out --branch=master --cleanup"
+    "export": "next export && node scripts/next-sitemap-generator.js"
   },
   "dependencies": {
     "@zeit/next-sass": "^1.0.1",
