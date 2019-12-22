@@ -1,0 +1,6 @@
+# Disallow all
+User-agent: *
+Disallow: /
+
+# Sitemap files
+Sitemap: https://www.alextitarenko.me/sitemap.xml
