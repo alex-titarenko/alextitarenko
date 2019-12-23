@@ -13,7 +13,7 @@ const projects: Project[] = [
     padCategory: 'Desktop::Screen Savers: Science',
     supportedPlatforms: 'Windows 7/Windows 8/Windows 10',
     display: true,
-    downloadUrl: 'https://talexsoft.blob.core.windows.net/downloads/BeautifulFractalsSetup.exe',
+    downloadUrl: 'https://github.com/alex-titarenko/BeautifulFractals/releases/download/2.1.1/BeautifulFractalsSetup.exe',
     facebookPage: 'https://www.facebook.com/pages/Beautiful-Fractals/1544401659116646',
     gitHubPage: 'https://github.com/alex-titarenko/beautifulfractals',
     description: `
@@ -441,7 +441,7 @@ const projects: Project[] = [
     padCategory: 'Education::Other',
     supportedPlatforms: 'Windows 7/Windows 8/Windows 10',
     display: true,
-    downloadUrl: 'https://talexsoft.blob.core.windows.net/downloads/TestcheckSetup.exe',
+    downloadUrl: 'https://github.com/alex-titarenko/Testcheck/releases/download/2.2.0/TestcheckSetup.exe',
     facebookPage: 'https://www.facebook.com/TAlex.Testcheck',
     gitHubPage: 'https://github.com/alex-titarenko/testcheck',
     description: `
