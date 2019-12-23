@@ -13,7 +13,7 @@ const projects: Project[] = [
     padCategory: 'Desktop::Screen Savers: Science',
     supportedPlatforms: 'Windows 7/Windows 8/Windows 10',
     display: true,
-    downloadUrl: 'https://talexsoft.blob.core.windows.net/downloads/BeautifulFractalsSetup.exe',
+    downloadUrl: 'https://github.com/alex-titarenko/BeautifulFractals/releases/download/2.1.1/BeautifulFractalsSetup.exe',
     facebookPage: 'https://www.facebook.com/pages/Beautiful-Fractals/1544401659116646',
     gitHubPage: 'https://github.com/alex-titarenko/beautifulfractals',
     description: `
@@ -169,14 +169,14 @@ const projects: Project[] = [
     id: '0c6a9e5f-2093-4db0-a99c-ebdb1c5e2448',
     alias: 'game_of_life',
     name: 'Game of Life',
-    stableVersion: '2.2.1',
+    stableVersion: '2.3.0',
     subtitle: 'Interesting version of computer realization of the mathematical game of "Life"',
     releaseDate: '2015-02-19T00:00:00Z',
     iconImageUrl: 'game-of-life_20130310_030913.png',
     padCategory: 'Games & Entertainment::Simulation',
     supportedPlatforms: 'Windows 7/Windows 8/Windows 10',
     display: true,
-    downloadUrl: 'https://talexsoft.blob.core.windows.net/clickonceinstall/gameoflife/GameOfLife.application',
+    downloadUrl: 'https://github.com/alex-titarenko/GameOfLife/releases/download/2.3.0/GameOfLifeSetup.msi',
     facebookPage: 'http://www.facebook.com/TAlex.GameOfLife',
     gitHubPage: 'https://github.com/alex-titarenko/gameoflife',
     description: `
@@ -294,6 +294,12 @@ const projects: Project[] = [
           'Fixed: bug with incorrect behavior on default update interval value',
           'Misc: Program installer has been updated'
         ]
+      },
+      {
+        version: '2.3.0',
+        releaseDate: '12/22/2019',
+        description: 'This update changes installation format to MSI',
+        changes: []
       }
     ],
     systemRequirements: '.NET Framework 4.5 or higher.',
@@ -441,7 +447,7 @@ const projects: Project[] = [
     padCategory: 'Education::Other',
     supportedPlatforms: 'Windows 7/Windows 8/Windows 10',
     display: true,
-    downloadUrl: 'https://talexsoft.blob.core.windows.net/downloads/TestcheckSetup.exe',
+    downloadUrl: 'https://github.com/alex-titarenko/Testcheck/releases/download/2.2.0/TestcheckSetup.exe',
     facebookPage: 'https://www.facebook.com/TAlex.Testcheck',
     gitHubPage: 'https://github.com/alex-titarenko/testcheck',
     description: `
