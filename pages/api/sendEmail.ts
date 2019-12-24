@@ -24,7 +24,7 @@ export default async function (req: NowRequest, res: NowResponse) {
 
     sgMail.setApiKey(process.env.SENDGRID_API_KEY);
 
-    sgMail.send({
+    await sgMail.send({
       from: { name: req.body.name, email: req.body.from },
       to: appConfig.emails.contact,
       subject: req.body.subject,
