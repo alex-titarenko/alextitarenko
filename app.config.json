@@ -23,7 +23,7 @@
     "addThisPubId": "ra-5184f211643816eb"
   },
   "api": {
-    "sendEmail": "https://talex.azurewebsites.net/api/SendEmail"
+    "sendEmail": "/api/sendEmail"
   },
   "google": {
     "analyticsId": "UA-21025112-1"
