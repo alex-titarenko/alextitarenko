@@ -5,7 +5,18 @@ import appConfig from '../../app.config.json'
 
 
 export default async function (req: NowRequest, res: NowResponse) {
-  console.log('SendEmail function is processing a request');
+  console.log('SendEmail function is processing the request');
+
+  if (!process.env.RECAPTCHA_SECRET_KEY) {
+    console.error('Environment variable RECAPTCHA_SECRET_KEY is not defined');
+    res.status(500);
+    return;
+  }
+  if (!process.env.SENDGRID_API_KEY) {
+    console.error('Environment variable SENDGRID_API_KEY is not defined');
+    res.status(500);
+    return;
+  }
 
   if (await verifyRecaptchaAsync(process.env.RECAPTCHA_SECRET_KEY, req.body.recaptchaToken)) {
     console.log('reCAPTCHA validation succeeded');
