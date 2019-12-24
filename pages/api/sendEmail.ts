@@ -7,40 +7,42 @@ import appConfig from '../../app.config.json'
 export default async function (req: NowRequest, res: NowResponse) {
   console.log('SendEmail function is processing the request');
 
-  if (!process.env.RECAPTCHA_SECRET_KEY) {
-    console.error('Environment variable RECAPTCHA_SECRET_KEY is not defined');
-    res.status(500);
-    return;
+  console.log('Verifying reCAPTCHA');
+  const isValidRecaptcha = await verifyRecaptchaAsync(req.body.recaptchaToken);
+  if (!isValidRecaptcha) {
+    throw new Error('reCAPTCHA verification failed');
   }
-  if (!process.env.SENDGRID_API_KEY) {
+
+  console.log('reCAPTCHA validation succeeded');
+  console.debug('Sending email');
+
+  const sendGridApiKey = process.env.SENDGRID_API_KEY;
+  if (!sendGridApiKey) {
     console.error('Environment variable SENDGRID_API_KEY is not defined');
-    res.status(500);
-    return;
+    throw new Error('An internal error occurred');
   }
 
-  if (await verifyRecaptchaAsync(process.env.RECAPTCHA_SECRET_KEY, req.body.recaptchaToken)) {
-    console.log('reCAPTCHA validation succeeded');
-    console.debug('Sending email');
+  sgMail.setApiKey(sendGridApiKey);
+  await sgMail.send({
+    from: { name: req.body.name, email: req.body.from },
+    to: appConfig.emails.contact,
+    subject: req.body.subject,
+    html: req.body.message
+  });
 
-    sgMail.setApiKey(process.env.SENDGRID_API_KEY);
-
-    await sgMail.send({
-      from: { name: req.body.name, email: req.body.from },
-      to: appConfig.emails.contact,
-      subject: req.body.subject,
-      html: req.body.message
-    });
-
-    res.json({ message: 'Message has been sent' });
-  }
-  else {
-    throw new Error('reCAPTCHA validation failed');
-  }
+  res.status(200).json({ message: 'Message has been sent' });
 }
 
-async function verifyRecaptchaAsync(recaptchaSecretKey: string, recaptchaToken: string) {
+async function verifyRecaptchaAsync(recaptchaToken: string): Promise<boolean> {
+  const recaptchaSecretKey = process.env.RECAPTCHA_SECRET_KEY;
+
+  if (!recaptchaSecretKey) {
+    console.error('Environment variable RECAPTCHA_SECRET_KEY is not defined');
+    throw new Error('An internal error occurred');
+  }
+
   const url = `https://www.google.com/recaptcha/api/siteverify?secret=${recaptchaSecretKey}&response=${recaptchaToken}`;
   const response = await fetch(url, { method: 'post' });
   const responseObj = await response.json();
-  return responseObj.success;
+  return responseObj.success as boolean;
 }
