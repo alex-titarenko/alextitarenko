@@ -16,17 +16,6 @@ module.exports = withCSS(withSass({
             limit: 100000
           }
         }
-      },
-      {
-        test: /\.md$/,
-        loader: 'emit-file-loader',
-        options: {
-          name: 'dist/[path][name].[ext]',
-        },
-      },
-      {
-        test: /\.md$/,
-        loader: 'raw-loader',
       }
     ]);
 
