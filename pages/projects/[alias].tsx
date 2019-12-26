@@ -1,4 +1,5 @@
 import React from 'react'
+import { useEffect } from 'react'
 import Head from 'next/head'
 import Layout from '../../components/Layout'
 import { Project } from '../../models/Project'
