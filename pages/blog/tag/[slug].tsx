@@ -1,4 +1,4 @@
-import React from 'react'
+import { NextPage } from 'next'
 import BlogPostsList from '../../../components/BlogPostsList'
 import { BlogTag } from '../../../models/BlogTag'
 import { BlogPost } from '../../../models/BlogPost'
@@ -22,12 +22,10 @@ export async function unstable_getStaticProps({ params }) {
   return { props: { tag, posts } };
 }
 
-export default class BlogTagPage extends React.Component<BlogTagProps> {
-  public render() {
-    return (
-      <BlogPostsList
-        subtitle={ `Latest posts tagged on ${this.props.tag.name}` }
-        posts={ this.props.posts } />
-    );
-  }
-}
+const BlogTagPage: NextPage<BlogTagProps> = (props) => (
+  <BlogPostsList
+    subtitle={ `Latest posts tagged on ${ props.tag.name }` }
+    posts={ props.posts } />
+);
+
+export default BlogTagPage;

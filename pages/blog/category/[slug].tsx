@@ -1,4 +1,4 @@
-import React from 'react'
+import { NextPage } from 'next'
 import BlogPostsList from '../../../components/BlogPostsList'
 import { BlogCategory } from '../../../models/BlogCategory'
 import { BlogPost } from '../../../models/BlogPost'
@@ -22,13 +22,10 @@ export async function unstable_getStaticProps({ params }) {
   return { props: { category, posts } };
 }
 
-export default class BlogCategoryPage extends React.Component<BlogCategoryProps> {
-  public render() {
-    return (
-      <BlogPostsList
-        subtitle={ `Latest posts on category ${this.props.category.name}` }
-        posts={ this.props.posts } />
-    );
-  }
-}
+const BlogCategoryPage: NextPage<BlogCategoryProps> = (props) => (
+  <BlogPostsList
+    subtitle={ `Latest posts on category ${props.category.name}` }
+    posts={ props.posts } />
+);
 
+export default BlogCategoryPage;
