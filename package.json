@@ -35,7 +35,6 @@
     "copy-webpack-plugin": "^5.1.1",
     "glob": "^7.1.6",
     "nextjs-sitemap-generator": "^0.4.1",
-    "push-dir": "^0.4.1",
     "typescript": "^3.7.3"
   }
 }
