@@ -6,7 +6,7 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "export": "next export && node scripts/next-sitemap-generator.js"
+    "export": "next export"
   },
   "dependencies": {
     "@sendgrid/mail": "^6.4.0",
@@ -34,7 +34,6 @@
     "@types/react": "^16.9.16",
     "copy-webpack-plugin": "^5.1.1",
     "glob": "^7.1.6",
-    "nextjs-sitemap-generator": "^0.4.1",
     "typescript": "^3.7.3"
   }
 }
