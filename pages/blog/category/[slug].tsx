@@ -1,12 +1,12 @@
 import { NextPage } from 'next'
 import BlogPostsList from '../../../components/BlogPostsList'
 import { BlogCategory } from '../../../models/BlogCategory'
-import { BlogPost } from '../../../models/BlogPost'
+import { BlogPostAnnotation } from '../../../models/BlogPost'
 import { BlogRepository } from '../../../repositories/BlogRepository'
 
 type BlogCategoryProps = {
   category: BlogCategory;
-  posts: BlogPost[]
+  posts: BlogPostAnnotation[]
 }
 
 const blogRepository = new BlogRepository();

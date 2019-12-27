@@ -1,9 +1,9 @@
 import React from 'react'
 import Link from 'next/link'
-import { BlogPost } from '../models/BlogPost'
+import { BlogPostAnnotation } from '../models/BlogPost'
 
 type BlogPostFooterProps = {
-  post: BlogPost
+  post: BlogPostAnnotation
 }
 
 export default class BlogPostFooter extends React.Component<BlogPostFooterProps> {
@@ -22,7 +22,7 @@ export default class BlogPostFooter extends React.Component<BlogPostFooterProps>
           <div className="post-tags">
             <span>Tagged</span>
             {this.props.post.tags.map(tag => (
-              <Link key={tag.urlSlug} href="/blog/tag/[slag]" as={`/blog/tag/${tag.urlSlug}`}>
+              <Link key={tag.urlSlug} href="/blog/tag/[slug]" as={`/blog/tag/${tag.urlSlug}`}>
                 <a className="post-tag"><span className="label label-primary">{tag.name}</span></a>
               </Link>
             ))}

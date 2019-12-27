@@ -2,7 +2,7 @@ import fs from 'fs'
 import glob from 'glob'
 import path from 'path'
 import matter from 'gray-matter'
-import { BlogPost } from './../models/BlogPost'
+import { BlogPostAnnotation, BlogPost } from './../models/BlogPost'
 import { BlogCategory } from './../models/BlogCategory'
 import { BlogTag } from './../models/BlogTag'
 import blogCategories from '../data/blogCategories'
@@ -14,8 +14,8 @@ export class BlogRepository {
   private static readonly blogPosts = BlogRepository.getPosts(BlogRepository.postsFilePattern);
 
 
-  public getAllPosts(): BlogPost[] {
-    return BlogRepository.blogPosts;
+  public getAllPosts(): BlogPostAnnotation[] {
+    return BlogRepository.blogPosts.map(BlogRepository.toAnnotation);
   }
 
   public getAllCategories(): BlogCategory[] {
@@ -47,8 +47,10 @@ export class BlogRepository {
     throw new Error(`The tag with the slug '${tagSlug}' is not defined.`);
   }
 
-  public getPostsForTag(tagSlug: string): BlogPost[] {
-    return BlogRepository.blogPosts.filter(x => x.tags.findIndex(t => t.urlSlug.toLowerCase() == tagSlug.toLowerCase()) != -1);
+  public getPostsForTag(tagSlug: string): BlogPostAnnotation[] {
+    return BlogRepository.blogPosts
+      .filter(x => x.tags.findIndex(t => t.urlSlug.toLowerCase() == tagSlug.toLowerCase()) != -1)
+      .map(BlogRepository.toAnnotation);
   }
 
   public getCategory(categorySlug: string): BlogCategory {
@@ -65,8 +67,10 @@ export class BlogRepository {
     throw new Error(`The category with the slug '${categorySlug}' is not defined.`);
   }
 
-  public getPostsForCategory(categorySlug: string): BlogPost[] {
-    return BlogRepository.blogPosts.filter(x => x.category.urlSlug.toLowerCase() == categorySlug.toLowerCase());
+  public getPostsForCategory(categorySlug: string): BlogPostAnnotation[] {
+    return BlogRepository.blogPosts
+      .filter(x => x.category.urlSlug.toLowerCase() == categorySlug.toLowerCase())
+      .map(BlogRepository.toAnnotation);
   }
 
   public static parseBlogPost(urlSlug: string, rawContent: string): BlogPost {
@@ -92,7 +96,7 @@ export class BlogRepository {
     };
   }
 
-  private static getPosts(postsFilePattern: string) {
+  private static getPosts(postsFilePattern: string): BlogPost[] {
     function getDirectoryName(filePath: string) {
       return path.basename(path.dirname(filePath));
     }
@@ -109,5 +113,12 @@ export class BlogRepository {
 
     posts.sort(sortPosts);
     return posts;
+  }
+
+  private static toAnnotation(post: BlogPost): BlogPostAnnotation {
+    const annotation = Object.assign({}, post);
+    annotation.content = null;
+
+    return annotation;
   }
 }

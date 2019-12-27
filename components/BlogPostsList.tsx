@@ -2,14 +2,14 @@ import React from 'react'
 import Link from 'next/link'
 import Layout from './Layout'
 import appConfig from '../app.config.json'
-import { BlogPost } from '../models/BlogPost'
+import { BlogPostAnnotation } from '../models/BlogPost'
 import BlogPostContent from './BlogPostContent'
 import BlogPostFooter from './BlogPostFooter'
 import Converter from '../utils/converter'
 
 type BlogPostsListProps = {
   subtitle: string;
-  posts: BlogPost[]
+  posts: BlogPostAnnotation[]
 }
 
 export default class BlogPostsList extends React.Component<BlogPostsListProps> {
@@ -50,7 +50,7 @@ export default class BlogPostsList extends React.Component<BlogPostsListProps> {
     );
   }
 
-  private renderPostDescription(post: BlogPost) {
+  private renderPostDescription(post: BlogPostAnnotation) {
     return (
       <div className="post-template">
         <h1 className="post-title">

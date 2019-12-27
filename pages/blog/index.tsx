@@ -1,10 +1,10 @@
 import { NextPage } from 'next'
 import BlogPostsList from '../../components/BlogPostsList'
-import { BlogPost } from '../../models/BlogPost'
+import { BlogPostAnnotation } from '../../models/BlogPost'
 import { BlogRepository } from '../../repositories/BlogRepository'
 
 type BlogProps = {
-  posts: BlogPost[]
+  posts: BlogPostAnnotation[]
 }
 
 export async function unstable_getStaticProps() {
