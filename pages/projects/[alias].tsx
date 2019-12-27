@@ -157,7 +157,7 @@ export default function ProjectPage(props: React.PropsWithChildren<Project>) {
                 <GalleryLightbox />
 
                 {props.screenshots.length > 0 && (
-                  renderScreenshots(props.alias, props.screenshots)
+                  <Screenshots projectAlias={ props.alias } screenshots={ props.screenshots } />
                 )}
               </div>
 
@@ -166,7 +166,7 @@ export default function ProjectPage(props: React.PropsWithChildren<Project>) {
                   <div className="col-md-12">
                     <h2>History of changes</h2>
                     <div className="changelog">
-                      { renderVersionHistory(props.versionHistory) }
+                      <VersionHistory historyItems={ props.versionHistory } />
                     </div>
                   </div>
                 </div>
@@ -234,10 +234,10 @@ function GalleryLightbox() {
   );
 }
 
-function renderScreenshots(projectAlias: string, screenshots: Screenshot[]) {
-  const items = screenshots.map(screenshot => (
-    <a rel="thumbnail" className="thumbnail scr-thumbnail" href={getScreenshotUrl(projectAlias, screenshot.imageName)} title={screenshot.caption} data-gallery>
-      <img src={getScreenshotUrl(projectAlias, screenshot.imageName)} alt={screenshot.caption} itemProp="image" />
+function Screenshots(props: { projectAlias: string, screenshots: Screenshot[] }) {
+  const items = props.screenshots.map(screenshot => (
+    <a rel="thumbnail" className="thumbnail scr-thumbnail" href={getScreenshotUrl(props.projectAlias, screenshot.imageName)} title={screenshot.caption} data-gallery>
+      <img src={getScreenshotUrl(props.projectAlias, screenshot.imageName)} alt={screenshot.caption} itemProp="image" />
     </a>
   ));
 
@@ -248,8 +248,8 @@ function renderScreenshots(projectAlias: string, screenshots: Screenshot[]) {
   )
 }
 
-function renderVersionHistory(versionHistory: VersionInfo[]) {
-  const sortedItems = versionHistory
+function VersionHistory(props: { historyItems: VersionInfo[] }) {
+  const sortedItems = props.historyItems
     .slice()
     .sort((a, b) => new Date(b.releaseDate).getTime() - new Date(a.releaseDate).getTime());
 
