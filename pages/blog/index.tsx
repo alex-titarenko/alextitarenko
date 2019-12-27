@@ -13,7 +13,7 @@ export async function unstable_getStaticProps() {
   return { props: { posts } };
 }
 
-const BlogPage: NextPage<BlogProps> = (props: BlogProps) => (
+const BlogPage: NextPage<BlogProps> = (props) => (
   <BlogPostsList
     subtitle="Latest posts"
     posts={ props.posts } />
