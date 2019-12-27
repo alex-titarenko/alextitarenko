@@ -133,7 +133,7 @@ export default function ProjectPage(props: React.PropsWithChildren<Project>) {
                   <div className="col-sm-6">
                     <h2>Key Features</h2>
                     {props.keyFeatures.length > 0 &&
-                      renderCheckList(props.keyFeatures)
+                      <CheckList items={ props.keyFeatures } />
                     }
                   </div>
                 </div>
@@ -154,7 +154,7 @@ export default function ProjectPage(props: React.PropsWithChildren<Project>) {
               </div>
 
               <div id="screenshots" className="tab-pane fade">
-                { renderGalleryLightbox() }
+                <GalleryLightbox />
 
                 {props.screenshots.length > 0 && (
                   renderScreenshots(props.alias, props.screenshots)
@@ -181,8 +181,8 @@ export default function ProjectPage(props: React.PropsWithChildren<Project>) {
   )
 }
 
-function renderCheckList(items: string[]) {
-  const listItems = items.map((item, index) => (
+function CheckList(props: { items: string[] }) {
+  const listItems = props.items.map((item, index) => (
     <li key={index}><span className='glyphicon glyphicon-ok'></span><span>{item}</span></li>
   ));
 
@@ -196,7 +196,7 @@ function renderCheckList(items: string[]) {
 /*
 * The Bootstrap Image Gallery lightbox, should be a child element of the document body
 */
-function renderGalleryLightbox() {
+function GalleryLightbox() {
   return (
     <div id="blueimp-gallery" className="blueimp-gallery" data-use-bootstrap-modal="false">
       {/* The container for the modal slides */}
