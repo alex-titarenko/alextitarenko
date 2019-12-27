@@ -9,6 +9,7 @@ type ProjectPageProps = {
   projects: Project[];
 }
 
+// TODO: update to stable version of getStaticProps()
 export async function unstable_getStaticProps() {
   const projectRepository = new ProjectRepository();
   const projects = projectRepository.getAll();

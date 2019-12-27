@@ -117,7 +117,7 @@ export class BlogRepository {
 
   private static toAnnotation(post: BlogPost): BlogPostAnnotation {
     const annotation = Object.assign({}, post);
-    annotation.content = null;
+    delete annotation.content;
 
     return annotation;
   }
