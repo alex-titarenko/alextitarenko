@@ -42,7 +42,7 @@ class AboutPage extends React.Component {
             </div>
 
             <p>
-              My name is Alex Titarenko. I live in Bellevue, USA.
+              My name is Alex Titarenko. I live in Bothell, USA.
             </p>
             <p>
               I'm a patient, responsible, purposeful and committed engineer, who has the desire to continue evolving and discovering new technologies. Productive in team-based as well as self-managed projects. Dedicated to maintaining up-to-date industry knowledge and IT skills.
