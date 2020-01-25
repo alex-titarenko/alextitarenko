@@ -6,14 +6,12 @@ export class Analytics {
 
   static init() {
     if (!this.initialized) {
-      console.log('GA init')
       ReactGA.initialize(appConfig.google.analyticsId);
       this.initialized = true;
     }
   }
 
   static logPageView() {
-    console.log(`Logging pageview for ${window.location.pathname}`);
     ReactGA.set({ page: window.location.pathname });
     ReactGA.pageview(window.location.pathname);
   }

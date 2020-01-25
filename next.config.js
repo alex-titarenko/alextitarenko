@@ -32,6 +32,5 @@ module.exports = withCSS(withSass({
     );
 
     return config;
-  },
-  exportTrailingSlash: true,
+  }
 }));

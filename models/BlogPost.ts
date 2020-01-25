@@ -1,7 +1,7 @@
 import { BlogCategory } from './BlogCategory'
 import { BlogTag } from './BlogTag'
 
-export interface BlogPost {
+export interface BlogPostAnnotation {
   id?: string;
   title: string;
   urlSlug: string;
@@ -13,6 +13,9 @@ export interface BlogPost {
   category: BlogCategory;
   tags: BlogTag[];
   description: string;
-  content: string;
   annotation: string;
+}
+
+export interface BlogPost extends BlogPostAnnotation {
+  content: string;
 }
