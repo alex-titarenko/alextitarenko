@@ -1,4 +1,3 @@
-import { NextPage } from 'next'
 import BlogPostsList from '../../../components/BlogPostsList'
 import { BlogCategory } from '../../../models/BlogCategory'
 import { BlogPostAnnotation } from '../../../models/BlogPost'
@@ -22,10 +21,10 @@ export async function unstable_getStaticProps({ params }) {
   return { props: { category, posts } };
 }
 
-const BlogCategoryPage: NextPage<BlogCategoryProps> = (props) => (
-  <BlogPostsList
-    subtitle={ `Latest posts on category ${props.category.name}` }
-    posts={ props.posts } />
-);
-
-export default BlogCategoryPage;
+export default function BlogCategoryPage(props: BlogCategoryProps) {
+  return (
+    <BlogPostsList
+      subtitle={ `Latest posts on category ${props.category.name}` }
+      posts={ props.posts } />
+  )
+}

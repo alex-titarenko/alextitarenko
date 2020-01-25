@@ -1,4 +1,3 @@
-import { NextPage } from 'next'
 import BlogPostsList from '../../components/BlogPostsList'
 import { BlogPostAnnotation } from '../../models/BlogPost'
 import { BlogRepository } from '../../repositories/BlogRepository'
@@ -13,10 +12,10 @@ export async function unstable_getStaticProps() {
   return { props: { posts } };
 }
 
-const BlogPage: NextPage<BlogProps> = (props) => (
-  <BlogPostsList
-    subtitle="Latest posts"
-    posts={ props.posts } />
-);
-
-export default BlogPage;
+export default function BlogPage(props: BlogProps) {
+  return (
+    <BlogPostsList
+      subtitle="Latest posts"
+      posts={ props.posts } />
+  )
+}

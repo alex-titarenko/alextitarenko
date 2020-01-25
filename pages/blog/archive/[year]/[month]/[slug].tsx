@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import { useEffect } from 'react'
 import Disqus from 'disqus-react'
 import Head from 'next/head'
 import Layout from '../../../../../components/Layout'
@@ -31,7 +31,7 @@ export async function unstable_getStaticProps({ params }) {
   return { props: post };
 }
 
-export default function BlogPostPage(props: React.PropsWithChildren<BlogPost>) {
+export default function BlogPostPage(props: BlogPost) {
   useEffect(() => {
     if (props.published) {
       Analytics.logEvent('BlogPost', 'View', props.title);

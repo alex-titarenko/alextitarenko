@@ -1,4 +1,3 @@
-import React from 'react'
 import Link from 'next/link'
 import Layout from '../../components/Layout'
 import { Project } from '../../models/Project'
@@ -16,7 +15,7 @@ export async function unstable_getStaticProps() {
   return { props: { projects } };
 }
 
-export default function ProjectPage(props: React.PropsWithChildren<ProjectPageProps>) {
+export default function ProjectPage(props: ProjectPageProps) {
   return (
     <Layout
       title="Projects"

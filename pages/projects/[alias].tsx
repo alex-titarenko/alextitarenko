@@ -21,7 +21,7 @@ export async function unstable_getStaticProps({ params }) {
   return { props: model };
 }
 
-export default function ProjectPage(props: React.PropsWithChildren<Project>) {
+export default function ProjectPage(props: Project) {
   useEffect(() => {
     Analytics.logEvent('Project', 'View', props.name);
   }, [props.alias]);
