@@ -60,6 +60,10 @@ pre {
   border-radius: 5px;
   background-color: inherit;
   padding: 0;
+
+  &[class*="language-"]>code {
+    background-size: 3em 44px !important;
+  }
 }
 
 .scroll-to-top-button {
