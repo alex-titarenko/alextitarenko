@@ -1,5 +1,4 @@
 import React from 'react'
-import { NextPageContext } from 'next'
 import Head from 'next/head'
 import Link from 'next/link'
 

@@ -1,4 +1,3 @@
-import React from 'react'
 import Link from 'next/link'
 import Layout from './Layout'
 import appConfig from '../app.config.json'
@@ -12,7 +11,7 @@ type BlogPostsListProps = {
   posts: BlogPostAnnotation[]
 }
 
-export default function BlogPostsList(props: React.PropsWithChildren<BlogPostsListProps>) {
+export default function BlogPostsList(props: BlogPostsListProps) {
   const keywords = props.posts
     .map(x => x.tags)
     .reduce((a, b) => a.concat(b), [])
