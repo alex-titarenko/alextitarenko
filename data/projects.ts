@@ -13,7 +13,7 @@ const projects: Project[] = [
     padCategory: 'Desktop::Screen Savers: Science',
     supportedPlatforms: 'Windows 7/Windows 8/Windows 10',
     display: true,
-    downloadUrl: 'https://github.com/alex-titarenko/BeautifulFractals/releases/download/2.1.1/BeautifulFractalsSetup.exe',
+    downloadUrl: 'https://github.com/alex-titarenko/beautifulfractals/releases/download/2.1.1/BeautifulFractalsSetup.exe',
     facebookPage: 'https://www.facebook.com/pages/Beautiful-Fractals/1544401659116646',
     gitHubPage: 'https://github.com/alex-titarenko/beautifulfractals',
     description: `
@@ -176,7 +176,7 @@ const projects: Project[] = [
     padCategory: 'Games & Entertainment::Simulation',
     supportedPlatforms: 'Windows 7/Windows 8/Windows 10',
     display: true,
-    downloadUrl: 'https://github.com/alex-titarenko/GameOfLife/releases/download/2.3.0/GameOfLifeSetup.msi',
+    downloadUrl: 'https://github.com/alex-titarenko/gameoflife/releases/download/2.3.0/GameOfLifeSetup.msi',
     facebookPage: 'http://www.facebook.com/TAlex.GameOfLife',
     gitHubPage: 'https://github.com/alex-titarenko/gameoflife',
     description: `
@@ -447,7 +447,7 @@ const projects: Project[] = [
     padCategory: 'Education::Other',
     supportedPlatforms: 'Windows 7/Windows 8/Windows 10',
     display: true,
-    downloadUrl: 'https://github.com/alex-titarenko/Testcheck/releases/download/2.2.0/TestcheckSetup.exe',
+    downloadUrl: 'https://github.com/alex-titarenko/testcheck/releases/download/2.2.0/TestcheckSetup.exe',
     facebookPage: 'https://www.facebook.com/TAlex.Testcheck',
     gitHubPage: 'https://github.com/alex-titarenko/testcheck',
     description: `
