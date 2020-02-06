@@ -24,7 +24,8 @@ export default async function (req: NowRequest, res: NowResponse) {
 
   sgMail.setApiKey(sendGridApiKey);
   await sgMail.send({
-    from: { name: req.body.name, email: req.body.from },
+    from: { name: 'Automated Email', email: appConfig.emails.replyTo },
+    replyTo: { name: req.body.name, email: req.body.from },
     to: appConfig.emails.contact,
     subject: req.body.subject,
     html: req.body.message

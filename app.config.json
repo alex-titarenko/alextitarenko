@@ -3,6 +3,7 @@
   "defaultKeywords": "alex titarenko, software developer, full stack software developer, .net developer, coder, programmer, open source, blog",
   "canonicalBaseUrl": "https://www.alextitarenko.me/",
   "emails": {
+    "replyTo": "reply-to@alextitarenko.me",
     "contact": "contact@alextitarenko.me",
     "support": "support@alextitarenko.me"
   },
