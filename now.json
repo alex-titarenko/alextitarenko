@@ -1,6 +1,6 @@
 {
   "env": {
     "SENDGRID_API_KEY": "@sendgrid-api-key",
-    "RECAPTCHA_SECRET_KEY": "@recaptcha-secret-key"
+    "RECAPTCHA_SECRET_KEY": "@recaptcha-secret-key-talex"
   }
 }
