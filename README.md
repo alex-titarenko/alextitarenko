@@ -1,4 +1,4 @@
-# alextitarenko.me
+# alextitarenko
 My personal website/portfolio
 
 ## How to add secrets
