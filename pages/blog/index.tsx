@@ -6,7 +6,7 @@ type BlogProps = {
   posts: BlogPostAnnotation[]
 }
 
-export async function unstable_getStaticProps() {
+export async function getStaticProps() {
   const blogRepository = new BlogRepository();
   const posts = blogRepository.getAllPosts();
   return { props: { posts } };

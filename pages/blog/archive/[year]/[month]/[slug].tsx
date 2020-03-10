@@ -12,21 +12,24 @@ import Converter from '../../../../../utils/converter'
 
 const blogRepository = new BlogRepository();
 
-export async function unstable_getStaticPaths() {
+export async function getStaticPaths() {
   const allPosts = blogRepository.getAllPosts();
-  return allPosts.map(post => {
-    const postedOnDate = new Date(post.postedOn);
-    return {
-      params: {
-        year: postedOnDate.getFullYear().toString(),
-        month: postedOnDate.getMonth().toString(),
-        slug: post.urlSlug
-      }
-    };
-  });
+  return {
+    paths: allPosts.map(post => {
+      const postedOnDate = new Date(post.postedOn);
+      return {
+        params: {
+          year: postedOnDate.getFullYear().toString(),
+          month: postedOnDate.getMonth().toString(),
+          slug: post.urlSlug
+        }
+      };
+    }),
+    fallback: false
+  };
 }
 
-export async function unstable_getStaticProps({ params }) {
+export async function getStaticProps({ params }) {
   const post = blogRepository.getPost(params.year, params.month, params.slug);
   return { props: post };
 }

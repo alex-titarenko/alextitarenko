@@ -84,7 +84,7 @@ export class BlogRepository {
       image: metadata['image'],
       published: (/true/i).test(metadata['published']),
       postedOn: metadata['postedOn'],
-      modified: metadata['modified'],
+      modified: metadata['modified'] ?? null,
       description: metadata['description'],
       annotation: obj.content.split('<!--more-->')[0],
       category: this.getCategory(metadata['category']),

@@ -10,12 +10,15 @@ type BlogTagProps = {
 
 const blogRepository = new BlogRepository();
 
-export async function unstable_getStaticPaths() {
+export async function getStaticPaths() {
   const allTags = blogRepository.getAllTags();
-  return allTags.map(tag => ({ params: { slug: tag.urlSlug } }));
+  return {
+    paths: allTags.map(tag => ({ params: { slug: tag.urlSlug } })),
+    fallback: false
+  };
 }
 
-export async function unstable_getStaticProps({ params }) {
+export async function getStaticProps({ params }) {
   const tag = blogRepository.getTag(params.slug);
   const posts = blogRepository.getPostsForTag(params.slug);
   return { props: { tag, posts } };

@@ -10,12 +10,15 @@ type BlogCategoryProps = {
 
 const blogRepository = new BlogRepository();
 
-export async function unstable_getStaticPaths() {
+export async function getStaticPaths() {
   const allCategories = blogRepository.getAllCategories();
-  return allCategories.map(category => ({ params: { slug: category.urlSlug } }));
+  return {
+    paths: allCategories.map(category => ({ params: { slug: category.urlSlug } })),
+    fallback: false
+  };
 }
 
-export async function unstable_getStaticProps({ params }) {
+export async function getStaticProps({ params }) {
   const category = blogRepository.getCategory(params.slug);
   const posts = blogRepository.getPostsForCategory(params.slug);
   return { props: { category, posts } };

@@ -11,12 +11,15 @@ import { VersionInfo } from '../../models/VersionInfo'
 
 const projectRepository = new ProjectRepository();
 
-export async function unstable_getStaticPaths() {
+export async function getStaticPaths() {
   const allProjects = projectRepository.getAll();
-  return allProjects.map(project => ({ params: { alias: project.alias } }));
+  return {
+    paths: allProjects.map(project => ({ params: { alias: project.alias } })),
+    fallback: false
+  };
 }
 
-export async function unstable_getStaticProps({ params }) {
+export async function getStaticProps({ params }) {
   const model = projectRepository.getByAlias(params.alias);
   return { props: model };
 }
