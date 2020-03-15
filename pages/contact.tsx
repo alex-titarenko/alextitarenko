@@ -167,10 +167,6 @@ export default function ContactPage() {
                   </small>
                 </div>
 
-                <div className="form-group">
-                  <div className="g-recaptcha" data-sitekey={ appConfig.recaptcha.siteKey }></div>
-                </div>
-
                 <button className="btn btn-primary" type="submit" tabIndex={5}
                   disabled={ mailSending }>
                   { mailSending ? (
