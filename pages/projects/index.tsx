@@ -1,14 +1,13 @@
 import Link from 'next/link'
-import Layout from '../../components/Layout'
-import { Project } from '../../models/Project'
-import { ProjectRepository } from '../../repositories/ProjectRepository'
-import { StringHelper } from '../../utils/stringHelper'
+import Layout from '@components/Layout'
+import { Project } from '@models/Project'
+import { ProjectRepository } from '@repositories/ProjectRepository'
+import { StringHelper } from '@utils/stringHelper'
 
 type ProjectPageProps = {
   projects: Project[];
 }
 
-// TODO: update to stable version of getStaticProps()
 export async function getStaticProps() {
   const projectRepository = new ProjectRepository();
   const projects = projectRepository.getAll();

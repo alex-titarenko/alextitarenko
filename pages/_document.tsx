@@ -1,5 +1,5 @@
 import Document, { Html, Head, Main, NextScript, DocumentContext } from 'next/document'
-import appConfig from '../app.config.json'
+import appConfig from '@root/app.config.json'
 
 class Layout extends Document {
   static async getInitialProps(ctx: DocumentContext) {

@@ -1,5 +1,5 @@
 import Link from 'next/link'
-import { BlogPostAnnotation } from '../models/BlogPost'
+import { BlogPostAnnotation } from '@models/BlogPost'
 
 export default function BlogPostFooter({ post }: { post: BlogPostAnnotation }) {
   return (

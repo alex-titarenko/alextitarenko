@@ -1,4 +1,4 @@
-import { BlogCategory } from '../models/BlogCategory'
+import { BlogCategory } from '@models/BlogCategory'
 
 const blogCategories: BlogCategory[] = [
   {

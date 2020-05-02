@@ -1,5 +1,5 @@
-import { Project } from '../models/Project'
-import projects from '../data/projects'
+import { Project } from '@models/Project'
+import projects from '@data/projects'
 
 export class ProjectRepository {
   getAll(): Project[] {

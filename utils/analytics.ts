@@ -1,5 +1,5 @@
 import ReactGA from 'react-ga'
-import appConfig from '../app.config.json'
+import appConfig from '@root/app.config.json'
 
 export class Analytics {
   private static initialized: boolean = false;

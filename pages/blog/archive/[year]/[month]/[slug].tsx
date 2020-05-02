@@ -1,14 +1,14 @@
 import { useEffect } from 'react'
 import Disqus from 'disqus-react'
 import Head from 'next/head'
-import Layout from '../../../../../components/Layout'
-import { BlogPost } from '../../../../../models/BlogPost'
-import { BlogRepository } from '../../../../../repositories/BlogRepository'
-import { Analytics } from '../../../../../utils/analytics'
-import appConfig from '../../../../../app.config.json'
-import BlogPostContent from '../../../../../components/BlogPostContent'
-import BlogPostFooter from '../../../../../components/BlogPostFooter'
-import Converter from '../../../../../utils/converter'
+import Layout from '@components/Layout'
+import { BlogPost } from '@models/BlogPost'
+import { BlogRepository } from '@repositories/BlogRepository'
+import { Analytics } from '@utils/analytics'
+import appConfig from '@root/app.config.json'
+import BlogPostContent from '@components/BlogPostContent'
+import BlogPostFooter from '@components/BlogPostFooter'
+import Converter from '@utils/converter'
 
 const blogRepository = new BlogRepository();
 

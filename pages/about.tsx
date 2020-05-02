@@ -1,7 +1,6 @@
 import Link from 'next/link'
-import Layout from '../components/Layout'
-import appConfig from '../app.config.json'
-
+import Layout from '@components/Layout'
+import appConfig from '@root/app.config.json'
 
 export default function AboutPage() {
   const facts: string[] = [

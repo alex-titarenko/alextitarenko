@@ -1,11 +1,11 @@
 import React from 'react'
 import Head from 'next/head'
 import Link from 'next/link'
-import appConfig from '../app.config.json'
-import { Project } from '../models/Project'
-import { ProjectRepository } from '../repositories/ProjectRepository'
-import { Analytics } from '../utils/analytics'
-import '../styles/site.scss'
+import appConfig from '@root/app.config.json'
+import { Project } from '@models/Project'
+import { ProjectRepository } from '@repositories/ProjectRepository'
+import { Analytics } from '@utils/analytics'
+import '@root/styles/site.scss'
 
 type LayoutProps = {
   title: string;

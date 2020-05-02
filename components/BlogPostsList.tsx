@@ -1,10 +1,10 @@
 import Link from 'next/link'
 import Layout from './Layout'
-import appConfig from '../app.config.json'
-import { BlogPostAnnotation } from '../models/BlogPost'
+import appConfig from '@root/app.config.json'
+import { BlogPostAnnotation } from '@models/BlogPost'
 import BlogPostContent from './BlogPostContent'
 import BlogPostFooter from './BlogPostFooter'
-import Converter from '../utils/converter'
+import Converter from '@utils/converter'
 
 type BlogPostsListProps = {
   subtitle: string;

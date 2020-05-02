@@ -2,11 +2,11 @@ import fs from 'fs'
 import glob from 'glob'
 import path from 'path'
 import matter from 'gray-matter'
-import { BlogPostAnnotation, BlogPost } from './../models/BlogPost'
-import { BlogCategory } from './../models/BlogCategory'
-import { BlogTag } from './../models/BlogTag'
-import blogCategories from '../data/blogCategories'
-import blogTags from '../data/blogTags'
+import { BlogPostAnnotation, BlogPost } from '@models/BlogPost'
+import { BlogCategory } from '@models/BlogCategory'
+import { BlogTag } from '@models/BlogTag'
+import blogCategories from '@data/blogCategories'
+import blogTags from '@data/blogTags'
 
 
 export class BlogRepository {
