@@ -1,13 +1,13 @@
 import React from 'react'
 import { useEffect } from 'react'
 import Head from 'next/head'
-import Layout from '@components/Layout'
-import { Project } from '@models/Project'
-import { ProjectRepository } from '@repositories/ProjectRepository'
-import { Analytics } from '@utils/analytics'
-import appConfig from '@root/app.config.json'
-import { Screenshot } from '@models/Screenshot'
-import { VersionInfo } from '@models/VersionInfo'
+import Layout from 'components/Layout'
+import { Project } from 'models/Project'
+import { ProjectRepository } from 'repositories/ProjectRepository'
+import { Analytics } from 'utils/analytics'
+import appConfig from 'app.config.json'
+import { Screenshot } from 'models/Screenshot'
+import { VersionInfo } from 'models/VersionInfo'
 
 const projectRepository = new ProjectRepository();
 

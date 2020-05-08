@@ -1,4 +1,4 @@
-import { BlogTag } from '@models/BlogTag'
+import { BlogTag } from 'models/BlogTag'
 
 const blogTags: BlogTag[] = [
   {

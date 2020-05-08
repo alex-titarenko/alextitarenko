@@ -1,8 +1,8 @@
 import { useState } from 'react'
 import Head from 'next/head'
 import axios from 'axios'
-import Layout from '@components/Layout'
-import appConfig from '@root/app.config.json'
+import Layout from 'components/Layout'
+import appConfig from 'app.config.json'
 
 export default function ContactPage() {
   const [name, setName] = useState('');

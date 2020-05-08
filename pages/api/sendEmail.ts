@@ -1,7 +1,7 @@
 import { NowRequest, NowResponse } from '@now/node'
 import fetch from 'isomorphic-fetch'
 import sgMail from '@sendgrid/mail'
-import appConfig from '../../app.config.json'
+import appConfig from 'app.config.json'
 
 
 export default async function (req: NowRequest, res: NowResponse) {

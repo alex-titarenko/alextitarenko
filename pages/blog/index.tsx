@@ -1,6 +1,6 @@
-import BlogPostsList from '@components/BlogPostsList'
-import { BlogPostAnnotation } from '@models/BlogPost'
-import { BlogRepository } from '@repositories/BlogRepository'
+import BlogPostsList from 'components/BlogPostsList'
+import { BlogPostAnnotation } from 'models/BlogPost'
+import { BlogRepository } from 'repositories/BlogRepository'
 
 type BlogProps = {
   posts: BlogPostAnnotation[]

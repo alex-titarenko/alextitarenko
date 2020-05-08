@@ -1,7 +1,7 @@
-import BlogPostsList from '@components/BlogPostsList'
-import { BlogTag } from '@models/BlogTag'
-import { BlogPostAnnotation } from '@models/BlogPost'
-import { BlogRepository } from '@repositories/BlogRepository'
+import BlogPostsList from 'components/BlogPostsList'
+import { BlogTag } from 'models/BlogTag'
+import { BlogPostAnnotation } from 'models/BlogPost'
+import { BlogRepository } from 'repositories/BlogRepository'
 
 type BlogTagProps = {
   tag: BlogTag;

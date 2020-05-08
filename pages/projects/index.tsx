@@ -1,8 +1,8 @@
 import Link from 'next/link'
-import Layout from '@components/Layout'
-import { Project } from '@models/Project'
-import { ProjectRepository } from '@repositories/ProjectRepository'
-import { StringHelper } from '@utils/stringHelper'
+import Layout from 'components/Layout'
+import { Project } from 'models/Project'
+import { ProjectRepository } from 'repositories/ProjectRepository'
+import { StringHelper } from 'utils/stringHelper'
 
 type ProjectPageProps = {
   projects: Project[];
