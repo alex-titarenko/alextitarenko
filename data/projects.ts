@@ -169,14 +169,14 @@ const projects: Project[] = [
     id: '0c6a9e5f-2093-4db0-a99c-ebdb1c5e2448',
     alias: 'game_of_life',
     name: 'Game of Life',
-    stableVersion: '2.3.0',
+    stableVersion: '2.6.0',
     subtitle: 'Interesting version of computer realization of the mathematical game of "Life"',
     releaseDate: '2015-02-19T00:00:00Z',
     iconImageUrl: 'game-of-life_20130310_030913.png',
     padCategory: 'Games & Entertainment::Simulation',
-    supportedPlatforms: 'Windows 7/Windows 8/Windows 10',
+    supportedPlatforms: 'Windows 10',
     display: true,
-    downloadUrl: 'https://github.com/alex-titarenko/gameoflife/releases/download/2.3.0/GameOfLifeSetup.msi',
+    externalUrl: 'https://www.microsoft.com/store/apps/9NGDF19NCGLX',
     facebookPage: 'http://www.facebook.com/TAlex.GameOfLife',
     gitHubPage: 'https://github.com/alex-titarenko/gameoflife',
     description: `
@@ -299,6 +299,12 @@ const projects: Project[] = [
         version: '2.3.0',
         releaseDate: '12/22/2019',
         description: 'This update changes installation format to MSI',
+        changes: []
+      },
+      {
+        version: '2.6.0',
+        releaseDate: '6/10/2020',
+        description: 'Publish applicaiton to Windows store',
         changes: []
       }
     ],
