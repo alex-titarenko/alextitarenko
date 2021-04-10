@@ -1,10 +1,8 @@
 const path = require('path');
-const withSass = require('@zeit/next-sass');
-const withCSS = require('@zeit/next-css');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 
 
-module.exports = withCSS(withSass({
+module.exports = {
   webpack: function (config, options) {
     config.externals = (config.externals || []).concat('fs');
     config.module.rules.concat([
@@ -33,4 +31,4 @@ module.exports = withCSS(withSass({
 
     return config;
   }
-}));
+};

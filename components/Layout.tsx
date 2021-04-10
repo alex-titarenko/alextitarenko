@@ -5,7 +5,7 @@ import appConfig from 'app.config.json'
 import { Project } from 'models/Project'
 import { ProjectRepository } from 'repositories/ProjectRepository'
 import { Analytics } from 'utils/analytics'
-import 'styles/site.scss'
+
 
 type LayoutProps = {
   title: string;
