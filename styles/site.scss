@@ -506,14 +506,14 @@ a:hover .social-btn {
   }
 }
 
-.post-category, .post-tags {
-  float: left;
+.post-tags-wrapper>span {
+  margin-right: 5px;
 }
 
 .post-tags {
-  &>span {
-    margin-right: 5px;
-  }
+  display: inline-flex;
+  flex-direction: row;
+  flex-wrap: wrap;
 }
 
 .post-category {
@@ -521,7 +521,7 @@ a:hover .social-btn {
 }
 
 .post-tag {
-  margin: 0 2px;
+  margin: 2px;
 
   &:hover {
     text-decoration: none;

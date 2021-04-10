@@ -13,13 +13,15 @@ export default function BlogPostFooter({ post }: { post: BlogPostAnnotation }) {
       </div>
 
       {post.tags.length > 0 && (
-        <div className="post-tags">
+        <div className="post-tags-wrapper">
           <span>Tagged</span>
-          {post.tags.map(tag => (
-            <Link key={tag.urlSlug} href="/blog/tag/[slug]" as={`/blog/tag/${tag.urlSlug}`}>
-              <a className="post-tag"><span className="label label-primary">{tag.name}</span></a>
-            </Link>
-          ))}
+          <div className="post-tags">
+            {post.tags.map(tag => (
+              <Link key={tag.urlSlug} href="/blog/tag/[slug]" as={`/blog/tag/${tag.urlSlug}`}>
+                <a className="post-tag"><span className="label label-primary">{tag.name}</span></a>
+              </Link>
+            ))}
+          </div>
         </div>
       )}
     </div>
