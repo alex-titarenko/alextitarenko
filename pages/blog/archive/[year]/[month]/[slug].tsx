@@ -4,7 +4,7 @@ import Head from 'next/head'
 import Layout from 'components/Layout'
 import { BlogPost } from 'models/BlogPost'
 import { BlogRepository } from 'repositories/BlogRepository'
-import { Analytics } from 'utils/analytics'
+import { trackEvent } from 'utils/analytics'
 import appConfig from 'app.config.json'
 import BlogPostContent from 'components/BlogPostContent'
 import BlogPostFooter from 'components/BlogPostFooter'
@@ -37,7 +37,7 @@ export async function getStaticProps({ params }) {
 export default function BlogPostPage(props: BlogPost) {
   useEffect(() => {
     if (props.published) {
-      Analytics.logEvent('BlogPost', 'View', props.title);
+      trackEvent('blogpost_view', { 'blog_post_title': props.title });
     }
   });
 

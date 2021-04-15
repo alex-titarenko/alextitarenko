@@ -11,6 +11,17 @@ class Layout extends Document {
     return (
       <Html lang="en-us">
         <Head>
+          <script async src={`https://www.googletagmanager.com/gtag/js?id=${appConfig.google.analyticsId}`}></script>
+          <script dangerouslySetInnerHTML={{
+            __html: `
+              window.dataLayer = window.dataLayer || [];
+              function gtag(){dataLayer.push(arguments);}
+              gtag('js', new Date());
+
+              gtag('config', '${appConfig.google.analyticsId}');
+            `
+          }} />
+
           <meta name="author" content={ appConfig.brandName } />
           <meta name="copyright" content={ `© ${ new Date().getFullYear() } ${ appConfig.brandName }` } />
           <meta name="audience" content="all" />

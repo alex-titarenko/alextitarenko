@@ -4,7 +4,6 @@ import Link from 'next/link'
 import appConfig from 'app.config.json'
 import { Project } from 'models/Project'
 import { ProjectRepository } from 'repositories/ProjectRepository'
-import { Analytics } from 'utils/analytics'
 
 
 type LayoutProps = {
@@ -45,9 +44,6 @@ export default class Layout extends React.Component<LayoutProps, LayoutState> {
     if (this.mainMenu.current) {
       this.selectMenuItem(this.mainMenu.current, this.props.pageId, "active");
     }
-
-    Analytics.init();
-    Analytics.logPageView();
   }
 
   public render() {

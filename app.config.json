@@ -27,7 +27,7 @@
     "sendEmail": "/api/sendEmail"
   },
   "google": {
-    "analyticsId": "UA-21025112-1"
+    "analyticsId": "G-2XB4M91CQD"
   },
   "recaptcha": {
     "siteKey": "6Le3wsUUAAAAABlrEvJ2cIsR61-R3LR9Rw83lGL6"

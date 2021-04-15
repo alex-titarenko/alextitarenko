@@ -4,7 +4,7 @@ import Head from 'next/head'
 import Layout from 'components/Layout'
 import { Project } from 'models/Project'
 import { ProjectRepository } from 'repositories/ProjectRepository'
-import { Analytics } from 'utils/analytics'
+import { trackEvent } from 'utils/analytics'
 import appConfig from 'app.config.json'
 import { Screenshot } from 'models/Screenshot'
 import { VersionInfo } from 'models/VersionInfo'
@@ -26,7 +26,7 @@ export async function getStaticProps({ params }) {
 
 export default function ProjectPage(props: Project) {
   useEffect(() => {
-    Analytics.logEvent('Project', 'View', props.name);
+    trackEvent('project_view', { 'project_name': props.name });
   }, [props.alias]);
 
   const firstScreenshot = props.screenshots.length > 0 ?
@@ -297,6 +297,6 @@ function getScreenshotUrl(projectAlias: string, imageName: string) {
 }
 
 function trackDownload(projectName: string) {
-  Analytics.logEvent('Project', 'Download', projectName);
+  trackEvent('project_download', { 'project_name': projectName });
 }
 
