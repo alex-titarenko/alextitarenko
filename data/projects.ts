@@ -367,7 +367,6 @@ const projects: Project[] = [
     id: 'faf66d3b-fab9-49df-93bb-907aeb6dc788',
     alias: 'multicalc',
     name: 'MultiCalc',
-    stableVersion: '1.0.0',
     subtitle: 'A powerful, modern, multifunctional calculator made for everyone',
     releaseDate: '05/05/2019',
     iconImageUrl: 'icon-512_20190505_085636.png',

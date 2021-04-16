@@ -5,7 +5,7 @@ export interface Project {
   id: string;
   alias: string;
   name: string;
-  stableVersion: string;
+  stableVersion?: string;
   subtitle: string;
   releaseDate?: string;
   iconImageUrl: string;
