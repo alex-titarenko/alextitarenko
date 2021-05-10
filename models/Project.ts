@@ -9,7 +9,6 @@ export interface Project {
   subtitle: string;
   releaseDate?: string;
   iconImageUrl: string;
-  padCategory: string;
   supportedPlatforms: string;
   display: boolean;
   externalUrl?: string;
@@ -18,11 +17,6 @@ export interface Project {
   twitterPage?: string;
   gitHubPage?: string;
   description: string;
-  descriptionPad45: string;
-  descriptionPad80: string;
-  descriptionPad250: string;
-  descriptionPad450: string;
-  descriptionPad2000: string;
   keyFeatures: string[];
   versionHistory: VersionInfo[];
   systemRequirements: string;
