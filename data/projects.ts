@@ -437,7 +437,16 @@ const projects: Project[] = [
     versionHistory: [],
     systemRequirements: 'Browser',
     keywords: [],
-    screenshots: []
+    screenshots: [
+      {
+        caption: 'All Notebooks',
+        imageName: 'all_notebooks.png'
+      },
+      {
+        caption: 'Split View',
+        imageName: 'split_view.png'
+      }
+    ]
   },
 
   // Testcheck
