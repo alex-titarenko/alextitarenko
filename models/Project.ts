@@ -8,7 +8,6 @@ export interface Project {
   stableVersion?: string;
   subtitle: string;
   releaseDate?: string;
-  iconImageUrl: string;
   supportedPlatforms: string;
   display: boolean;
   externalUrl?: string;
