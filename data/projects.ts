@@ -436,7 +436,18 @@ const projects: Project[] = [
     ],
     versionHistory: [],
     systemRequirements: 'Browser',
-    keywords: [],
+    keywords: [
+      'note-taking app',
+      'markdown',
+      'cross-platform',
+      'vendor-agnostic',
+      'dark theme',
+      'pwa',
+      'progressive web application',
+      'web app',
+      'git',
+      'github'
+    ],
     screenshots: [
       {
         caption: 'All Notebooks',
