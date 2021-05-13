@@ -445,6 +445,26 @@ const projects: Project[] = [
       {
         caption: 'Split View',
         imageName: 'split_view.png'
+      },
+      {
+        caption: 'Add/Create a new Notebook',
+        imageName: 'add_create_new_notebook.png'
+      },
+      {
+        caption: 'Dark Theme',
+        imageName: 'dark_theme.png'
+      },
+      {
+        caption: 'Markdown Syntax Guidance',
+        imageName: 'markdown_syntax_guidance.png'
+      },
+      {
+        caption: 'Settings View',
+        imageName: 'settings_view.png'
+      },
+      {
+        caption: 'Mobile Version',
+        imageName: 'mobile_version.png'
       }
     ]
   },
