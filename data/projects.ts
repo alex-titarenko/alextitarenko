@@ -424,7 +424,9 @@ const projects: Project[] = [
     externalUrl: 'https://about.noteshub.app/',
     facebookPage: 'https://www.facebook.com/noteshubapp',
     twitterPage: 'https://twitter.com/noteshubapp',
-    description: ``,
+    description: `
+    <p>With NotesHub your notes truly belong to you and not tight to any particular vendor. All of your data is stored in Git repositories, so you can clone it and manage outside the app.</p>
+    <p>The app is built using the latest web tehhlologies and can be used on any device. You can install it, use offline without any network connectivity and experience all other bennefits of native-like application without compromise.</p>`,
     keyFeatures: [
       'Works offline',
       'No vendor lock-in',
