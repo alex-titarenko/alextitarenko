@@ -9,8 +9,6 @@ const projects: Project[] = [
     stableVersion: '2.1.1',
     subtitle: 'A beautiful screensaver to show that math is not only exact science, - rather a beautiful one',
     releaseDate: '10/01/2013',
-    iconImageUrl: 'beautiful-fractals_20131011_034304.png',
-    padCategory: 'Desktop::Screen Savers: Science',
     supportedPlatforms: 'Windows 7/Windows 8/Windows 10',
     display: true,
     downloadUrl: 'https://github.com/alex-titarenko/beautifulfractals/releases/download/2.1.1/BeautifulFractalsSetup.exe',
@@ -22,11 +20,6 @@ const projects: Project[] = [
     <p></p>
     <p>Screensaver includes more than 60 fractals, which will decorate your screen and will amaze your imagination. There are such fractals as&nbsp;Sierpinski Triangle, Dragon Curve, Koch Curve, Levy C curve, Fern Fractal, Mandelbrot Set, Phoenix Set, Julia Set, Newton Basins, etc.</p>
     <p></p>`,
-    descriptionPad45: 'A beautiful fractals screensaver.',
-    descriptionPad80: 'A beautiful screensaver to show that math is not only exact science.',
-    descriptionPad250: 'A beautiful screensaver to show that math is not only exact science, - rather a beautiful one.‏ Everything on the screen is described by math expressions. Screensaver includes more than 60 fractals, which will amaze your imagination.',
-    descriptionPad450: 'A beautiful screensaver to show that math is not only exact science, - rather a beautiful one.‏ Everything on the screen is described by math expressions. Screensaver includes more than 60 fractals, which will decorate your screen and will amaze your imagination. There are such fractals as Sierpinski Triangle, Dragon Curve, Koch Curve, Levy C curve, Fern Fractal, Mandelbrot Set, Phoenix Set, Julia Set, Newton Basins, etc.',
-    descriptionPad2000: 'A beautiful screensaver to show that math is not only exact science, - rather a beautiful one.‏ Everything on the screen is described by math expressions. Screensaver includes more than 60 fractals, which will decorate your screen and will amaze your imagination. There are such fractals as Sierpinski Triangle, Dragon Curve, Koch Curve, Levy C curve, Fern Fractal, Mandelbrot Set, Phoenix Set, Julia Set, Newton Basins, etc.',
     keyFeatures: [
       'Selection a gradient background of fractals',
       'Reordering fractal sequence',
@@ -172,8 +165,6 @@ const projects: Project[] = [
     stableVersion: '2.6.0',
     subtitle: 'Interesting version of computer realization of the mathematical game of "Life"',
     releaseDate: '2015-02-19T00:00:00Z',
-    iconImageUrl: 'game-of-life_20130310_030913.png',
-    padCategory: 'Games & Entertainment::Simulation',
     supportedPlatforms: 'Windows 10',
     display: true,
     externalUrl: 'https://www.microsoft.com/store/apps/9NGDF19NCGLX',
@@ -184,11 +175,6 @@ const projects: Project[] = [
     <p>Venue of the game - "the universe" - is marked on the cell surface, unlimited, limited, or closed. Every cell on this surface can be in two states: dead or alive. The player does not take a direct part in the game. He only puts the initial configuration of live cells, which then interact according to certain rules without his participation. These rules lead to a huge variety of "life" that may arise in the game.</p>
     <p>This implementation provides you with an "unlimited" size of the Universe. It can be scaled, loaded and saved in many popular file formats. Also, there is an opportunity‏ to set rules for the game, the time of the new generations, etc. Editor stores user actions (who can roll them up to a specific moment, if necessary), transformations, such as rotations or flips, applicable on the selected areas.‏ It is possible to work with the clipboard that allows you to copy and paste the samples when it's necessary. Also, you can choose the color for the states of cells, gridlines, and background. The game has a friendly and intuitive user interface‏ that will help to fill gameplay with new feelings.</p>
     `,
-    descriptionPad45: 'Computer realization of math game "Life".',
-    descriptionPad80: 'Interesting version of computer realization of the mathematical game of "Life".',
-    descriptionPad250: 'Interesting version of computer realization of the mathematical game of "Life" invented by British mathematician John Conway in 1970. This game is the best-known‏ example of cellular automaton.',
-    descriptionPad450: 'Interesting version of computer realization of the mathematical game of "Life" invented by British mathematician John Conway in 1970. This game is the best-known‏ example of cellular automaton. This implementation provides you with an "unlimited" size of the Universe. It can be scaled, loaded and saved in many popular file formats. Also, there is an opportunity‏ to set rules for the game, the time of the new generations, etc.',
-    descriptionPad2000: 'Interesting version of computer realization of the mathematical game of "Life" invented by British mathematician John Conway in 1970. This game is the best-known‏ example of cellular automaton. Venue of the game - "the universe" - is marked on the cell surface, unlimited, limited, or closed. Every cell on this surface can be in two states: dead or alive. The player does not take a direct part in the game, he only puts the initial configuration of live cells, which then interact according to certain rules without his participation. These rules lead to a huge variety of "life" that may arise in the game. This implementation provides you with an "unlimited" size of the Universe‏, it can be scaled, loaded and saved in many popular file formats. Also, there is an opportunity‏ to set rules for the game, the time of the new generations, etc. Editor stores user actions (who can roll them up to a certain moment, if necessary), transformations, such as rotations or flips, applicable on the selected areas.‏ It is possible to work with the clipboard that allows you to copy and paste the samples when it\'s necessary. Also, you can choose the color for the states of cells, gridlines, and background. The game has a nice and intuitive user interface‏ that will help to fill gameplay with new feelings.',
     keyFeatures: [
       'Work with clipboard',
       'Hotkeys support',
@@ -369,8 +355,6 @@ const projects: Project[] = [
     name: 'MultiCalc',
     subtitle: 'A powerful, modern, multifunctional calculator made for everyone',
     releaseDate: '05/05/2019',
-    iconImageUrl: 'icon-512_20190505_085636.png',
-    padCategory: 'System Utilities::Other',
     supportedPlatforms: 'Web, Android, iOS, Windows',
     display: true,
     externalUrl: 'https://about.multicalculator.app/',
@@ -385,17 +369,6 @@ const projects: Project[] = [
       <li><b>Plot 2D (Graphing Calculator)</b> -  an interactive plot for drawing functions (traces) in Cartesian coordinates. You can add as many traces as you want to the plot. You can change color, thickness, and boundaries for an individual trace.</li>
     </ul>
     <p></p>`,
-    descriptionPad45: 'Calculator, Unit Converter and More',
-    descriptionPad80: 'A powerful, modern, multifunctional calculator made for everyone',
-    descriptionPad250: 'MultiCalc is fully cross-platform, powerful, modern, multifunctional calculator made for everyone. It works on Android, iOS, Windows and even on the Web.',
-    descriptionPad450: 'MultiCalc is fully cross-platform, powerful, modern, multifunctional calculator made for everyone. It works on Android, iOS, Windows and even on the Web.',
-    descriptionPad2000: `
-    MultiCalc is fully cross-platform, powerful, modern, multifunctional calculator made for everyone.
-    It works on Android, iOS, Windows and even on the Web. You can use one of three available modules:
-
-    • Calculator - an advanced calculator with more than 70 built-in functions from different areas of math, full support of complex numbers and matrix calculations (even complex matrix calculations). History panel for quick insertion of previous calculations. Flexible settings for output result.
-    • Unit Converter - unit converter with a vast amount of supported measurements (length, weight, volume, area, speed, time, temperature, energy, power, pressure, angle, data).
-    • Plot 2D (Graphing Calculator) -  an interactive plot for drawing functions (traces) in Cartesian coordinates. You can add as many traces as you want to the plot. You can change color, thickness, and boundaries for an individual trace.`,
     keyFeatures: [
       'Fully cross-platform',
       'Basic/Engineering calculator',
@@ -440,6 +413,77 @@ const projects: Project[] = [
     ]
   },
 
+  // NotesHub
+  {
+    id: '6fb2183c-ebf3-4fb1-85f7-eb27e331afbb',
+    alias: 'noteshub',
+    name: 'NotesHub',
+    subtitle: 'Fully cross-platform, vendor-agnostic, markdown based note-taking app',
+    supportedPlatforms: 'Web',
+    display: true,
+    externalUrl: 'https://about.noteshub.app/',
+    facebookPage: 'https://www.facebook.com/noteshubapp',
+    twitterPage: 'https://twitter.com/noteshubapp',
+    description: `
+    <p>With NotesHub your notes truly belong to you and not tight to any particular vendor. All of your data is stored in Git repositories, so you can clone them and manage outside the app.</p>
+    <p>Use power of Markdown to format your notes, create tables, lists, images, etc. Markdown will help to keep your notes in the same style regardless if you copied text from the internet or wrote from scratch, so no more different font-faces, font sizes, colors.</p>
+    <p>Get the native app-like experience with modern progressive web application with no compromise. It means that you can use the application literally on any device. You can install it, use offline or just as website. In any case the application UI will adopt to your screen size that you can enjoy it and be productive.</p>`,
+    keyFeatures: [
+      'Works offline',
+      'No vendor lock-in',
+      'Periodic background sync of data',
+      'Fully cross-platform',
+      'Adaptive UI',
+      'Supports dark theme',
+      'Markdown preview with scroll sync',
+      'Automatic merge conflicts resolution',
+    ],
+    versionHistory: [],
+    systemRequirements: 'Browser',
+    keywords: [
+      'note-taking app',
+      'markdown',
+      'cross-platform',
+      'vendor-agnostic',
+      'dark theme',
+      'pwa',
+      'progressive web application',
+      'web app',
+      'git',
+      'github'
+    ],
+    screenshots: [
+      {
+        caption: 'All Notebooks',
+        imageName: 'all_notebooks.png'
+      },
+      {
+        caption: 'Split View',
+        imageName: 'split_view.png'
+      },
+      {
+        caption: 'Add/Create a new Notebook',
+        imageName: 'add_create_new_notebook.png'
+      },
+      {
+        caption: 'Dark Theme',
+        imageName: 'dark_theme.png'
+      },
+      {
+        caption: 'Markdown Syntax Guidance',
+        imageName: 'markdown_syntax_guidance.png'
+      },
+      {
+        caption: 'Settings View',
+        imageName: 'settings_view.png'
+      },
+      {
+        caption: 'Mobile Version',
+        imageName: 'mobile_version.png'
+      }
+    ]
+  },
+
   // Testcheck
   {
     id: '9e8c8828-2df4-42bc-8167-764d976908a0',
@@ -448,8 +492,6 @@ const projects: Project[] = [
     stableVersion: '2.2.0',
     subtitle: 'Testcheck is a system for creating tests and testing any kind of knowledge',
     releaseDate: '2016-06-13T00:00:00Z',
-    iconImageUrl: 'testcheck_20140118_011640.png',
-    padCategory: 'Education::Other',
     supportedPlatforms: 'Windows 7/Windows 8/Windows 10',
     display: true,
     downloadUrl: 'https://github.com/alex-titarenko/testcheck/releases/download/2.2.0/TestcheckSetup.exe',
@@ -459,11 +501,6 @@ const projects: Project[] = [
     <p>Testcheck is a complex system for creating tests and testing any kind of knowledge with great functionality. For compiling test, you can use seven different types of questions&nbsp;which will be more appropriate in your case.</p>
     <p>A rich text editor will make the process of creating tests straightforward, at the same time bringing a wide range of capabilities to decorate your tests with images, tables, text elements, etc. To prevent disclosure of the right answers, you can protect your test file with a strong password.‏ Also, there are rich features of management process of testing and scoring.‏</p>
     <p>Spend less time and get a better result!‏</p>`,
-    descriptionPad45: 'The system for creating tests and testing.',
-    descriptionPad80: 'Testcheck is a system for creating tests and testing any kind of knowledge.',
-    descriptionPad250: 'Testcheck is a complex system for creating tests and testing any kind of knowledge with great functionality. For compiling test, you can use seven different types of questions which will be more appropriate in your case.',
-    descriptionPad450: 'Testcheck is a complex system for creating tests and testing any kind of knowledge with great functionality. For compiling test, you can use seven different types of questions which will be more appropriate in your case. A rich text editor will make the process of creating tests straightforward, at the same time bringing a wide range of capabilities to decorate your tests with images, tables, text elements, etc.',
-    descriptionPad2000: 'Testcheck is a complex system for creating tests and testing any kind of knowledge with great functionality. For compiling test, you can use seven different types of questions which will be more appropriate in your case. A rich text editor will make the process of creating tests straightforward, at the same time bringing a wide range of capabilities to decorate your tests with images, tables, text elements, etc. To prevent disclosure of the right answers, you can protect your test file with a strong password.‏ Also, there are rich features of management process of testing and scoring.‏ Spend less time and get a better result!‏',
     keyFeatures: [
       'Rich text editor',
       'Ability to insert an image as an embedded resource',
