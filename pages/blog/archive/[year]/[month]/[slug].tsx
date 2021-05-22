@@ -43,7 +43,7 @@ export default function BlogPostPage(props: BlogPost) {
 
   const imageUrl = /^http(s)?:/i.test(props.image) ?
     props.image :
-    new URL(`/images/posts/${props.urlSlug}/${props.image}`, appConfig.canonicalBaseUrl).href;
+    new URL(`/images/posts${props.image}`, appConfig.canonicalBaseUrl).href;
 
   const disqusConfig = {
     identifier: props.id ?? props.urlSlug,
@@ -62,7 +62,6 @@ export default function BlogPostPage(props: BlogPost) {
       <Head>
         <meta property="og:locale" content="en_US" />
         <meta property="og:type" content="article" />
-        <meta property="og:url" content="@ViewContext.HttpContext.Request.GetDisplayUrl()" />
         <meta property="og:title" content={props.title} />
         {props.description && (<meta property="og:description" content={props.description} />)}
         {props.image && (<meta property="og:image" content={imageUrl} />)}
