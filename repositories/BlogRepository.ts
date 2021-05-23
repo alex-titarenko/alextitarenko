@@ -7,6 +7,7 @@ import { BlogCategory } from 'models/BlogCategory'
 import { BlogTag } from 'models/BlogTag'
 import blogCategories from 'data/blogCategories'
 import blogTags from 'data/blogTags'
+import { fileNameToUrlSlug, getFileNameWithoutExtension } from 'utils/pathUtils'
 
 
 export class BlogRepository {
@@ -97,8 +98,9 @@ export class BlogRepository {
   }
 
   private static getPosts(postsFilePattern: string): BlogPost[] {
-    function getDirectoryName(filePath: string) {
-      return path.basename(path.dirname(filePath));
+    function getUrlSlugFromFilePath(filePath: string): string {
+      const fileNameWithoutExtension = getFileNameWithoutExtension(path.basename(filePath));
+      return fileNameToUrlSlug(fileNameWithoutExtension);
     }
 
     function sortPosts(a: BlogPost, b: BlogPost) {
@@ -106,7 +108,7 @@ export class BlogRepository {
     }
 
     var posts = glob.sync(postsFilePattern).map(file => {
-      const urlSlug = getDirectoryName(file);
+      const urlSlug = getUrlSlugFromFilePath(file);
       const rawContent = fs.readFileSync(file, 'utf8');
       return BlogRepository.parseBlogPost(urlSlug, rawContent);
     });
