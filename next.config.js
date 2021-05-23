@@ -21,7 +21,7 @@ module.exports = {
       new CopyWebpackPlugin([
         {
           context: 'data/',
-          from: 'posts/**/*',
+          from: 'posts/.attachments/*',
           to: path.resolve(__dirname, 'public/images/'),
           ignore: ['*.md'],
           force: true
