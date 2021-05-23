@@ -1,5 +1,5 @@
 # alextitarenko
-My personal website/portfolio
+My personal website/portfolio and blog
 
 ## How to add secrets
 * ```now secret add sendgrid-api-key <api-key-value>```
