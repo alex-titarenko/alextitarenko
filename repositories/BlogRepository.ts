@@ -43,9 +43,9 @@ export class BlogRepository {
 
     if (tag) {
       return tag;
+    } else {
+      return { name: tagSlug, urlSlug: fileNameToUrlSlug(tagSlug) }
     }
-
-    throw new Error(`The tag with the slug '${tagSlug}' is not defined.`);
   }
 
   public getPostsForTag(tagSlug: string): BlogPostAnnotation[] {
