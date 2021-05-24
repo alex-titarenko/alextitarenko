@@ -7,7 +7,7 @@ import { BlogCategory } from 'models/BlogCategory'
 import { BlogTag } from 'models/BlogTag'
 import blogCategories from 'data/blogCategories'
 import blogTags from 'data/blogTags'
-import { fileNameToUrlSlug, getFileNameWithoutExtension } from 'utils/pathUtils'
+import { fileNameToUrlSlug, getDirectoryName, getFileNameWithoutExtension } from 'utils/pathUtils'
 
 
 export class BlogRepository {
@@ -74,13 +74,28 @@ export class BlogRepository {
       .map(BlogRepository.toAnnotation);
   }
 
-  public static parseBlogPost(urlSlug: string, rawContent: string): BlogPost {
+  public static parseBlogPost(filePath: string, rawContent: string): BlogPost {
+    function getUrlSlugFromFilePath(filePath: string): string {
+      const fileNameWithoutExtension = getFileNameWithoutExtension(path.basename(filePath));
+      return fileNameToUrlSlug(fileNameWithoutExtension);
+    }
+
     const obj = matter(rawContent);
     const metadata = obj.data;
 
+    const title = metadata['title'] ?? getFileNameWithoutExtension(path.basename(filePath));
+    const urlSlug = getUrlSlugFromFilePath(filePath);
+    let category: BlogCategory;
+    if (metadata['category']) {
+      category = this.getCategory(metadata['category']);
+    } else {
+      const directoryName = getDirectoryName(filePath);
+      category = { name: directoryName, urlSlug: fileNameToUrlSlug(directoryName) }
+    }
+
     return {
       id: metadata['id'],
-      title: metadata['title'],
+      title: title,
       urlSlug: urlSlug,
       image: metadata['image'],
       published: (/true/i).test(metadata['published']),
@@ -88,7 +103,7 @@ export class BlogRepository {
       modified: metadata['modified'] ?? null,
       description: metadata['description'],
       annotation: obj.content.split('<!--more-->')[0],
-      category: this.getCategory(metadata['category']),
+      category: category,
       tags: (<string>metadata['tags'] ?? '')
         .split(',')
         .filter(x => x)
@@ -98,19 +113,13 @@ export class BlogRepository {
   }
 
   private static getPosts(postsFilePattern: string): BlogPost[] {
-    function getUrlSlugFromFilePath(filePath: string): string {
-      const fileNameWithoutExtension = getFileNameWithoutExtension(path.basename(filePath));
-      return fileNameToUrlSlug(fileNameWithoutExtension);
-    }
-
     function sortPosts(a: BlogPost, b: BlogPost) {
      return new Date(b.postedOn).getTime() - new Date(a.postedOn).getTime();
     }
 
-    var posts = glob.sync(postsFilePattern).map(file => {
-      const urlSlug = getUrlSlugFromFilePath(file);
-      const rawContent = fs.readFileSync(file, 'utf8');
-      return BlogRepository.parseBlogPost(urlSlug, rawContent);
+    var posts = glob.sync(postsFilePattern).map(filePath => {
+      const rawContent = fs.readFileSync(filePath, 'utf8');
+      return BlogRepository.parseBlogPost(filePath, rawContent);
     });
 
     posts.sort(sortPosts);
