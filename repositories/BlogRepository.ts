@@ -97,7 +97,7 @@ export class BlogRepository {
       id: metadata['id'] ?? urlSlug,
       title: title,
       urlSlug: urlSlug,
-      image: metadata['image'],
+      image: metadata['image'] ?? null,
       published: (/true/i).test(metadata['published']),
       postedOn: metadata['postedOn'],
       modified: metadata['modified'] ?? null,
