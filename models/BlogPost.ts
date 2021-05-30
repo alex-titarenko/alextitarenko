@@ -6,7 +6,7 @@ export interface BlogPostAnnotation {
   title: string;
   urlSlug: string;
   canonicalUrl?: string;
-  image: string;
+  image?: string;
   published: boolean;
   postedOn: string;
   modified: string;

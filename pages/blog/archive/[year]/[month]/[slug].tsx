@@ -46,7 +46,7 @@ export default function BlogPostPage(props: BlogPost) {
     new URL(`/images/posts${props.image}`, appConfig.canonicalBaseUrl).href;
 
   const disqusConfig = {
-    identifier: props.id ?? props.urlSlug,
+    identifier: props.id,
     title: props.title,
     url: undefined
   };
