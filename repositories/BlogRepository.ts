@@ -16,7 +16,9 @@ export class BlogRepository {
 
 
   public getAllPosts(): BlogPostAnnotation[] {
-    return BlogRepository.blogPosts.map(BlogRepository.toAnnotation);
+    return BlogRepository.blogPosts
+      .map(BlogRepository.toAnnotation)
+      .filter(x => x.published);
   }
 
   public getAllCategories(): BlogCategory[] {
@@ -50,6 +52,7 @@ export class BlogRepository {
 
   public getPostsForTag(tagSlug: string): BlogPostAnnotation[] {
     return BlogRepository.blogPosts
+      .filter(x => x.published)
       .filter(x => x.tags.findIndex(t => t.urlSlug.toLowerCase() == tagSlug.toLowerCase()) != -1)
       .map(BlogRepository.toAnnotation);
   }
@@ -70,6 +73,7 @@ export class BlogRepository {
 
   public getPostsForCategory(categorySlug: string): BlogPostAnnotation[] {
     return BlogRepository.blogPosts
+      .filter(x => x.published)
       .filter(x => x.category.urlSlug.toLowerCase() == categorySlug.toLowerCase())
       .map(BlogRepository.toAnnotation);
   }
