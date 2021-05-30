@@ -94,7 +94,7 @@ export class BlogRepository {
     }
 
     return {
-      id: metadata['id'],
+      id: metadata['id'] ?? urlSlug,
       title: title,
       urlSlug: urlSlug,
       image: metadata['image'],
