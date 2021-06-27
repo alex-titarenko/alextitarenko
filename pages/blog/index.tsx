@@ -8,7 +8,7 @@ type BlogProps = {
 
 export async function getStaticProps() {
   const blogRepository = new BlogRepository();
-  const posts = blogRepository.getAllPosts();
+  const posts = blogRepository.getAllPublishedPosts();
   return { props: { posts } };
 }
 

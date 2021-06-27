@@ -13,7 +13,7 @@ import Converter from 'utils/converter'
 const blogRepository = new BlogRepository();
 
 export async function getStaticPaths() {
-  const allPosts = blogRepository.getAllPosts();
+  const allPosts = blogRepository.getAllPublishedPosts();
   return {
     paths: allPosts.map(post => {
       const postedOnDate = new Date(post.postedOn);
