@@ -1,10 +1,10 @@
-import { NowRequest, NowResponse } from '@now/node'
+import { VercelRequest, VercelResponse } from '@vercel/node'
 import fetch from 'isomorphic-fetch'
 import sgMail from '@sendgrid/mail'
 import appConfig from 'app.config.json'
 
 
-export default async function (req: NowRequest, res: NowResponse) {
+export default async function (req: VercelRequest, res: VercelResponse) {
   console.log('SendEmail function is processing the request');
 
   console.log('Verifying reCAPTCHA');
