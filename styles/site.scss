@@ -21,6 +21,7 @@ html {
   /* Sticky footer styles */
   position: relative;
   min-height: 100%;
+  font-size: 16px;
 }
 
 body {
@@ -28,8 +29,8 @@ body {
 
   /* Margin bottom by footer height */
   margin-bottom: $footer-height;
-
-  font-size: 15px;
+  font-size: inherit;
+  color: rgb(130, 136, 147);
 }
 
 .footer {
@@ -546,14 +547,16 @@ a:hover .social-btn {
 /* Blog Post */
 .blog-post-content {
   word-break: break-word;
+  font-size: 1.1rem;
+  line-height: 1.6;
+
+  h1, h2, h3, h4 {
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+  }
 
   h1, h2, h3 {
     color: #337ab7;
-  }
-
-  h4 {
-    margin-top: 20px;
-    margin-bottom: 10px;
   }
 
   img {
