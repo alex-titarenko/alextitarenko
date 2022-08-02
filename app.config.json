@@ -20,8 +20,7 @@
     "twitterLogin": "@al_titarenko"
   },
   "socialIntegration": {
-    "disqusShortname": "alextitarenko",
-    "addThisPubId": "ra-5184f211643816eb"
+    "disqusShortname": "alextitarenko"
   },
   "api": {
     "sendEmail": "/api/sendEmail"

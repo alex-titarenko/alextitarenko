@@ -72,9 +72,6 @@ export default function BlogPostPage(props: BlogPost) {
         {props.description && (<meta name="twitter:description" content={props.description} />)}
         {props.image && (<meta name="twitter:image" content={imageUrl} />)}
         {!props.published && (<meta name="robots" content="noindex" />)}
-
-        {/* Go to www.addthis.com/dashboard to customize your tools */}
-        <script type="text/javascript" src={`//s7.addthis.com/js/300/addthis_widget.js#pubid=${appConfig.socialIntegration.addThisPubId}`} async />
       </Head>
 
       <div className="jumbotron page-header">
@@ -95,9 +92,6 @@ export default function BlogPostPage(props: BlogPost) {
         <hr className="blog-post-footer-delimiter" />
 
         <BlogPostFooter post={props} />
-
-        {/* Go to www.addthis.com/dashboard to customize your tools */}
-        <div className="addthis_sharing_toolbox"></div>
 
         <Disqus.DiscussionEmbed
           shortname={appConfig.socialIntegration.disqusShortname}
