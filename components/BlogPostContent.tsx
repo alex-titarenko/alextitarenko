@@ -2,15 +2,11 @@ import React, { useEffect } from 'react'
 import ReactMarkdown from 'react-markdown'
 import Prism from 'prismjs'
 import 'prismjs/components/prism-json'
+import 'prismjs/components/prism-javascript.js'
+import 'prismjs/components/prism-typescript'
 import 'prismjs/components/prism-csharp'
 import 'prismjs/components/prism-powershell'
-import 'prismjs/plugins/line-numbers/prism-line-numbers'
-import 'prismjs/plugins/line-numbers/prism-line-numbers.css'
-import 'prismjs/plugins/toolbar/prism-toolbar'
-import 'prismjs/plugins/toolbar/prism-toolbar.css'
-import 'prismjs/plugins/show-language/prism-show-language'
-import 'prismjs/plugins/copy-to-clipboard/prism-copy-to-clipboard'
-import 'prismjs/themes/prism-coy.css'
+import 'prismjs/themes/prism-tomorrow.css'
 
 
 type BlogPostContentProps = {
