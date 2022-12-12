@@ -30,7 +30,7 @@ export default function BlogPostContent(props: BlogPostContentProps) {
     image: (props) => (<img className="img-responsive" src={props.src} alt={props.alt} />),
     table: (props) => (<table className="table">{ props.children }</table>),
     link: (props) => (<a href={props.href} {...(isExternalUrl(props.href) ? { target: '_blank', rel: 'nofollow' } : {}) }>{ props.children }</a>),
-    code: (props) => (<pre className={`line-numbers language-${props.language}`}><code className={`language-${props.language}`}>{ props.value }</code></pre>
+    code: (props) => (<pre className={`language-${props.language}`}><code className={`language-${props.language}`}>{ props.value }</code></pre>
     )
   };
 
