@@ -17,7 +17,7 @@ type BlogPostContentProps = {
 export default function BlogPostContent(props: BlogPostContentProps) {
   function transformImageUri(uri: string, children?: React.ReactNode, title?: string, alt?: string): string {
     if (!isExternalUrl(uri)) {
-      return `/images/posts${uri}`;
+      return uri.startsWith('/') ? `/posts${uri}` : `/posts/${uri}`;
     }
     return uri;
   }

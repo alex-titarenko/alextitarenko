@@ -26,4 +26,4 @@ yarn-debug.log*
 yarn-error.log*
 
 # blog post images
-public/images/posts/
+public/posts/

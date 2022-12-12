@@ -43,7 +43,7 @@ export default function BlogPostPage(props: BlogPost) {
 
   const imageUrl = /^http(s)?:/i.test(props.image) ?
     props.image :
-    new URL(`/images/posts${props.image}`, appConfig.canonicalBaseUrl).href;
+    new URL(props.image.startsWith('/') ? `/posts${props.image}` : `/posts/${props.image}`, appConfig.canonicalBaseUrl).href;
 
   const disqusConfig = {
     identifier: props.id,
