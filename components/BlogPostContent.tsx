@@ -15,7 +15,7 @@ type BlogPostContentProps = {
 }
 
 export default function BlogPostContent(props: BlogPostContentProps) {
-  function transformImageUri(uri: string, children?: React.ReactNode, title?: string, alt?: string): string {
+  function transformInternalUri(uri: string): string {
     if (!isExternalUrl(uri)) {
       return uri.startsWith('/') ? `/posts${uri}` : `/posts/${uri}`;
     }
@@ -42,7 +42,8 @@ export default function BlogPostContent(props: BlogPostContentProps) {
     <ReactMarkdown
       source={props.markdownContent}
       escapeHtml={false}
-      transformImageUri={(uri, children, title, alt) => transformImageUri(uri, children, title, alt) }
+      transformImageUri={(uri) => transformInternalUri(uri) }
+      transformLinkUri={(uri) => transformInternalUri(uri) }
       renderers={renderers} />
   );
 }
