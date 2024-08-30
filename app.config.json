@@ -19,9 +19,6 @@
     "twitter": "https://twitter.com/al_titarenko",
     "twitterLogin": "@al_titarenko"
   },
-  "socialIntegration": {
-    "disqusShortname": "alextitarenko"
-  },
   "api": {
     "sendEmail": "/api/sendEmail"
   },

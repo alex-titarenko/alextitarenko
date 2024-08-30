@@ -1,14 +1,13 @@
-import { useEffect } from 'react'
-import Disqus from 'disqus-react'
-import Head from 'next/head'
-import Layout from 'components/Layout'
 import { BlogPost } from 'models/BlogPost'
-import { BlogRepository } from 'repositories/BlogRepository'
-import { trackEvent } from 'utils/analytics'
-import appConfig from 'app.config.json'
 import BlogPostContent from 'components/BlogPostContent'
 import BlogPostFooter from 'components/BlogPostFooter'
+import { BlogRepository } from 'repositories/BlogRepository'
 import Converter from 'utils/converter'
+import Head from 'next/head'
+import Layout from 'components/Layout'
+import appConfig from 'app.config.json'
+import { trackEvent } from 'utils/analytics'
+import { useEffect } from 'react'
 
 const blogRepository = new BlogRepository();
 
@@ -44,12 +43,6 @@ export default function BlogPostPage(props: BlogPost) {
   const imageUrl = /^http(s)?:/i.test(props.image) ?
     props.image :
     new URL(props.image.startsWith('/') ? `/posts${props.image}` : `/posts/${props.image}`, appConfig.canonicalBaseUrl).href;
-
-  const disqusConfig = {
-    identifier: props.id,
-    title: props.title,
-    url: undefined
-  };
 
   return (
     <Layout
@@ -92,10 +85,6 @@ export default function BlogPostPage(props: BlogPost) {
         <hr className="blog-post-footer-delimiter" />
 
         <BlogPostFooter post={props} />
-
-        <Disqus.DiscussionEmbed
-          shortname={appConfig.socialIntegration.disqusShortname}
-          config={disqusConfig} />
 
         <div className="scroll-to-top-button">
           <i className="fa fa-arrow-circle-up" onClick={scrollToTop}></i>
