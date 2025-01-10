@@ -1,7 +1,6 @@
-import Link from 'next/link'
 import Layout from 'components/Layout'
+import Link from 'next/link'
 import appConfig from 'app.config.json'
-
 
 export default function HomePage() {
   return (
@@ -15,12 +14,11 @@ export default function HomePage() {
           <p>My name is Alex Titarenko, and I'm a <strong>software developer</strong><br />I do a lot of <a target="_blank" rel="noopener" href={appConfig.social.gitHub}>coding</a>, learning, reading, jogging, dreaming and enjoy life!</p>
         </div>
       </div>
-
       <div className="container">
         <section id="content" className="home-content">
           <div className="row row-content">
             <div className="col-sm-6 text-content">
-              <h1><Link href="/projects"><a>Projects</a></Link></h1>
+              <h1><Link href="/projects">Projects</Link></h1>
               <p>
                 In my spare time, I have a passion for developing my personal projects to create something new, to make everyday life better and more productive.
               </p>
@@ -28,7 +26,7 @@ export default function HomePage() {
 
             <div className="col-sm-6 image-content">
               <Link href="/projects">
-                <a><img src="/images/projects-home.png" className="img-responsive" /></a>
+                <img src="/images/projects-home.png" className="img-responsive" />
               </Link>
             </div>
           </div>
@@ -53,7 +51,7 @@ export default function HomePage() {
 
           <div className="row row-content">
             <div className="col-sm-6 text-content">
-              <h1><Link href="/blog"><a>Blogging</a></Link></h1>
+              <h1><Link href="/blog">Blogging</Link></h1>
               <blockquote>
                 <p>and the internet allows us to engage in a lot more real-time conversations as opposed to a one-way dump of information or a message.</p>
                 <footer>Indra Nooyi</footer>
@@ -62,7 +60,7 @@ export default function HomePage() {
 
             <div className="col-sm-6 image-content">
               <Link href="/blog">
-                <a><img src="/images/blogging-home.png" className="img-responsive" /></a>
+                <img src="/images/blogging-home.png" className="img-responsive" />
               </Link>
             </div>
           </div>
@@ -84,17 +82,15 @@ export default function HomePage() {
 
           <div className="row row-content">
             <div className="col-sm-6 text-content">
-              <h1><Link href="/about"><a>About Me</a></Link></h1>
+              <h1><Link href="/about">About Me</Link></h1>
               <p>
-                Maybe we already know each other, if not, visit <Link href="/about"><a>about</a></Link> page and find out more about me.
+                Maybe we already know each other, if not, visit <Link href="/about">about</Link> page and find out more about me.
               </p>
             </div>
 
             <div className="col-sm-6 image-content">
               <Link href="/about">
-                <a>
-                  <img src="/images/about-home.png" className="img-responsive" />
-                </a>
+                <img src="/images/about-home.png" className="img-responsive" />
               </Link>
             </div>
           </div>

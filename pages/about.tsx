@@ -50,7 +50,7 @@ export default function AboutPage() {
             I feel comfortable with both backend and frontend development using a variety of technologies from web (ASP.NET MVC, WCF, Javascript, AngularJS) to desktop (WPF, WinForms), mobile (Windows 10 Mobile) and cloud computing (Azure Cloud).
           </p>
           <p>
-            In leisure time I develop personal <Link href="/projects"><a>projects</a></Link> and push code on <a target="_blank" rel="noopener" href={ appConfig.social.gitHub }>GitHub</a>.
+            In leisure time I develop personal <Link href="/projects">projects</Link> and push code on <a target="_blank" rel="noopener" href={ appConfig.social.gitHub }>GitHub</a>.
           </p>
 
           <div className="random-facts">
@@ -62,5 +62,5 @@ export default function AboutPage() {
         </section>
       </div>
     </Layout>
-  )
+  );
 }

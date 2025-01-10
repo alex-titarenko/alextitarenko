@@ -1,5 +1,5 @@
-import Link from 'next/link'
 import { BlogPostAnnotation } from 'models/BlogPost'
+import Link from 'next/link'
 
 export default function BlogPostFooter({ post }: { post: BlogPostAnnotation }) {
   return (
@@ -7,18 +7,26 @@ export default function BlogPostFooter({ post }: { post: BlogPostAnnotation }) {
       {/* Category */}
       <div className="post-category">
         <span>Posted in </span>
-        <Link href="/blog/category/[slug]" as={`/blog/category/${post.category.urlSlug}`}>
-          <a title={`See all posts in ${post.category.name}`}>{post.category.name}</a>
+        <Link
+          href="/blog/category/[slug]"
+          as={`/blog/category/${post.category.urlSlug}`}
+          title={`See all posts in ${post.category.name}`}
+        >
+          {post.category.name}
         </Link>
       </div>
-
       {post.tags.length > 0 && (
         <div className="post-tags-wrapper">
           <span>Tagged</span>
           <div className="post-tags">
             {post.tags.map(tag => (
-              <Link key={tag.urlSlug} href="/blog/tag/[slug]" as={`/blog/tag/${tag.urlSlug}`}>
-                <a className="post-tag"><span className="label label-primary">{tag.name}</span></a>
+              <Link
+                key={tag.urlSlug}
+                href="/blog/tag/[slug]"
+                as={`/blog/tag/${tag.urlSlug}`}
+                className="post-tag"
+              >
+                <span className="label label-primary">{tag.name}</span>
               </Link>
             ))}
           </div>

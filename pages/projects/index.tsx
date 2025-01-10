@@ -1,5 +1,5 @@
-import Link from 'next/link'
 import Layout from 'components/Layout'
+import Link from 'next/link'
 import { Project } from 'models/Project'
 import { ProjectRepository } from 'repositories/ProjectRepository'
 import { StringHelper } from 'utils/stringHelper'
@@ -35,7 +35,7 @@ export default function ProjectPage(props: ProjectPageProps) {
               <div className="col-sm-6 text-content">
                 <h1>
                   <Link href="/projects/[alias]" as={`/projects/${project.alias}`}>
-                    <a>{project.name}</a>
+                    {project.name}
                   </Link>
                 </h1>
 

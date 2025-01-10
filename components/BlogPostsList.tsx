@@ -1,10 +1,10 @@
-import Link from 'next/link'
-import Layout from './Layout'
-import appConfig from 'app.config.json'
 import { BlogPostAnnotation } from 'models/BlogPost'
 import BlogPostContent from './BlogPostContent'
 import BlogPostFooter from './BlogPostFooter'
 import Converter from 'utils/converter'
+import Layout from './Layout'
+import Link from 'next/link'
+import appConfig from 'app.config.json'
 
 type BlogPostsListProps = {
   subtitle: string;
@@ -54,8 +54,10 @@ function PostDescription(props: { post: BlogPostAnnotation }) {
       <h1 className="post-title">
         <Link
           href="/blog/archive/[year]/[month]/[slug]"
-          as={`/blog/archive/${new Date(props.post.postedOn).getFullYear()}/${new Date(props.post.postedOn).getMonth()}/${props.post.urlSlug}`}>
-          <a title={ props.post.title }>{ props.post.title }</a>
+          as={`/blog/archive/${new Date(props.post.postedOn).getFullYear()}/${new Date(props.post.postedOn).getMonth()}/${props.post.urlSlug}`}
+          title={ props.post.title }
+        >
+          { props.post.title }
         </Link>
       </h1>
 
