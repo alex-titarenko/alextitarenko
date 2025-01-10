@@ -1,8 +1,9 @@
-const path = require('path');
-const CopyPlugin = require('copy-webpack-plugin');
+import path from 'path';
+import CopyPlugin from 'copy-webpack-plugin';
+import { NextConfig } from 'next';
 
 
-module.exports = {
+const nextConfig: NextConfig = {
   webpack: function (config, options) {
     config.externals = (config.externals || []).concat('fs');
     config.module.rules.concat([
@@ -36,3 +37,5 @@ module.exports = {
     return config;
   }
 };
+
+export default nextConfig;

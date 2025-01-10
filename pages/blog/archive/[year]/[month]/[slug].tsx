@@ -28,7 +28,7 @@ export async function getStaticPaths() {
   };
 }
 
-export async function getStaticProps({ params }) {
+export async function getStaticProps({ params }: { params: { year: number, month: number, slug: string } }) {
   const post = blogRepository.getPost(params.year, params.month, params.slug);
   return { props: post };
 }
@@ -40,9 +40,11 @@ export default function BlogPostPage(props: BlogPost) {
     }
   });
 
-  const imageUrl = /^http(s)?:/i.test(props.image) ?
+  const imageUrl = /^http(s)?:/i.test(props.image ?? '') ?
     props.image :
-    new URL(props.image.startsWith('/') ? `/posts${props.image}` : `/posts/${props.image}`, appConfig.canonicalBaseUrl).href;
+    new URL((props.image ?? '').startsWith('/') ?
+      `/posts${props.image}` :
+      `/posts/${props.image}`, appConfig.canonicalBaseUrl).href;
 
   return (
     <Layout

@@ -10,6 +10,6 @@ export class Lazy<T> {
       this.loaded = true;
     }
 
-    return this._value;
+    return this._value!;
   }
 }

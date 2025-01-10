@@ -18,7 +18,7 @@ export async function getStaticPaths() {
   };
 }
 
-export async function getStaticProps({ params }) {
+export async function getStaticProps({ params }: { params: { slug: string } }) {
   const tag = blogRepository.getTag(params.slug);
   const posts = blogRepository.getPostsForTag(params.slug);
   return { props: { tag, posts } };

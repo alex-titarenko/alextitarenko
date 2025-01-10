@@ -3,7 +3,7 @@ export class StringHelper {
   private static readonly htmlTagRegex: RegExp = /<.*?>\s*/g;
 
   public static extractTextFromHtml(html: string): string {
-    return (html != null) ? html.replace(this.htmlTagRegex, ' ').trim() : null;
+    return (html != null) ? html.replace(this.htmlTagRegex, ' ').trim() : '';
   }
 
   public static cut(source: string, length: number, addEllipsis: boolean = false): string {
@@ -15,9 +15,9 @@ export class StringHelper {
       return source;
     }
 
-    var result: string = null;
+    var result: string = '';
     if (this.isPunctuation(source[length])) {
-      result = source.substr(0, length);
+      result = source.substring(0, length);
     }
     else {
       var removeIndex: number;
@@ -27,7 +27,7 @@ export class StringHelper {
           break;
         }
       }
-      result = this.trimCharEnd(source.substr(0, removeIndex + 1).trim(), ',');
+      result = this.trimCharEnd(source.substring(0, removeIndex + 1).trim(), ',');
     }
 
     return (result.length < source.length && addEllipsis) ? result + " ..." : result;

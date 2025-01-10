@@ -19,7 +19,7 @@ export async function getStaticPaths() {
   };
 }
 
-export async function getStaticProps({ params }) {
+export async function getStaticProps({ params }: { params: { alias: string } }) {
   const model = projectRepository.getByAlias(params.alias);
   return { props: model };
 }
@@ -54,7 +54,13 @@ export default function ProjectPage(props: Project) {
           <p>{props.subtitle}</p>
           <div>
             {!props.externalUrl ? (
-              <a className="btn btn-outline-inverse btn-lg" onClick={ () => trackDownload(props.name) } href={getDownloadUrl(props.downloadUrl)}>download</a>
+              <a
+                className="btn btn-outline-inverse btn-lg"
+                onClick={ () => trackDownload(props.name) }
+                href={getDownloadUrl(props.downloadUrl!)}
+              >
+                download
+              </a>
             ) : (
                 <a className="btn btn-outline-inverse btn-lg" onClick={ () => trackDownload(props.name) } target="_blank" rel="noopener" href={props.externalUrl}>
                   {props.externalUrl.includes('microsoft.com/store') ? 'Microsoft Store' : 'Homepage'}
@@ -292,8 +298,8 @@ function clickScreenshot(event: React.MouseEvent<HTMLDivElement, MouseEvent>) {
 
   if (link instanceof HTMLAnchorElement) {
     const options = { index: link, event: event };
-    const links = link.parentElement.getElementsByTagName('a');
-    window['blueimp'].Gallery(links, options);
+    const links = link.parentElement!.getElementsByTagName('a');
+    (window as any)['blueimp'].Gallery(links, options);
   }
 }
 

@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React, { ReactNode, useEffect } from 'react'
 import remarkGfm from 'remark-gfm'
 import rehypeRaw from 'rehype-raw'
 
@@ -31,25 +31,26 @@ export default function BlogPostContent(props: BlogPostContentProps) {
   }
 
   const components = {
-    img: (props) => (
+    img: (props: { src?: string; alt?: string }) => (
       <img className="img-responsive" src={props.src} alt={props.alt} />
     ),
 
-    table: (props) => (
+    table: (props: { children?: ReactNode }) => (
       <table className="table">{ props.children }</table>
     ),
 
-    a: (props) => (
-      <a href={props.href} {...(isExternalUrl(props.href) ? { target: '_blank', rel: 'nofollow' } : {}) }>
+    a: (props: { href?: string; children?: ReactNode }) => (
+      <a href={props.href} {...(isExternalUrl(props.href!) ? { target: '_blank', rel: 'nofollow' } : {}) }>
         { props.children }
       </a>
     ),
 
-    pre: (props) => (
-      <pre className={`language-${props.language}`} data-x={props.className}>
-        <code className={`language-${props.language}`}>{ props.children }</code>
-      </pre>
-    )
+    // TODO: Fix Me
+    // pre: (props: { language: string; className: string; children: ReactNode }) => (
+    //   <pre className={`language-${props.language}`} data-x={props.className}>
+    //     <code className={`language-${props.language}`}>{ props.children }</code>
+    //   </pre>
+    // )
   };
 
   useEffect(() => {
