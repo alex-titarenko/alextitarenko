@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react'
 import remarkGfm from 'remark-gfm'
+import rehypeRaw from 'rehype-raw'
 
 import Prism from 'prismjs'
 import ReactMarkdown from 'react-markdown'
@@ -58,7 +59,7 @@ export default function BlogPostContent(props: BlogPostContentProps) {
   return (
     <ReactMarkdown
       remarkPlugins={[remarkGfm]}
-      //escapeHtml={false}
+      rehypePlugins={[rehypeRaw]}
       components={components}
       urlTransform={transformInternalUri}
     >
