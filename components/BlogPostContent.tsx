@@ -1,6 +1,8 @@
 import React, { useEffect } from 'react'
-import ReactMarkdown from 'react-markdown'
+
 import Prism from 'prismjs'
+import ReactMarkdown from 'react-markdown'
+
 import 'prismjs/components/prism-json'
 import 'prismjs/components/prism-javascript.js'
 import 'prismjs/components/prism-typescript'
@@ -27,10 +29,24 @@ export default function BlogPostContent(props: BlogPostContentProps) {
   }
 
   const renderers = {
-    image: (props) => (<img className="img-responsive" src={props.src} alt={props.alt} />),
-    table: (props) => (<table className="table">{ props.children }</table>),
-    link: (props) => (<a href={props.href} {...(isExternalUrl(props.href) ? { target: '_blank', rel: 'nofollow' } : {}) }>{ props.children }</a>),
-    code: (props) => (<pre className={`language-${props.language}`}><code className={`language-${props.language}`}>{ props.value }</code></pre>
+    image: (props) => (
+      <img className="img-responsive" src={props.src} alt={props.alt} />
+    ),
+
+    table: (props) => (
+      <table className="table">{ props.children }</table>
+    ),
+
+    link: (props) => (
+      <a href={props.href} {...(isExternalUrl(props.href) ? { target: '_blank', rel: 'nofollow' } : {}) }>
+        { props.children }
+      </a>
+    ),
+
+    code: (props) => (
+      <pre className={`language-${props.language}`}>
+        <code className={`language-${props.language}`}>{ props.value }</code>
+      </pre>
     )
   };
 
@@ -40,10 +56,12 @@ export default function BlogPostContent(props: BlogPostContentProps) {
 
   return (
     <ReactMarkdown
-      source={props.markdownContent}
       escapeHtml={false}
       transformImageUri={(uri) => transformInternalUri(uri) }
       transformLinkUri={(uri) => transformInternalUri(uri) }
-      renderers={renderers} />
+      renderers={renderers}
+    >
+      {props.markdownContent}
+    </ReactMarkdown>
   );
 }
