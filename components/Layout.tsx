@@ -11,6 +11,7 @@ type LayoutProps = {
   pageId: string;
   canonicalUrl?: string;
   keywords?: string;
+  children: React.ReactNode;
 }
 
 type LayoutState = {

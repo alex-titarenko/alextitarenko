@@ -67,27 +67,6 @@ pre {
   }
 }
 
-.scroll-to-top-button {
-  color: #7f919e;
-  margin: 20px 0;
-  display: block;
-  text-align: center;
-
-  i {
-    cursor: pointer;
-    font-size: 60px;
-    opacity: 0.4;
-
-    &:hover {
-      opacity: 1;
-    }
-  }
-}
-
-#disqus_thread {
-  margin: 40px 0 30px 0;
-}
-
 /*----------------------------------------------------*/
 /* Navbar (Bootstrap overridden) */
 /*----------------------------------------------------*/

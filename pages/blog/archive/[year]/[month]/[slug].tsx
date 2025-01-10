@@ -85,16 +85,7 @@ export default function BlogPostPage(props: BlogPost) {
         <hr className="blog-post-footer-delimiter" />
 
         <BlogPostFooter post={props} />
-
-        <div className="scroll-to-top-button">
-          <i className="fa fa-arrow-circle-up" onClick={scrollToTop}></i>
-        </div>
       </div>
     </Layout>
   );
-}
-
-function scrollToTop() {
-  $("html, body").animate({ scrollTop: 0 }, "slow");
-  return false;
 }
