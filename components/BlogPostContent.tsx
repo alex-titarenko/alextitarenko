@@ -1,4 +1,5 @@
 import React, { useEffect } from 'react'
+import remarkGfm from 'remark-gfm'
 
 import Prism from 'prismjs'
 import ReactMarkdown from 'react-markdown'
@@ -28,8 +29,8 @@ export default function BlogPostContent(props: BlogPostContentProps) {
     return /^http(s)?:/i.test(url);
   }
 
-  const renderers = {
-    image: (props) => (
+  const components = {
+    img: (props) => (
       <img className="img-responsive" src={props.src} alt={props.alt} />
     ),
 
@@ -37,15 +38,15 @@ export default function BlogPostContent(props: BlogPostContentProps) {
       <table className="table">{ props.children }</table>
     ),
 
-    link: (props) => (
+    a: (props) => (
       <a href={props.href} {...(isExternalUrl(props.href) ? { target: '_blank', rel: 'nofollow' } : {}) }>
         { props.children }
       </a>
     ),
 
-    code: (props) => (
-      <pre className={`language-${props.language}`}>
-        <code className={`language-${props.language}`}>{ props.value }</code>
+    pre: (props) => (
+      <pre className={`language-${props.language}`} data-x={props.className}>
+        <code className={`language-${props.language}`}>{ props.children }</code>
       </pre>
     )
   };
@@ -56,10 +57,10 @@ export default function BlogPostContent(props: BlogPostContentProps) {
 
   return (
     <ReactMarkdown
-      escapeHtml={false}
-      transformImageUri={(uri) => transformInternalUri(uri) }
-      transformLinkUri={(uri) => transformInternalUri(uri) }
-      renderers={renderers}
+      remarkPlugins={[remarkGfm]}
+      //escapeHtml={false}
+      components={components}
+      urlTransform={transformInternalUri}
     >
       {props.markdownContent}
     </ReactMarkdown>
