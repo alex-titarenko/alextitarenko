@@ -1,10 +1,9 @@
-import React from 'react'
 import Head from 'next/head'
 import Link from 'next/link'
-import appConfig from 'app.config.json'
 import { Project } from 'models/Project'
 import { ProjectRepository } from 'repositories/ProjectRepository'
-
+import React from 'react'
+import appConfig from 'app.config.json'
 
 type LayoutProps = {
   title: string;
@@ -50,8 +49,12 @@ export default class Layout extends React.Component<LayoutProps, LayoutState> {
     const projectElements = this.state.projects.map(proj => {
       return (
         <li key={ proj.id }>
-          <Link href="/projects/[alias]" as={ `/projects/${ proj.alias }` }>
-            <a title={ `${ proj.name } Project Information` }>{ proj.name }</a>
+          <Link
+            href="/projects/[alias]"
+            as={ `/projects/${ proj.alias }` }
+            title={ `${ proj.name } Project Information` }
+          >
+            { proj.name }
           </Link>
         </li>
       )
@@ -76,7 +79,7 @@ export default class Layout extends React.Component<LayoutProps, LayoutState> {
                   <span className="icon-bar"></span>
                   <span className="icon-bar"></span>
                 </button>
-                <Link href="/"><a className="navbar-brand">&lt; <span>{ appConfig.brandName }</span> /&gt;</a></Link>
+                <Link href="/" className="navbar-brand">&lt; <span>{ appConfig.brandName }</span> /&gt;</Link>
               </div>
 
               <nav id="navbar" className="collapse navbar-collapse bs-navbar-collapse">
@@ -92,15 +95,15 @@ export default class Layout extends React.Component<LayoutProps, LayoutState> {
                   </li>
 
                   <li className="blog">
-                    <Link href="/blog"><a>Blog</a></Link>
+                    <Link href="/blog">Blog</Link>
                   </li>
 
                   <li className="about">
-                    <Link href="/about"><a>About</a></Link>
+                    <Link href="/about">About</Link>
                   </li>
 
                   <li className="company">
-                    <Link href="/contact"><a>Contact</a></Link>
+                    <Link href="/contact">Contact</Link>
                   </li>
                 </ul>
               </nav>
