@@ -1,5 +1,5 @@
 const path = require('path');
-const CopyWebpackPlugin = require('copy-webpack-plugin');
+const CopyPlugin = require('copy-webpack-plugin');
 
 
 module.exports = {
@@ -18,15 +18,19 @@ module.exports = {
     ]);
 
     config.plugins.push(
-      new CopyWebpackPlugin([
-        {
-          context: 'data/',
-          from: 'posts/**/.attachments/*',
-          to: path.resolve(__dirname, 'public/posts/.attachments/[name].[ext]'),
-          ignore: ['*.md'],
-          force: true
-        }
-      ]),
+      new CopyPlugin({
+        patterns: [
+          {
+            context: 'data/',
+            from: 'posts/**/.attachments/*',
+            to: path.resolve(__dirname, 'public/posts/.attachments/[name].[ext]'),
+            globOptions: {
+              ignore: ['*.md']
+            },
+            force: true
+          }
+        ]
+      })
     );
 
     return config;

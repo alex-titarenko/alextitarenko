@@ -1,13 +1,13 @@
-import React from 'react'
-import { useEffect } from 'react'
 import Head from 'next/head'
 import Layout from 'components/Layout'
 import { Project } from 'models/Project'
 import { ProjectRepository } from 'repositories/ProjectRepository'
-import { trackEvent } from 'utils/analytics'
-import appConfig from 'app.config.json'
+import React from 'react'
 import { Screenshot } from 'models/Screenshot'
 import { VersionInfo } from 'models/VersionInfo'
+import appConfig from 'app.config.json'
+import { trackEvent } from 'utils/analytics'
+import { useEffect } from 'react'
 
 const projectRepository = new ProjectRepository();
 
@@ -96,10 +96,10 @@ export default function ProjectPage(props: Project) {
                   <div className="col-sm-6 text-center screenshot-thumb">
                     <div className="glance-container">
                       {firstScreenshot && (
-                        <React.Fragment>
+                        <>
                           <img className="img-responsive" src={getScreenshotUrl(props.alias, firstScreenshot.imageName)} />
                           <div className="glance-box"></div>
-                        </React.Fragment>
+                        </>
                       )}
                     </div>
                   </div>
@@ -239,8 +239,17 @@ function GalleryLightbox() {
 
 function Screenshots(props: { projectAlias: string, screenshots: Screenshot[] }) {
   const items = props.screenshots.map(screenshot => (
-    <a rel="thumbnail" className="thumbnail scr-thumbnail" href={getScreenshotUrl(props.projectAlias, screenshot.imageName)} title={screenshot.caption} data-gallery>
-      <img src={getScreenshotUrl(props.projectAlias, screenshot.imageName)} alt={screenshot.caption} itemProp="image" />
+    <a
+      key={screenshot.imageName}
+      rel="thumbnail"
+      className="thumbnail scr-thumbnail"
+      href={getScreenshotUrl(props.projectAlias, screenshot.imageName)}
+      title={screenshot.caption} data-gallery
+    >
+      <img
+        src={getScreenshotUrl(props.projectAlias, screenshot.imageName)}
+        alt={screenshot.caption} itemProp="image"
+      />
     </a>
   ));
 
@@ -257,12 +266,12 @@ function VersionHistory(props: { historyItems: VersionInfo[] }) {
     .sort((a, b) => new Date(b.releaseDate).getTime() - new Date(a.releaseDate).getTime());
 
   const historyItems = sortedItems.map(historyItem => (
-    <li>
+    <li key={historyItem.version}>
       <strong>v{historyItem.version}</strong> Released: {new Date(historyItem.releaseDate).toLocaleDateString("en-US")}<br />
       {historyItem.description}.
       {historyItem.changes && historyItem.changes.length > 0 && (
         <ul>
-          { historyItem.changes.map(change => (<li>{change}.</li>)) }
+          { historyItem.changes.map(change => (<li key={change}>{change}.</li>)) }
         </ul>
       )}
     </li>
