@@ -77,10 +77,6 @@ export default class Layout extends React.Component<LayoutProps, LayoutState> {
                   <li className="blog">
                     <Link href="/blog">Blog</Link>
                   </li>
-
-                  <li className="company">
-                    <Link href="/contact">Contact</Link>
-                  </li>
                 </ul>
               </nav>
             </div>
