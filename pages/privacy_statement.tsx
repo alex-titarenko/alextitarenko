@@ -1,6 +1,5 @@
 import Layout from 'components/Layout'
 
-
 export default function PrivacyStatementPage() {
   return (
     <Layout
@@ -17,7 +16,7 @@ export default function PrivacyStatementPage() {
       <div className="container">
         <section id="content">
           <p>
-            This privacy policy has been compiled to better serve those who are concerned with how their 'Personally Identifiable Information' (PII) is being used online. PII, as described in US privacy law and information security, is information that can be used on its own or with other information to identify, contact, or locate a single person, or to identify an individual in context. Please read our privacy policy carefully to get a clear understanding of how we collect, use, protect or otherwise handle your Personally Identifiable Information in accordance with our website/applications.
+            This privacy policy has been compiled to better serve those who are concerned with how their &apos;Personally Identifiable Information&apos; (PII) is being used online. PII, as described in US privacy law and information security, is information that can be used on its own or with other information to identify, contact, or locate a single person, or to identify an individual in context. Please read our privacy policy carefully to get a clear understanding of how we collect, use, protect or otherwise handle your Personally Identifiable Information in accordance with our website/applications.
           </p>
 
           <p>
@@ -30,19 +29,19 @@ export default function PrivacyStatementPage() {
             We get some of it by recording how you interact with our products by, for example, using technologies like cookies, and receiving error reports or usage data from software running on your device.
           </p>
 
-          <h4>Do we use 'cookies'?</h4>
+          <h4>Do we use &apos;cookies&apos;?</h4>
 
-          <p>Yes. Cookies are small files that a site or its service provider transfers to your computer's hard drive through your Web browser (if you allow) that enables the site's or service provider's systems to recognize your browser and capture and remember certain information. For instance, cookies allow us, among other things, to store your preferences and settings; enable you to sign-in. We also use cookies to help us compile aggregate data about site traffic and site interaction so that we can offer better site experiences and tools in the future.</p>
+          <p>Yes. Cookies are small files that a site or its service provider transfers to your computer&apos;s hard drive through your Web browser (if you allow) that enables the site&apos;s or service provider&apos;s systems to recognize your browser and capture and remember certain information. For instance, cookies allow us, among other things, to store your preferences and settings; enable you to sign-in. We also use cookies to help us compile aggregate data about site traffic and site interaction so that we can offer better site experiences and tools in the future.</p>
 
           <h4>We use cookies to:</h4>
           <ul>
-            <li>Understand and save user's preferences for future visits.</li>
+            <li>Understand and save user&apos;s preferences for future visits.</li>
           </ul>
           <p>
-            You can choose to have your computer warn you each time a cookie is being sent, or you can choose to turn off all cookies. You do this through your browser settings. Since browser is a little different, look at your browser's Help Menu to learn the correct way to modify your cookies.
+            You can choose to have your computer warn you each time a cookie is being sent, or you can choose to turn off all cookies. You do this through your browser settings. Since browser is a little different, look at your browser&apos;s Help Menu to learn the correct way to modify your cookies.
           </p>
           <p>
-            If you turn cookies off, some features will be disabled. It won't affect the user's experience that make your site experience more efficient and may not function properly.
+            If you turn cookies off, some features will be disabled. It won&apos;t affect the user&apos;s experience that make your site experience more efficient and may not function properly.
           </p>
 
           <h3>How we use your information</h3>
@@ -66,7 +65,7 @@ export default function PrivacyStatementPage() {
             This product uses WebView control inside application which might store your credentials/user data (as cookies) during login to web sites, also it might use your geolocation to provide you better user experience.
           </p>
           <p>
-            We don't use this information by our own and don't transfer outside application.
+            We don&apos;t use this information by our own and don&apos;t transfer outside application.
           </p>
         </section>
       </div>
