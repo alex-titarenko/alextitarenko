@@ -91,13 +91,6 @@ pre {
   }
 }
 
-/*----------------------------------------------------*/
-/* Validation */
-/*----------------------------------------------------*/
-.field-validation-error {
-	color: Red;
-}
-
 .page-header {
   margin-top: -20px;
   background-color: $accent-color;
@@ -131,29 +124,6 @@ pre {
 
   &:last-child {
     border-bottom: none;
-  }
-}
-
-.row-alternate {
-  .text-content {
-    float: right;
-  }
-}
-
-@media (max-width: $screen-sm) {
-  .row-alternate {
-    .text-content {
-      float: none;
-    }
-  }
-}
-
-.image-content {
-  text-align: center;
-
-  img {
-    display: inline;
-    max-height: 250px;
   }
 }
 
@@ -235,43 +205,7 @@ a:hover .social-btn {
   }
 }
 
-.pagination {
-	text-align: center;
 
-	a {
-		display: inline-block;
-		padding: 4px 6px;
-		position: relative;
-		text-decoration: none;
-
-		&[disabled="disabled"] {
-			cursor: default;
-			opacity: 0.5;
-    }
-  }
-
-	.active {
-		cursor: default;
-		a { cursor: default; }
-  }
-
-	.first, .last, .prev, .next {
-		display: inline-block;
-		height: 16px;
-    width: 12px;
-		vertical-align: top;
-	}
-
-	.first:after { content: "«"; }
-	.last:after { content: "»"; }
-	.prev:after { content: "‹"; }
-	.next:after { content: "›"; }
-}
-
-.pagination a, .pagination {
-  color: #535353;
-  font-size: 1em;
-}
 
 
 
@@ -309,26 +243,6 @@ a:hover .social-btn {
   }
 }
 
-/* Project */
-
-/* About */
-.page-header-about {
-  background-size: cover;
-  height: 400px;
-  background-image: url(/images/about-header-bg-wide.jpg);
-  background-position: center top;
-
-  h1, p { text-shadow: $text-shadow; }
-}
-
-@media (max-width: $screen-sm-min) {
-  .page-header-about {
-    height: 300px;
-    background-image: url(/images/about-header-bg-phone.jpg);
-    background-position: center top;
-  }
-}
-
 .moto-block {
   padding-bottom: 25px;
 
@@ -340,27 +254,6 @@ a:hover .social-btn {
 
 .random-facts {
   margin-top: 35px;
-}
-
-
-/* Contact */
-.contact-container {
-  margin-top: 30px;
-}
-
-.contact-filds {
-  p {
-    line-height: 40px;
-
-    .field-value {
-      font-size: 16px;
-      display: inline-block;
-      vertical-align: middle;
-      line-height: normal;
-    }
-  }
-
-  span.fa { margin-right: 10px; }
 }
 
 /* ----------------------------------------- */
@@ -459,20 +352,6 @@ a:hover .social-btn {
 }
 
 
-/* ----------------------------------------- */
-/* reCAPTCHA v3 */
-/* ----------------------------------------- */
-.recaptcha-branding {
-  text-align: right;
-  color: silver;
-}
-
-.grecaptcha-badge {
-  visibility: hidden;
-}
-
-
-
 
 
 
@@ -549,9 +428,9 @@ a:hover .social-btn {
 
 
 
-/*************************************/
+/* ----------------------------------------- */
 /* PrismJS */
-/*************************************/
+/* ----------------------------------------- */
 
 /* HTML */
 .token.doctype,
