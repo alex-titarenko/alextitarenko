@@ -78,10 +78,6 @@ export default class Layout extends React.Component<LayoutProps, LayoutState> {
                     <Link href="/blog">Blog</Link>
                   </li>
 
-                  <li className="about">
-                    <Link href="/about">About</Link>
-                  </li>
-
                   <li className="company">
                     <Link href="/contact">Contact</Link>
                   </li>
