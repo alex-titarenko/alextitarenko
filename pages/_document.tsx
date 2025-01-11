@@ -1,15 +1,9 @@
-import Document, { DocumentContext, Head, Html, Main, NextScript } from 'next/document'
+import { Head, Html, Main, NextScript } from 'next/document'
 
 import appConfig from 'app.config.json'
 
-class Layout extends Document {
-  static async getInitialProps(ctx: DocumentContext) {
-    const initialProps = await Document.getInitialProps(ctx)
-    return { ...initialProps }
-  }
-
-  render() {
-    return (
+export default function Document() {
+  return (
       <Html lang="en-us">
         <Head>
           <script async src={`https://www.googletagmanager.com/gtag/js?id=${appConfig.google.analyticsId}`}></script>
@@ -64,8 +58,5 @@ class Layout extends Document {
           <NextScript />
         </body>
       </Html>
-    );
-  }
+  )
 }
-
-export default Layout
