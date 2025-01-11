@@ -1,5 +1,4 @@
 import Layout from 'components/Layout'
-import Link from 'next/link'
 import appConfig from 'app.config.json'
 
 export default function HomePage() {
@@ -26,7 +25,7 @@ const facts: string[] = [
       <div className="jumbotron page-header page-header-home">
         <div className="container">
           <h1>HELLO FOLKS!</h1>
-          <p>My name is Alex Titarenko, and I'm a <strong>software developer</strong><br />I do a lot of <a target="_blank" rel="noopener" href={appConfig.social.gitHub}>coding</a>, learning, reading, jogging, dreaming and enjoy life!</p>
+          <p>My name is Alex Titarenko, and I&apos;m a <strong>software developer</strong><br />I do a lot of <a target="_blank" rel="noopener" href={appConfig.social.gitHub}>coding</a>, learning, reading, jogging, dreaming and enjoy life!</p>
         </div>
       </div>
       <div className="container">
@@ -34,7 +33,7 @@ const facts: string[] = [
         <div className="text-center moto-block">
             <h4>
               <strong className="text-uppercase">My motto:</strong><br />
-              <strong>"I can't" needs to be excluded from his thoughts. Enable one enable many. Nobody could - so be the first!</strong>
+              <strong>&quot;I can&apos;t&quot; needs to be excluded from his thoughts. Enable one enable many. Nobody could - so be the first!</strong>
             </h4>
           </div>
 
@@ -42,7 +41,7 @@ const facts: string[] = [
             My name is Alex Titarenko. I live in WA, USA.
           </p>
           <p>
-            I'm a patient, responsible, purposeful and committed engineer, who has the desire to continue evolving and discovering new technologies. Productive in team-based as well as self-managed projects. Dedicated to maintaining up-to-date industry knowledge and IT skills.
+            I&apos;m a patient, responsible, purposeful and committed engineer, who has the desire to continue evolving and discovering new technologies. Productive in team-based as well as self-managed projects. Dedicated to maintaining up-to-date industry knowledge and IT skills.
           </p>
           <p>
             Focusing mainly on .NET technology stack,
