@@ -1,7 +1,5 @@
 import Head from 'next/head'
 import Link from 'next/link'
-import { Project } from 'models/Project'
-import { ProjectRepository } from 'repositories/ProjectRepository'
 import React from 'react'
 import appConfig from 'app.config.json'
 
@@ -16,7 +14,6 @@ type LayoutProps = {
 
 type LayoutState = {
   canonicalUrl?: string;
-  projects: Project[];
 }
 
 export default class Layout extends React.Component<LayoutProps, LayoutState> {
@@ -29,10 +26,8 @@ export default class Layout extends React.Component<LayoutProps, LayoutState> {
   constructor(props: LayoutProps) {
     super(props);
 
-    const projectRepository = new ProjectRepository();
     this.state = {
-      canonicalUrl: this.props.canonicalUrl,
-      projects: projectRepository.getAll(),
+      canonicalUrl: this.props.canonicalUrl
     }
   }
 
@@ -47,20 +42,6 @@ export default class Layout extends React.Component<LayoutProps, LayoutState> {
   }
 
   public render() {
-    const projectElements = this.state.projects.map(proj => {
-      return (
-        <li key={ proj.id }>
-          <Link
-            href="/projects/[alias]"
-            as={ `/projects/${ proj.alias }` }
-            title={ `${ proj.name } Project Information` }
-          >
-            { proj.name }
-          </Link>
-        </li>
-      )
-    });
-
     return (
       <div>
         <Head>
@@ -91,16 +72,6 @@ export default class Layout extends React.Component<LayoutProps, LayoutState> {
 
                   <li >
                     <Link href="https://multicalculator.app">MultiCalc</Link>
-                  </li>
-
-                  <li className="projects dropdown">
-                    <a href="#" className="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
-                      Projects&nbsp;<span className="caret"></span>
-                    </a>
-
-                    <ul className="dropdown-menu" role="menu">
-                      { projectElements }
-                    </ul>
                   </li>
 
                   <li className="blog">
