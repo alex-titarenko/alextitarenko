@@ -1,17 +1,10 @@
-import React, { ReactNode, useEffect } from 'react'
-import remarkGfm from 'remark-gfm'
-import rehypeRaw from 'rehype-raw'
+import React, { ReactNode } from 'react'
 
-import Prism from 'prismjs'
+import { CodeBlock } from './CodeBlock'
 import ReactMarkdown from 'react-markdown'
-
-import 'prismjs/components/prism-json'
-import 'prismjs/components/prism-javascript.js'
-import 'prismjs/components/prism-typescript'
-import 'prismjs/components/prism-csharp'
-import 'prismjs/components/prism-powershell'
-import 'prismjs/themes/prism-tomorrow.css'
-
+import rehypePrism from './rehypePlugins/rehypePrism'
+import rehypeRaw from 'rehype-raw'
+import remarkGfm from 'remark-gfm'
 
 type BlogPostContentProps = {
   urlSlug: string;
@@ -45,22 +38,23 @@ export default function BlogPostContent(props: BlogPostContentProps) {
       </a>
     ),
 
-    // TODO: Fix Me
-    // pre: (props: { language: string; className: string; children: ReactNode }) => (
-    //   <pre className={`language-${props.language}`} data-x={props.className}>
-    //     <code className={`language-${props.language}`}>{ props.children }</code>
-    //   </pre>
-    // )
+    pre: (props: { children?: ReactNode, sourceCode?: string, className?: string }) => (
+      <CodeBlock
+        sourceCode={ props.sourceCode }
+        className={ props.className }
+      >
+        { props.children }
+      </CodeBlock>
+    )
   };
-
-  useEffect(() => {
-    Prism.highlightAll();
-  })
 
   return (
     <ReactMarkdown
       remarkPlugins={[remarkGfm]}
-      rehypePlugins={[rehypeRaw]}
+      rehypePlugins={[
+        rehypeRaw,
+        [rehypePrism, { ignoreMissing: true }]
+      ]}
       components={components}
       urlTransform={transformInternalUri}
     >
