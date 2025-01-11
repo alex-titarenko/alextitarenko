@@ -5,11 +5,8 @@
 // } from '@mui/icons-material'
 import {
   PropsWithChildren,
-  ReactNode,
   memo,
-  useEffect,
   useRef,
-  useState
 } from 'react'
 
 // const styles: { [key: string]: SxProps } = {
@@ -76,40 +73,40 @@ type CodeBlockProps = {
 
 function CodeBlockComponent(props: PropsWithChildren<CodeBlockProps>) {
   const containerRef = useRef<HTMLDivElement>(null);
-  const [canWordWrap, setCanWordWrap] = useState(false);
-  const [wordWrap, setWordWrap] = useState(false);
-  const [done, setDone] = useState(false);
+  // const [canWordWrap, setCanWordWrap] = useState(false);
+  // const [wordWrap, setWordWrap] = useState(false);
+  // const [done, setDone] = useState(false);
 
-  useEffect(() => {
-    const validateContainerWidth = () => {
-      const codeElement = containerRef.current?.querySelector('code');
-      if (codeElement) {
-        setCanWordWrap(codeElement.scrollWidth > codeElement.clientWidth);
-      }
-    }
+  // useEffect(() => {
+  //   const validateContainerWidth = () => {
+  //     const codeElement = containerRef.current?.querySelector('code');
+  //     if (codeElement) {
+  //       setCanWordWrap(codeElement.scrollWidth > codeElement.clientWidth);
+  //     }
+  //   }
 
-    const resizeObserver = new ResizeObserver(validateContainerWidth);
-    validateContainerWidth();
+  //   const resizeObserver = new ResizeObserver(validateContainerWidth);
+  //   validateContainerWidth();
 
-    containerRef.current && resizeObserver.observe(containerRef.current);
-    return () => resizeObserver.disconnect();
-  }, []);
+  //   containerRef.current && resizeObserver.observe(containerRef.current);
+  //   return () => resizeObserver.disconnect();
+  // }, []);
 
-  const onToggleWordWrap = () => {
-    setWordWrap(value => !value);
-  }
+  // const onToggleWordWrap = () => {
+  //   setWordWrap(value => !value);
+  // }
 
-  const onCopySourceCode = async () => {
-    if (navigator.clipboard) {
-      const sourceCode = props.sourceCode || extractSourceCode(props.children);
+  // const onCopySourceCode = async () => {
+  //   if (navigator.clipboard) {
+  //     const sourceCode = props.sourceCode || extractSourceCode(props.children);
 
-      if (sourceCode) {
-        await navigator.clipboard.writeText(sourceCode);
-        setDone(true);
-        setTimeout(() => { setDone(false); }, 1000);
-      }
-    }
-  }
+  //     if (sourceCode) {
+  //       await navigator.clipboard.writeText(sourceCode);
+  //       setDone(true);
+  //       setTimeout(() => { setDone(false); }, 1000);
+  //     }
+  //   }
+  // }
 
   return (
     <div
@@ -151,29 +148,29 @@ function CodeBlockComponent(props: PropsWithChildren<CodeBlockProps>) {
   )
 }
 
-function extractSourceCode(children: ReactNode): string | undefined {
-  if (!Array.isArray(children) || children.length === 0) {
-    return;
-  }
+// function extractSourceCode(children: ReactNode): string | undefined {
+//   if (!Array.isArray(children) || children.length === 0) {
+//     return;
+//   }
 
-  if (children.length === 1 && typeof children[0] === 'string') {
-    return children[0];
-  }
+//   if (children.length === 1 && typeof children[0] === 'string') {
+//     return children[0];
+//   }
 
-  const codeNode = children.find(x => x?.type === 'code');
-  if (codeNode) {
-    if (!codeNode.props || !Array.isArray(codeNode.props.children)) {
-      return;
-    }
+//   const codeNode = children.find(x => x?.type === 'code');
+//   if (codeNode) {
+//     if (!codeNode.props || !Array.isArray(codeNode.props.children)) {
+//       return;
+//     }
 
-    const codeNodeChildren = codeNode.props.children;
+//     const codeNodeChildren = codeNode.props.children;
 
-    if (codeNodeChildren.length === 1 && typeof codeNodeChildren[0] === 'string') {
-      let sourceCode = codeNodeChildren[0];
-      sourceCode = sourceCode.replace(/\r?\n$/, ''); // trim last new line
-      return sourceCode;
-    }
-  }
-}
+//     if (codeNodeChildren.length === 1 && typeof codeNodeChildren[0] === 'string') {
+//       let sourceCode = codeNodeChildren[0];
+//       sourceCode = sourceCode.replace(/\r?\n$/, ''); // trim last new line
+//       return sourceCode;
+//     }
+//   }
+// }
 
 export const CodeBlock = memo(CodeBlockComponent);

@@ -1,4 +1,4 @@
-import type { Root, Element } from 'hast'
+import type { Root, Element, ElementContent } from 'hast'
 import { type Plugin } from 'unified'
 import { visit } from 'unist-util-visit';
 import { toString as nodeToString } from 'hast-util-to-string';
@@ -47,7 +47,7 @@ const rehypePrismPlugin: Plugin<[RehypePrismOptions?], Root> = (options = {}) =>
         throw err;
       }
 
-      (node.children as any) = result.children;
+      node.children = result.children as ElementContent[];
     });
   }
 }
