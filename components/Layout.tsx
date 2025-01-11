@@ -89,6 +89,10 @@ export default class Layout extends React.Component<LayoutProps, LayoutState> {
                     <Link href="https://noteshub.app">NotesHub</Link>
                   </li>
 
+                  <li >
+                    <Link href="https://multicalculator.app">MultiCalc</Link>
+                  </li>
+
                   <li className="projects dropdown">
                     <a href="#" className="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
                       Projects&nbsp;<span className="caret"></span>
