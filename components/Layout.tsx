@@ -99,7 +99,6 @@ export default class Layout extends React.Component<LayoutProps, LayoutState> {
               <a href={ appConfig.social.facebook } target="_blank" rel="noopener" title="Facebook"><i className="fa fa-facebook-square"></i></a>
               <a href={ appConfig.social.linkedIn } target="_blank" rel="noopener" title="LinkedIn"><i className="fa fa-linkedin"></i></a>
               <a href={ appConfig.social.gitHub } target="_blank" rel="noopener" title="GitHub"><i className="fa fa-github"></i></a>
-              <a href={ appConfig.social.stackoverflow } target="_blank" rel="noopener" title="StackOverflow"><i className="fa fa-stack-overflow"></i></a>
               <a href={ appConfig.social.instagram } target="_blank" rel="noopener" title="Instagram"><i className="fa fa-instagram"></i></a>
               <a href={ appConfig.social.twitter } target="_blank" rel="noopener" title="Twitter"><i className="fa fa-twitter"></i></a>
             </div>

@@ -7,14 +7,10 @@
     "contact": "contact@alextitarenko.me",
     "support": "support@alextitarenko.me"
   },
-  "contactInfo": {
-    "resumeLink": "/resume.pdf"
-  },
   "social": {
     "facebook": "https://www.facebook.com/alex.titarenko",
     "linkedIn": "http://linkedin.com/in/alextitarenko",
     "gitHub": "https://github.com/alex-titarenko",
-    "stackoverflow": "http://stackoverflow.com/users/2898722/alex-titarenko",
     "instagram": "https://instagram.com/alex.titarenko",
     "twitter": "https://twitter.com/al_titarenko",
     "twitterLogin": "@al_titarenko"

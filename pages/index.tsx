@@ -16,21 +16,6 @@ export default function HomePage() {
       </div>
       <div className="container">
         <section id="content" className="home-content">
-          <div className="row row-content">
-            <div className="col-sm-6 text-content">
-              <h1><Link href="/projects">Projects</Link></h1>
-              <p>
-                In my spare time, I have a passion for developing my personal projects to create something new, to make everyday life better and more productive.
-              </p>
-            </div>
-
-            <div className="col-sm-6 image-content">
-              <Link href="/projects">
-                <img src="/images/projects-home.png" className="img-responsive" />
-              </Link>
-            </div>
-          </div>
-
           <div className="row row-content row-alternate">
             <div className="col-sm-6 text-content">
               <h1><a target="_blank" rel="noopener" href={ appConfig.social.gitHub }>Open source contribution</a></h1>
@@ -62,21 +47,6 @@ export default function HomePage() {
               <Link href="/blog">
                 <img src="/images/blogging-home.png" className="img-responsive" />
               </Link>
-            </div>
-          </div>
-
-          <div className="row row-content row-alternate">
-            <div className="col-sm-6 text-content">
-              <h1><a target="_blank" rel="noopener" href={ appConfig.contactInfo.resumeLink }>Résumé</a></h1>
-              <p>
-                I'm open for new opportunities. If you have something interesting to offer, feel free to contact me. You can find my professional experience in the <a target="_blank" rel="noopener" href={ appConfig.contactInfo.resumeLink }>resume</a> or <a target="_blank" rel="noopener" href={ appConfig.social.linkedIn }>LinkedIn</a> profile.
-              </p>
-            </div>
-
-            <div className="col-sm-6 image-content">
-              <a target="_blank" rel="noopener" href={ appConfig.contactInfo.resumeLink }>
-                <img src="/images/cv-home.png" className="img-responsive" />
-              </a>
             </div>
           </div>
 
