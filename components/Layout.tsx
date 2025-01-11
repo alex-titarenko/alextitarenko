@@ -85,6 +85,10 @@ export default class Layout extends React.Component<LayoutProps, LayoutState> {
 
               <nav id="navbar" className="collapse navbar-collapse bs-navbar-collapse">
                 <ul id="mainmenu" ref={ this.mainMenu } className="nav navbar-nav navbar-right">
+                  <li >
+                    <Link href="https://noteshub.app">NotesHub</Link>
+                  </li>
+
                   <li className="projects dropdown">
                     <a href="#" className="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
                       Projects&nbsp;<span className="caret"></span>
