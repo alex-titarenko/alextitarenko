@@ -41,7 +41,11 @@ const useStyles = createUseStyles({
 
   nav: {
     '& ul': {
-      padding: 0
+      padding: 0,
+
+      '& li': {
+        display: 'inline-block',
+      }
     },
 
     '& a': {
@@ -49,7 +53,11 @@ const useStyles = createUseStyles({
       padding: '10px 15px',
 
       '&:hover': {
-        color: '#333'
+        color: '#333',
+      },
+
+      '&:focus, &:hover': {
+        textDecoration: 'none'
       }
     },
 
@@ -109,7 +117,7 @@ export function NavBar(props: { ref: React.RefObject<HTMLUListElement | null> })
         </button>
 
         <nav className={ classes.nav }>
-          <ul id="mainmenu" ref={ props.ref } className="nav navbar-nav">
+          <ul id="mainmenu" ref={ props.ref }>
             <li>
               <Link href="https://noteshub.app">NotesHub</Link>
             </li>

@@ -257,47 +257,6 @@ hr {
   }
 }
 
-/* Nav Bar */
-.nav>li {
-  position: relative;
-  display: block;
-
-  a {
-    &:focus, &:hover {
-      text-decoration: none;
-    }
-  }
-}
-
-@media (min-width: 768px) {
-  .navbar-static-top {
-    border-radius: 0;
-  }
-
-  .navbar {
-    border-radius: 4px;
-  }
-
-  .navbar-nav {
-    margin: 0;
-
-    li {
-      float: left;
-
-      a {
-        padding-top: 15px;
-        padding-bottom: 15px;
-      }
-    }
-  }
-
-  .container>.navbar-header {
-    margin-right: 0;
-    margin-left: 0;
-  }
-}
-
-
 /* Page header */
 .jumbotron {
   padding-top: 30px;
