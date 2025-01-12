@@ -27,7 +27,7 @@ const facts: string[] = [
       <div className="jumbotron page-header page-header-home">
         <div className="container">
           <h1>HELLO FOLKS!</h1>
-          <p>My name is Alex Titarenko, and I&apos;m a <strong>software developer</strong><br />I do a lot of <a target="_blank" rel="noopener" href={appConfig.social.gitHub}>coding</a>, learning, reading, jogging, dreaming and enjoy life!</p>
+          <p>My name is Alex Titarenko, and I&apos;m a <strong>software developer</strong><br />I do a lot of coding, learning, reading, jogging, dreaming and enjoy life!</p>
         </div>
       </div>
       <div className="container">
