@@ -5,12 +5,23 @@ import clsx from 'clsx'
 import { createUseStyles } from 'react-jss'
 
 const useStyles = createUseStyles({
-  navBarContainer: {
+  navbar: {
+    position: 'relative',
+    minHeight: '50px',
+    marginBottom: '20px',
+    backgroundColor: '#f8f8f8',
+    border: '1px solid transparent',
+    borderWidth: '0 0 1px',
+    borderColor: '#e7e7e7',
+    zIndex: 1000,
+  },
+
+  container: {
     display: 'flex',
     alignItems: 'center'
   },
 
-  navbarBrand: {
+  brand: {
     fontSize: '18px',
     fontWeight: '700',
     textTransform: 'uppercase',
@@ -25,6 +36,23 @@ const useStyles = createUseStyles({
     '& span': {
       color: 'gray',
       transition: 'color .3s ease-in'
+    }
+  },
+
+  nav: {
+    '& a': {
+      color: '#777',
+      paddingTop: '10px',
+      paddingBottom: '10px',
+
+      '&:hover': {
+        color: '#333'
+      }
+    },
+
+    '& .active a, & .active a:hover': {
+      color: '#555',
+      backgroundColor: '#e7e7e7'
     }
   },
 
@@ -58,9 +86,9 @@ export function NavBar(props: { ref: React.RefObject<HTMLUListElement | null> })
   const classes = useStyles();
 
   return (
-    <header className="navbar navbar-default navbar-static-top">
-      <div className={ clsx(classes.navBarContainer, "container") }>
-        <Link href="/" className={ classes.navbarBrand }>
+    <header className={ classes.navbar }>
+      <div className={ clsx(classes.container, "container") }>
+        <Link href="/" className={ classes.brand }>
           &lt; <span>{ appConfig.brandName }</span> /&gt;
         </Link>
 
@@ -77,7 +105,7 @@ export function NavBar(props: { ref: React.RefObject<HTMLUListElement | null> })
           <span className={ classes.iconBar }></span>
         </button>
 
-        <nav id="navbar" className="collapse navbar-collapse bs-navbar-collapse">
+        <nav className={ classes.nav }>
           <ul id="mainmenu" ref={ props.ref } className="nav navbar-nav">
             <li>
               <Link href="https://noteshub.app">NotesHub</Link>

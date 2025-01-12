@@ -258,54 +258,6 @@ hr {
 }
 
 /* Nav Bar */
-.navbar {
-  position: relative;
-  min-height: 50px;
-  margin-bottom: 20px;
-  border: 1px solid transparent;
-}
-
-.navbar-static-top {
-  z-index: 1000;
-  border-width: 0 0 1px;
-}
-
-.navbar-default {
-  background-color: #f8f8f8;
-  border-color: #e7e7e7;
-
-  .navbar-nav {
-    li {
-      a {
-        color: #777;
-
-        &:hover {
-          color: #333;
-          background-color: transparent;
-          }
-      }
-    }
-
-    .active {
-      a, a:hover {
-        color: #555;
-        background-color: #e7e7e7;
-      }
-    }
-  }
-}
-
-.navbar-nav {
-  margin: 7.5px -15px;
-
-  li {
-    a {
-      padding-top: 10px;
-      padding-bottom: 10px;
-    }
-  }
-}
-
 .nav {
   padding-left: 0;
   margin-bottom: 0;
