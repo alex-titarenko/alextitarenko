@@ -168,6 +168,14 @@ blockquote {
   border-left: 5px solid #eee;
 }
 
+code {
+  padding: 2px 4px;
+  font-size: 90%;
+  color: #c7254e;
+  background-color: #f9f2f4;
+  border-radius: 4px;
+}
+
 h1 {
   font-size: 2em;
   margin: .67em 0;
