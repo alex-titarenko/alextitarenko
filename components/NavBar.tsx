@@ -95,15 +95,13 @@ const useStyles = createUseStyles({
 
     [compactSizeMQ]: {
       height: 0,
-    }
-  },
 
-  vertList: {
-    '& ul': {
-      marginTop: 0,
+      '& ul': {
+        marginTop: 0,
 
-      '& li, & a': {
-        display: 'block',
+        '& li, & li a': {
+          display: 'block !important',
+        }
       }
     }
   },
@@ -185,7 +183,7 @@ export function NavBar(props: { ref: React.RefObject<HTMLUListElement | null> })
           </button>
         </div>
 
-        <nav className={ clsx(classes.nav, compactSize && classes.vertList) } ref={ props.ref }>
+        <nav className={ classes.nav } ref={ props.ref }>
           <ul>
             <li>
               <Link href="https://noteshub.app">NotesHub</Link>
