@@ -7,6 +7,8 @@ import clsx from 'clsx'
 import { createUseStyles } from 'react-jss'
 import { useMediaQuery } from 'hooks/useMediaQuery';
 
+const compactSizeMQ = '@media (max-width: 768px)';
+
 const useStyles = createUseStyles({
   navbar: {
     position: 'relative',
@@ -22,12 +24,12 @@ const useStyles = createUseStyles({
   navbarContainer: {
     display: 'flex',
     flexGrow: 1,
-    alignItems: 'center'
-  },
+    alignItems: 'center',
 
-  navbarVert: {
-    flexDirection: 'column',
-    alignItems: 'stretch'
+    [compactSizeMQ]: {
+      flexDirection: 'column',
+      alignItems: 'stretch'
+    }
   },
 
   brandContainer: {
@@ -90,23 +92,24 @@ const useStyles = createUseStyles({
       backgroundColor: '#e7e7e7',
       borderRadius: '10px'
     },
+
+    [compactSizeMQ]: {
+      height: 0,
+    }
   },
 
   vertList: {
     '& ul': {
       marginTop: 0,
 
-      '& li': {
+      '& li, & a': {
         display: 'block',
-
-        '& a': {
-          display: 'block'
-        }
       }
     }
   },
 
   toggleButton: {
+    visibility: 'collapse',
     position: 'relative',
     padding: '9px 10px',
     marginTop: '8px',
@@ -121,6 +124,10 @@ const useStyles = createUseStyles({
     '&:hover': {
       backgroundColor: '#ddd',
     },
+
+    [compactSizeMQ]: {
+      visibility: 'visible'
+    }
   },
 
   iconBar: {
@@ -157,7 +164,7 @@ export function NavBar(props: { ref: React.RefObject<HTMLUListElement | null> })
 
   return (
     <header className={ classes.navbar }>
-      <div className={ clsx(classes.navbarContainer, compactSize && classes.navbarVert, "container") }>
+      <div className={ clsx(classes.navbarContainer, "container") }>
         <div className={ classes.brandContainer }>
           <Link href="/" className={ classes.brand }>
             &lt; <span>{ appConfig.brandName }</span> /&gt;
@@ -165,19 +172,17 @@ export function NavBar(props: { ref: React.RefObject<HTMLUListElement | null> })
 
           <Spacer />
 
-          { compactSize && (
-            <button
-              type="button"
-              className={ classes.toggleButton }
-              aria-expanded="false"
-              aria-controls="navbar"
-              onClick={ () => setMenuCollapsed((value) => !value) }
-            >
-              <span className={ classes.iconBar }></span>
-              <span className={ classes.iconBar }></span>
-              <span className={ classes.iconBar }></span>
-            </button>
-          )}
+          <button
+            type="button"
+            className={ classes.toggleButton }
+            aria-expanded="false"
+            aria-controls="navbar"
+            onClick={ () => setMenuCollapsed((value) => !value) }
+          >
+            <span className={ classes.iconBar }></span>
+            <span className={ classes.iconBar }></span>
+            <span className={ classes.iconBar }></span>
+          </button>
         </div>
 
         <nav className={ clsx(classes.nav, compactSize && classes.vertList) } ref={ props.ref }>
