@@ -139,7 +139,15 @@ const useStyles = createUseStyles({
     '&+&': {
       marginTop: '4px'
     }
-  }
+  },
+
+  separator: {
+    marginLeft: '20px',
+
+    [compactSizeMQ]: {
+      display: 'none'
+    }
+  },
 })
 
 export function NavBar(props: { ref: React.RefObject<HTMLUListElement | null> }) {
@@ -193,6 +201,8 @@ export function NavBar(props: { ref: React.RefObject<HTMLUListElement | null> })
             <li>
               <Link href="https://multicalculator.app">MultiCalc</Link>
             </li>
+
+            <span className={ classes.separator }></span>
 
             <li className="blog">
               <Link href="/blog">Blog</Link>
