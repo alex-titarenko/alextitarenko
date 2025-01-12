@@ -5,6 +5,17 @@ import Converter from 'utils/converter'
 import Layout from './Layout'
 import Link from 'next/link'
 import appConfig from 'app.config.json'
+import { createUseStyles } from 'react-jss'
+
+const useStyles = createUseStyles({
+  list: {
+    display: 'flex',
+    flexDirection: 'column',
+    gap: '40px',
+    listStyleType: 'none',
+    padding: 0,
+  }
+})
 
 type BlogPostsListProps = {
   subtitle: string;
@@ -12,6 +23,8 @@ type BlogPostsListProps = {
 }
 
 export default function BlogPostsList(props: BlogPostsListProps) {
+  const classes = useStyles();
+
   const keywords = props.posts
     .map(x => x.tags)
     .reduce((a, b) => a.concat(b), [])
@@ -39,7 +52,7 @@ export default function BlogPostsList(props: BlogPostsListProps) {
             <span>{ `1 - ${props.posts.length} of ${props.posts.length} posts` }</span>
           </div>
 
-          <ul className="reset list">
+          <ul className={ classes.list }>
             { props.posts.map(post => <li key={ post.urlSlug }><PostDescription post={ post } /></li>) }
           </ul>
         </section>
