@@ -22,12 +22,12 @@ const useStyles = createUseStyles({
   navbarContainer: {
     display: 'flex',
     flexGrow: 1,
-    alignItems: 'center',
+    alignItems: 'center'
+  },
 
-    '@media (max-width: 767px)': {
-      flexDirection: 'column',
-      alignItems: 'stretch'
-    }
+  navbarVert: {
+    flexDirection: 'column',
+    alignItems: 'stretch'
   },
 
   brandContainer: {
@@ -44,13 +44,19 @@ const useStyles = createUseStyles({
     textShadow: '0 1px 2px #fff',
     transition: 'color .3s ease-in',
 
-    '&:hover': {
-      textDecoration: 'none'
-    },
-
-    '& span': {
+    '&>span': {
       color: 'gray',
       transition: 'color .3s ease-in'
+    },
+
+    '&:hover, &:hover>span': {
+      textDecoration: 'none',
+      color: 'var(--accent-color) !important'
+    },
+
+    '&:focus': {
+      color: 'silver',
+      textDecoration: 'none'
     }
   },
 
@@ -81,13 +87,21 @@ const useStyles = createUseStyles({
 
     '& .active a, & .active a:hover': {
       color: '#555',
-      backgroundColor: '#e7e7e7'
+      backgroundColor: '#e7e7e7',
+      borderRadius: '10px'
     },
+  },
 
-    '@media (max-width: 767px)': {
-      '& ul li': {
-        display: 'block !important',
-        margin: '10px 0px'
+  vertList: {
+    '& ul': {
+      marginTop: 0,
+
+      '& li': {
+        display: 'block',
+
+        '& a': {
+          display: 'block'
+        }
       }
     }
   },
@@ -131,7 +145,7 @@ export function NavBar(props: { ref: React.RefObject<HTMLUListElement | null> })
   useEffect(() => {
     const navElement = props.ref.current
 
-    if (navElement) {
+    if (navElement && compactSize !== undefined) {
       if (compactSize) {
         navElement.style.height = menuCollapsed ? '0' : `${navElement.scrollHeight}px`;
       } else {
@@ -143,7 +157,7 @@ export function NavBar(props: { ref: React.RefObject<HTMLUListElement | null> })
 
   return (
     <header className={ classes.navbar }>
-      <div className={ clsx(classes.navbarContainer, "container") }>
+      <div className={ clsx(classes.navbarContainer, compactSize && classes.navbarVert, "container") }>
         <div className={ classes.brandContainer }>
           <Link href="/" className={ classes.brand }>
             &lt; <span>{ appConfig.brandName }</span> /&gt;
@@ -166,8 +180,8 @@ export function NavBar(props: { ref: React.RefObject<HTMLUListElement | null> })
           )}
         </div>
 
-        <nav className={ classes.nav } ref={ props.ref }>
-          <ul id="mainmenu">
+        <nav className={ clsx(classes.nav, compactSize && classes.vertList) } ref={ props.ref }>
+          <ul>
             <li>
               <Link href="https://noteshub.app">NotesHub</Link>
             </li>
