@@ -15,12 +15,12 @@ export class StringHelper {
       return source;
     }
 
-    var result: string = '';
+    let result: string = '';
     if (this.isPunctuation(source[length])) {
       result = source.substring(0, length);
     }
     else {
-      var removeIndex: number;
+      let removeIndex: number;
 
       for (removeIndex = length; removeIndex >= 0; removeIndex--) {
         if (this.isWhiteSpace(source[removeIndex])) {

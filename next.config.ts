@@ -1,10 +1,9 @@
-import path from 'path';
 import CopyPlugin from 'copy-webpack-plugin';
 import { NextConfig } from 'next';
-
+import path from 'path';
 
 const nextConfig: NextConfig = {
-  webpack: function (config, options) {
+  webpack: function (config) {
     config.externals = (config.externals || []).concat('fs');
     config.module.rules.concat([
       {

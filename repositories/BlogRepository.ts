@@ -123,7 +123,7 @@ export class BlogRepository {
      return new Date(b.postedOn).getTime() - new Date(a.postedOn).getTime();
     }
 
-    var posts = glob.sync(postsFilePattern).map(filePath => {
+    const posts = glob.sync(postsFilePattern).map(filePath => {
       const rawContent = fs.readFileSync(filePath, 'utf8');
       return BlogRepository.parseBlogPost(filePath, rawContent);
     });
@@ -166,6 +166,7 @@ export class BlogRepository {
 
   private static toAnnotation(post: BlogPost): BlogPostAnnotation {
     const annotation = Object.assign({}, post);
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     delete (annotation as any).content;
 
     return annotation;

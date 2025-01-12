@@ -33,7 +33,7 @@ export default function Layout(props: LayoutProps) {
     if (mainMenu.current) {
       selectMenuItem(mainMenu.current, props.pageId, "active");
     }
-  }, []);
+  }, [mainMenu, props.canonicalUrl, props.pageId]);
 
   return (
     <div>
