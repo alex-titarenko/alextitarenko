@@ -77,6 +77,7 @@ const useStyles = createUseStyles({
     '& a': {
       color: '#777',
       padding: '10px 15px',
+      fontWeight: '500',
 
       '&:hover': {
         color: '#333',
