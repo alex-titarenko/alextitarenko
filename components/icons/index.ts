@@ -1,3 +1,3 @@
 export { ContentCopy } from './ContentCopy'
-export { Done } from './Done'
+export { Check } from './Check'
 export { WrapText } from './WrapText'

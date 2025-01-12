@@ -13,7 +13,9 @@ const facts: string[] = [
 
   const factsListItems = facts.map((fact, index) => {
     return (
-      <li key={ index }><span className='glyphicon glyphicon-ok'></span><span>{ fact }</span></li>
+      <li key={ index }>
+        { fact }
+      </li>
     );
   });
 

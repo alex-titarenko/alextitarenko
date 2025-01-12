@@ -300,18 +300,6 @@ hr {
   font-weight: 200;
 }
 
-.glyphicon {
-  position: relative;
-  top: 1px;
-  display: inline-block;
-  font-family: "Glyphicons Halflings";
-  font-style: normal;
-  font-weight: 400;
-  line-height: 1;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-
 /* Label */
 .label {
   display: inline;
@@ -342,30 +330,6 @@ ul.reset {
 ul.reset li {
   margin: 0;
   padding: 0;
-}
-
-/*----------------------------------------------------*/
-/* Navbar (Bootstrap overridden) */
-/*----------------------------------------------------*/
-.navbar-default .navbar-header > .navbar-brand {
-  font-weight: 700;
-  text-transform: uppercase;
-  color: silver;
-  text-shadow: 0 1px 2px white;
-  transition: color 0.3s ease-in;
-
-  span {
-    color: gray;
-    transition: color 0.3s ease-in;
-  }
-
-  &:hover, &:focus {
-    color: var(--accent-color);
-
-    span {
-      color: var(--accent-color);
-    }
-  }
 }
 
 .page-header {
@@ -406,18 +370,11 @@ ul.reset li {
 }
 
 .check-list {
-  padding-left: 0;
-  list-style-type: none;
+  padding-left: 20px;
+  list-style-type: circle;
 
   li {
     margin: 15px 0 15px 0;
-
-    span { display: table-cell; }
-
-    .glyphicon {
-      padding-right: 10px;
-      color: silver;
-    }
   }
 }
 

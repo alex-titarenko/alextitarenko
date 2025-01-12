@@ -1,6 +1,6 @@
 import {
   ContentCopy as CopyIcon,
-  Done as DoneIcon,
+  Check as DoneIcon,
   WrapText as WrapTextIcon
 } from './icons'
 import {
