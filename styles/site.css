@@ -430,15 +430,6 @@ hr {
     margin-left: 0;
   }
 
-  .navbar-header {
-    float: left;
-  }
-
-  .navbar-right {
-    float: right!important;
-    margin-right: -15px;
-  }
-
   .navbar-toggle {
     display: none;
   }
