@@ -1,8 +1,11 @@
+import { useEffect, useState } from 'react';
+
 import Link from 'next/link';
 import { Spacer } from './common/Spacer';
 import appConfig from 'app.config.json';
 import clsx from 'clsx'
 import { createUseStyles } from 'react-jss'
+import { useMediaQuery } from 'hooks/useMediaQuery';
 
 const useStyles = createUseStyles({
   navbar: {
@@ -16,8 +19,20 @@ const useStyles = createUseStyles({
     zIndex: 1000,
   },
 
-  container: {
+  navbarContainer: {
     display: 'flex',
+    flexGrow: 1,
+    alignItems: 'center',
+
+    '@media (max-width: 767px)': {
+      flexDirection: 'column',
+      alignItems: 'stretch'
+    }
+  },
+
+  brandContainer: {
+    display: 'flex',
+    flexGrow: 1,
     alignItems: 'center'
   },
 
@@ -40,6 +55,9 @@ const useStyles = createUseStyles({
   },
 
   nav: {
+    overflow: 'hidden',
+    transition: 'height 0.2s ease-out',
+
     '& ul': {
       padding: 0,
 
@@ -64,13 +82,19 @@ const useStyles = createUseStyles({
     '& .active a, & .active a:hover': {
       color: '#555',
       backgroundColor: '#e7e7e7'
+    },
+
+    '@media (max-width: 767px)': {
+      '& ul li': {
+        display: 'block !important',
+        margin: '10px 0px'
+      }
     }
   },
 
   toggleButton: {
     position: 'relative',
     padding: '9px 10px',
-    marginRight: '15px',
     marginTop: '8px',
     marginBottom: '8px',
     backgroundColor: 'transparent',
@@ -78,6 +102,11 @@ const useStyles = createUseStyles({
     border: '1px solid transparent',
     borderRadius: '4px',
     borderColor: '#ddd',
+    cursor: 'pointer',
+
+    '&:hover': {
+      backgroundColor: '#ddd',
+    },
   },
 
   iconBar: {
@@ -96,28 +125,49 @@ const useStyles = createUseStyles({
 export function NavBar(props: { ref: React.RefObject<HTMLUListElement | null> }) {
   const classes = useStyles();
 
+  const compactSize = useMediaQuery('(max-width: 768px)');
+  const [menuCollapsed, setMenuCollapsed] = useState(true);
+
+  useEffect(() => {
+    const navElement = props.ref.current
+
+    if (navElement) {
+      if (compactSize) {
+        navElement.style.height = menuCollapsed ? '0' : `${navElement.scrollHeight}px`;
+      } else {
+        navElement.style.height = `auto`;
+        setMenuCollapsed(true);
+      }
+    }
+  }, [menuCollapsed, compactSize, props.ref]);
+
   return (
     <header className={ classes.navbar }>
-      <div className={ clsx(classes.container, "container") }>
-        <Link href="/" className={ classes.brand }>
-          &lt; <span>{ appConfig.brandName }</span> /&gt;
-        </Link>
+      <div className={ clsx(classes.navbarContainer, "container") }>
+        <div className={ classes.brandContainer }>
+          <Link href="/" className={ classes.brand }>
+            &lt; <span>{ appConfig.brandName }</span> /&gt;
+          </Link>
 
-        <Spacer />
+          <Spacer />
 
-        <button
-          type="button"
-          className={ classes.toggleButton }
-          aria-expanded="false"
-          aria-controls="navbar"
-        >
-          <span className={ classes.iconBar }></span>
-          <span className={ classes.iconBar }></span>
-          <span className={ classes.iconBar }></span>
-        </button>
+          { compactSize && (
+            <button
+              type="button"
+              className={ classes.toggleButton }
+              aria-expanded="false"
+              aria-controls="navbar"
+              onClick={ () => setMenuCollapsed((value) => !value) }
+            >
+              <span className={ classes.iconBar }></span>
+              <span className={ classes.iconBar }></span>
+              <span className={ classes.iconBar }></span>
+            </button>
+          )}
+        </div>
 
-        <nav className={ classes.nav }>
-          <ul id="mainmenu" ref={ props.ref }>
+        <nav className={ classes.nav } ref={ props.ref }>
+          <ul id="mainmenu">
             <li>
               <Link href="https://noteshub.app">NotesHub</Link>
             </li>
