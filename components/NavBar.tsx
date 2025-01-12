@@ -40,10 +40,13 @@ const useStyles = createUseStyles({
   },
 
   nav: {
+    '& ul': {
+      padding: 0
+    },
+
     '& a': {
       color: '#777',
-      paddingTop: '10px',
-      paddingBottom: '10px',
+      padding: '10px 15px',
 
       '&:hover': {
         color: '#333'

@@ -258,20 +258,6 @@ hr {
 }
 
 /* Nav Bar */
-.nav {
-  padding-left: 0;
-  margin-bottom: 0;
-  list-style: none;
-
-  li {
-    a {
-      position: relative;
-      display: block;
-      padding: 10px 15px;
-    }
-  }
-}
-
 .nav>li {
   position: relative;
   display: block;
