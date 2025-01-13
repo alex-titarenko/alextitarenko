@@ -1,4 +1,5 @@
 import Layout from 'components/Layout'
+import { Lock } from 'components/icons'
 
 export default function PrivacyStatementPage() {
   return (
@@ -8,7 +9,9 @@ export default function PrivacyStatementPage() {
       pageId="">
       <div className="jumbotron page-header">
         <div className="container">
-          <h1>Privacy Statement <i className="fa fa-lock"></i></h1>
+          <h1 style={{ display: 'flex', gap: 10 }}>
+            Privacy Statement <Lock />
+          </h1>
           <p>We respect your privacy</p>
         </div>
       </div>
@@ -47,11 +50,11 @@ export default function PrivacyStatementPage() {
           <h3>How we use your information</h3>
           <p>
             We may use information that we receive to:
-          <ul>
-              <li>help you efficiently access your information after you sign in</li>
-              <li>remember information so you will not have to re-enter it during your visit or the next time you visit the Service</li>
-            </ul>
           </p>
+          <ul>
+            <li>help you efficiently access your information after you sign in</li>
+            <li>remember information so you will not have to re-enter it during your visit or the next time you visit the Service</li>
+          </ul>
 
           <h3>Third-party disclosure</h3>
           <p>We do not sell, trade, or otherwise transfer to outside parties your Personally Identifiable Information.</p>
