@@ -557,9 +557,13 @@ ul.reset li {
     font-style: italic;
   }
 
-  a[target="_blank"]:after {
-    font-family: 'FontAwesome';
-    content: " \f08e";
+  a[target="_blank"] {
+    display: inline-flex;
+    gap: 5px;
+
+    svg {
+      font-size: 0.8em;
+    }
   }
 
   pre {

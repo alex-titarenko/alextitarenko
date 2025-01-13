@@ -1,6 +1,7 @@
 import React, { ReactNode } from 'react'
 
 import { CodeBlock } from './CodeBlock'
+import { ExternalLink } from './icons'
 import ReactMarkdown from 'react-markdown'
 import rehypePrism from './rehypePlugins/rehypePrism'
 import rehypeRaw from 'rehype-raw'
@@ -36,6 +37,7 @@ export default function BlogPostContent(props: BlogPostContentProps) {
     a: (props: { href?: string; children?: ReactNode }) => (
       <a href={props.href} {...(isExternalUrl(props.href!) ? { target: '_blank', rel: 'nofollow' } : {}) }>
         { props.children }
+        { isExternalUrl(props.href!) && <ExternalLink /> }
       </a>
     ),
 
