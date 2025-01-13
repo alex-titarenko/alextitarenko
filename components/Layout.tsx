@@ -1,5 +1,6 @@
 import {
   Bluesky,
+  Facebook,
   GitHub,
   Instagram,
   LinkedIn,
@@ -78,10 +79,7 @@ export default function Layout(props: LayoutProps) {
           <div>Copyright &copy; { appConfig.brandName } 2011-{ new Date().getFullYear() }</div>
 
           <div className="contacts">
-            <a href={ appConfig.social.facebook } target="_blank" rel="noopener" title="Facebook">
-              <i className="fa fa-facebook-square"></i>
-            </a>
-
+            <SocialLink href={ appConfig.social.facebook } title="Facebook"><Facebook /></SocialLink>
             <SocialLink href={ appConfig.social.linkedIn } title="LinkedIn"><LinkedIn /></SocialLink>
             <SocialLink href={ appConfig.social.x } title="X"><X /></SocialLink>
             <SocialLink href={ appConfig.social.bluesky } title="Bluesky"><Bluesky /></SocialLink>
