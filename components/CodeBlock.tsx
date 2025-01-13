@@ -128,7 +128,8 @@ function CodeBlockComponent(props: PropsWithChildren<CodeBlockProps>) {
 
   const onCopySourceCode = async () => {
     if (navigator.clipboard) {
-      const sourceCode = props.sourceCode || extractSourceCode(props.children);
+      const sourceCode = props.sourceCode ||
+        extractSourceCode(props.children);
 
       if (sourceCode) {
         await navigator.clipboard.writeText(sourceCode);
@@ -172,6 +173,36 @@ function CodeBlockComponent(props: PropsWithChildren<CodeBlockProps>) {
 }
 
 function extractSourceCode(children: ReactNode): string | undefined {
+  function sanitizeSourceCode(sourceCode: string): string {
+    return sourceCode.replace(/\r?\n$/, '')
+  }
+
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  function isCodeBlock(node: any): boolean {
+    return node?.type === 'code'
+  }
+
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  function extractFromCodeBlock(codeNode: any): string | undefined {
+    if (codeNode.props && typeof codeNode.props.children === 'string') {
+      return sanitizeSourceCode(codeNode.props.children);
+    }
+
+    if (!codeNode.props || !Array.isArray(codeNode.props.children)) {
+      return;
+    }
+
+    const codeNodeChildren = codeNode.props.children;
+
+    if (codeNodeChildren.length === 1 && typeof codeNodeChildren[0] === 'string') {
+      return sanitizeSourceCode(codeNodeChildren[0]);
+    }
+  }
+
+  if (isCodeBlock(children)) {
+    return extractFromCodeBlock(children);
+  }
+
   if (!Array.isArray(children) || children.length === 0) {
     return;
   }
@@ -180,19 +211,9 @@ function extractSourceCode(children: ReactNode): string | undefined {
     return children[0];
   }
 
-  const codeNode = children.find(x => x?.type === 'code');
+  const codeNode = children.find(isCodeBlock);
   if (codeNode) {
-    if (!codeNode.props || !Array.isArray(codeNode.props.children)) {
-      return;
-    }
-
-    const codeNodeChildren = codeNode.props.children;
-
-    if (codeNodeChildren.length === 1 && typeof codeNodeChildren[0] === 'string') {
-      let sourceCode = codeNodeChildren[0];
-      sourceCode = sourceCode.replace(/\r?\n$/, ''); // trim last new line
-      return sourceCode;
-    }
+    return extractFromCodeBlock(codeNode);
   }
 }
 
