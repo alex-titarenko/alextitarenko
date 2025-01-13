@@ -517,6 +517,8 @@ ul.reset li {
 
 .post-date {
   color: #7f919e;
+  display: flex;
+  gap: 5px;
 }
 
 .post-desc {

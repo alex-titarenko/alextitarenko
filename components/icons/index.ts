@@ -1,5 +1,6 @@
 export { Bluesky } from './Bluesky'
 export { Check } from './Check'
+export { Clock } from './Clock'
 export { ContentCopy } from './ContentCopy'
 export { Facebook } from './Facebook'
 export { GitHub } from './GitHub'

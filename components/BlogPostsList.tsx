@@ -1,10 +1,11 @@
+import { Clock, Newspaper } from './icons'
+
 import { BlogPostAnnotation } from 'models/BlogPost'
 import BlogPostContent from './BlogPostContent'
 import BlogPostFooter from './BlogPostFooter'
 import Converter from 'utils/converter'
 import Layout from './Layout'
 import Link from 'next/link'
-import { Newspaper } from './icons'
 import appConfig from 'app.config.json'
 import { createUseStyles } from 'react-jss'
 
@@ -79,7 +80,7 @@ function PostDescription(props: { post: BlogPostAnnotation }) {
 
       {/* Posted date */}
       <div className="post-date">
-        <i className="fa fa-clock-o"></i> { Converter.formatDate(new Date(props.post.postedOn)) }
+        <Clock /> { Converter.formatDate(new Date(props.post.postedOn)) }
       </div>
 
       <div className="post-desc blog-post-content">
