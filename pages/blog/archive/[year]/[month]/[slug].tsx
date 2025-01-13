@@ -1,3 +1,5 @@
+import { Clock, Hourglass } from 'components/icons'
+
 import { BlogPost } from 'models/BlogPost'
 import BlogPostContent from 'components/BlogPostContent'
 import BlogPostFooter from 'components/BlogPostFooter'
@@ -72,8 +74,9 @@ export default function BlogPostPage(props: BlogPost) {
       <div className="jumbotron page-header">
         <div className="container">
           <h1 itemProp="name">{props.title}</h1>
-          <p>
-            <i className={ props.published ? " fa fa-clock-o" : "glyphicon glyphicon-hourglass"}></i>&nbsp;
+          <p style={{ display: 'flex' }}>
+            { props.published ? <Clock /> : <Hourglass /> }
+            &nbsp;
             <span itemProp="datePublished">{ Converter.formatDate(new Date(props.postedOn)) }</span>
           </p>
         </div>

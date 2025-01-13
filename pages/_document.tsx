@@ -1,5 +1,15 @@
-import Document, { DocumentContext, Head, Html, Main, NextScript } from 'next/document'
-import { JssProvider, SheetsRegistry, createGenerateId } from 'react-jss'
+import Document, {
+  DocumentContext,
+  Head,
+  Html,
+  Main,
+  NextScript
+} from 'next/document'
+import {
+  JssProvider,
+  SheetsRegistry,
+  createGenerateId
+} from 'react-jss'
 
 import { JSX } from 'react'
 import appConfig from 'app.config.json'

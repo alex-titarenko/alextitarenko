@@ -25,6 +25,7 @@ export default function BlogPostContent(props: BlogPostContentProps) {
 
   const components = {
     img: (props: { src?: string; alt?: string }) => (
+      // eslint-disable-next-line @next/next/no-img-element
       <img className="img-responsive" src={props.src} alt={props.alt} />
     ),
 
