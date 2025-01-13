@@ -10,6 +10,7 @@ import React, { PropsWithChildren, useEffect, useState } from 'react'
 
 import Head from 'next/head'
 import { NavBar } from './NavBar'
+import { Threads } from './icons/Threads'
 import appConfig from 'app.config.json'
 import clsx from 'clsx'
 import { createUseStyles } from 'react-jss'
@@ -82,6 +83,7 @@ export default function Layout(props: LayoutProps) {
             <SocialLink href={ appConfig.social.facebook } title="Facebook"><Facebook /></SocialLink>
             <SocialLink href={ appConfig.social.linkedIn } title="LinkedIn"><LinkedIn /></SocialLink>
             <SocialLink href={ appConfig.social.x } title="X"><X /></SocialLink>
+            <SocialLink href={ appConfig.social.threads } title="Threads"><Threads /></SocialLink>
             <SocialLink href={ appConfig.social.bluesky } title="Bluesky"><Bluesky /></SocialLink>
             <SocialLink href={ appConfig.social.gitHub } title="GitHub"><GitHub /></SocialLink>
             <SocialLink href={ appConfig.social.instagram } title="Instagram"><Instagram /></SocialLink>
