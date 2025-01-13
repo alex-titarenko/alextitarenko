@@ -1,8 +1,25 @@
-import React, { useEffect, useState } from 'react'
+import { Bluesky, X } from './icons'
+import React, { PropsWithChildren, useEffect, useState } from 'react'
 
 import Head from 'next/head'
 import { NavBar } from './NavBar'
 import appConfig from 'app.config.json'
+import clsx from 'clsx'
+import { createUseStyles } from 'react-jss'
+
+const useStyles = createUseStyles({
+  footer: {
+    '& a': {
+      verticalAlign: 'text-top',
+
+      '& svg': {
+        color: 'inherit',
+        width: '1em',
+        height: '1em',
+      }
+    }
+  }
+})
 
 type LayoutProps = {
   title: string;
@@ -14,6 +31,8 @@ type LayoutProps = {
 }
 
 export default function Layout(props: LayoutProps) {
+  const classes = useStyles();
+
   const mainMenu = React.createRef<HTMLUListElement>();
   const [canonicalUrl, setCanonicalUrl] = useState(props.canonicalUrl)
 
@@ -49,7 +68,7 @@ export default function Layout(props: LayoutProps) {
 
         { props.children }
 
-        <footer className="footer">
+        <footer className={ clsx("footer", classes.footer) }>
           <div>Copyright &copy; { appConfig.brandName } 2011-{ new Date().getFullYear() }</div>
 
           <div className="contacts">
@@ -65,17 +84,24 @@ export default function Layout(props: LayoutProps) {
               <i className="fa fa-github"></i>
             </a>
 
+            <SocialLink href={ appConfig.social.x } title="X"><X /></SocialLink>
+            <SocialLink href={ appConfig.social.bluesky } title="Bluesky"><Bluesky /></SocialLink>
+
             <a href={ appConfig.social.instagram } target="_blank" rel="noopener" title="Instagram">
               <i className="fa fa-instagram"></i>
-            </a>
-
-            <a href={ appConfig.social.twitter } target="_blank" rel="noopener" title="Twitter">
-              <i className="fa fa-twitter"></i>
             </a>
           </div>
         </footer>
       </div>
     </div>
+  )
+}
+
+function SocialLink(props: PropsWithChildren<{ href: string; title: string }>) {
+  return (
+    <a href={ props.href } target="_blank" rel="noopener" title={ props.title }>
+      { props.children }
+    </a>
   )
 }
 

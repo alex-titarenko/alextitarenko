@@ -12,8 +12,9 @@
     "linkedIn": "http://linkedin.com/in/alextitarenko",
     "gitHub": "https://github.com/alex-titarenko",
     "instagram": "https://instagram.com/alex.titarenko",
-    "twitter": "https://twitter.com/al_titarenko",
-    "twitterLogin": "@al_titarenko"
+    "x": "https://x.com/al_titarenko",
+    "xLogin": "@al_titarenko",
+    "bluesky": "https://bsky.app/profile/alextitarenko.bsky.social"
   },
   "api": {
     "sendEmail": "/api/sendEmail"

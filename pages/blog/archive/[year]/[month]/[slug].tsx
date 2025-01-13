@@ -61,8 +61,8 @@ export default function BlogPostPage(props: BlogPost) {
         {props.description && (<meta property="og:description" content={props.description} />)}
         {props.image && (<meta property="og:image" content={imageUrl} />)}
         <meta name="twitter:card" content={ props.image ? 'summary_large_image' : 'summary' } />
-        <meta name="twitter:site" content={appConfig.social.twitterLogin} />
-        <meta name="twitter:creator" content={appConfig.social.twitterLogin} />
+        <meta name="twitter:site" content={appConfig.social.xLogin} />
+        <meta name="twitter:creator" content={appConfig.social.xLogin} />
         <meta name="twitter:title" content={props.title} />
         {props.description && (<meta name="twitter:description" content={props.description} />)}
         {props.image && (<meta name="twitter:image" content={imageUrl} />)}
