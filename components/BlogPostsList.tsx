@@ -4,6 +4,7 @@ import BlogPostFooter from './BlogPostFooter'
 import Converter from 'utils/converter'
 import Layout from './Layout'
 import Link from 'next/link'
+import { Newspaper } from './icons'
 import appConfig from 'app.config.json'
 import { createUseStyles } from 'react-jss'
 
@@ -41,7 +42,9 @@ export default function BlogPostsList(props: BlogPostsListProps) {
 
       <div className="jumbotron page-header">
         <div className="container">
-          <h1>Blog <i className="fa fa-newspaper-o"></i></h1>
+          <h1 style={{ display: 'flex', gap: 10 }}>
+            Blog <Newspaper />
+          </h1>
           <p>{props.subtitle}</p>
         </div>
       </div>
