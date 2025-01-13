@@ -1,4 +1,10 @@
-import { Bluesky, X } from './icons'
+import {
+  Bluesky,
+  GitHub,
+  Instagram,
+  LinkedIn,
+  X
+} from './icons'
 import React, { PropsWithChildren, useEffect, useState } from 'react'
 
 import Head from 'next/head'
@@ -76,20 +82,11 @@ export default function Layout(props: LayoutProps) {
               <i className="fa fa-facebook-square"></i>
             </a>
 
-            <a href={ appConfig.social.linkedIn } target="_blank" rel="noopener" title="LinkedIn">
-              <i className="fa fa-linkedin"></i>
-            </a>
-
-            <a href={ appConfig.social.gitHub } target="_blank" rel="noopener" title="GitHub">
-              <i className="fa fa-github"></i>
-            </a>
-
+            <SocialLink href={ appConfig.social.linkedIn } title="LinkedIn"><LinkedIn /></SocialLink>
             <SocialLink href={ appConfig.social.x } title="X"><X /></SocialLink>
             <SocialLink href={ appConfig.social.bluesky } title="Bluesky"><Bluesky /></SocialLink>
-
-            <a href={ appConfig.social.instagram } target="_blank" rel="noopener" title="Instagram">
-              <i className="fa fa-instagram"></i>
-            </a>
+            <SocialLink href={ appConfig.social.gitHub } title="GitHub"><GitHub /></SocialLink>
+            <SocialLink href={ appConfig.social.instagram } title="Instagram"><Instagram /></SocialLink>
           </div>
         </footer>
       </div>
