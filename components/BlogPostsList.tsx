@@ -4,11 +4,11 @@ import { BlogPostAnnotation } from 'models/BlogPost'
 import BlogPostContent from './BlogPostContent'
 import BlogPostFooter from './BlogPostFooter'
 import Converter from 'utils/converter'
+import { Jumbotron } from './Jumbotron'
 import Layout from './Layout'
 import Link from 'next/link'
 import appConfig from 'app.config.json'
 import { createUseStyles } from 'react-jss'
-import { Jumbotron } from './Jumbotron'
 
 const useStyles = createUseStyles({
   list: {
@@ -43,9 +43,7 @@ export default function BlogPostsList(props: BlogPostsListProps) {
       pageId="blog">
 
       <Jumbotron>
-        <h1 style={{ display: 'flex', gap: 10 }}>
-          Blog <Newspaper />
-        </h1>
+        <h1>Blog <Newspaper /></h1>
         <p>{props.subtitle}</p>
       </Jumbotron>
 

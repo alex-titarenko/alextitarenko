@@ -10,9 +10,7 @@ export default function PrivacyPolicy() {
       pageId='custom-workouts'
     >
       <Jumbotron>
-        <h1 style={{ display: 'flex', gap: 10 }}>
-        Privacy Policy <Lock />
-        </h1>
+        <h1>Privacy Policy <Lock /></h1>
         <p>For <b>Custom Workouts</b> app</p>
       </Jumbotron>
     </Layout>

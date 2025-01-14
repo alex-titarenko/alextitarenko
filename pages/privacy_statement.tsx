@@ -9,9 +9,7 @@ export default function PrivacyStatementPage() {
       description="Privacy statement page"
       pageId="">
       <Jumbotron>
-        <h1 style={{ display: 'flex', gap: 10 }}>
-          Privacy Statement <Lock />
-        </h1>
+        <h1>Privacy Statement <Lock /></h1>
         <p>We respect your privacy</p>
       </Jumbotron>
 
