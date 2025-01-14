@@ -3,6 +3,8 @@ import { NextConfig } from 'next';
 import path from 'path';
 
 const nextConfig: NextConfig = {
+  output: 'export',
+
   webpack: function (config) {
     config.externals = (config.externals || []).concat('fs');
     config.module.rules.concat([
