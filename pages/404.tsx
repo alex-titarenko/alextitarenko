@@ -1,6 +1,6 @@
-import React from 'react'
 import Head from 'next/head'
 import Link from 'next/link'
+import React from 'react'
 
 export default function ErrorPage() {
   return (
@@ -12,8 +12,7 @@ export default function ErrorPage() {
       <h1>404</h1>
       <h2>Something went wrong!</h2>
       <p>The requested URL can not be found or might be temporarily unavailable.</p>
-      <Link href="/"><a className="button">Go Home</a></Link>
-
+      <Link href="/" className="button">Go Home</Link>
       <style jsx global>{`
         html, body, body>div {
           height: 100%;

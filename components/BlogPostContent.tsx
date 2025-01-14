@@ -1,13 +1,11 @@
-import React, { useEffect } from 'react'
-import ReactMarkdown from 'react-markdown'
-import Prism from 'prismjs'
-import 'prismjs/components/prism-json'
-import 'prismjs/components/prism-javascript.js'
-import 'prismjs/components/prism-typescript'
-import 'prismjs/components/prism-csharp'
-import 'prismjs/components/prism-powershell'
-import 'prismjs/themes/prism-tomorrow.css'
+import React, { ReactNode } from 'react'
 
+import { CodeBlock } from './CodeBlock'
+import { ExternalLink } from './icons'
+import ReactMarkdown from 'react-markdown'
+import rehypePrism from './rehypePlugins/rehypePrism'
+import rehypeRaw from 'rehype-raw'
+import remarkGfm from 'remark-gfm'
 
 type BlogPostContentProps = {
   urlSlug: string;
@@ -26,24 +24,44 @@ export default function BlogPostContent(props: BlogPostContentProps) {
     return /^http(s)?:/i.test(url);
   }
 
-  const renderers = {
-    image: (props) => (<img className="img-responsive" src={props.src} alt={props.alt} />),
-    table: (props) => (<table className="table">{ props.children }</table>),
-    link: (props) => (<a href={props.href} {...(isExternalUrl(props.href) ? { target: '_blank', rel: 'nofollow' } : {}) }>{ props.children }</a>),
-    code: (props) => (<pre className={`language-${props.language}`}><code className={`language-${props.language}`}>{ props.value }</code></pre>
+  const components = {
+    img: (props: { src?: string; alt?: string }) => (
+      // eslint-disable-next-line @next/next/no-img-element
+      <img className="img-responsive" src={props.src} alt={props.alt} />
+    ),
+
+    table: (props: { children?: ReactNode }) => (
+      <table className="table">{ props.children }</table>
+    ),
+
+    a: (props: { href?: string; children?: ReactNode }) => (
+      <a href={props.href} {...(isExternalUrl(props.href!) ? { target: '_blank', rel: 'nofollow' } : {}) }>
+        { props.children }
+        { isExternalUrl(props.href!) && <ExternalLink /> }
+      </a>
+    ),
+
+    pre: (props: { children?: ReactNode, sourceCode?: string, className?: string }) => (
+      <CodeBlock
+        sourceCode={ props.sourceCode }
+        className={ props.className }
+      >
+        { props.children }
+      </CodeBlock>
     )
   };
 
-  useEffect(() => {
-    Prism.highlightAll();
-  })
-
   return (
     <ReactMarkdown
-      source={props.markdownContent}
-      escapeHtml={false}
-      transformImageUri={(uri) => transformInternalUri(uri) }
-      transformLinkUri={(uri) => transformInternalUri(uri) }
-      renderers={renderers} />
+      remarkPlugins={[remarkGfm]}
+      rehypePlugins={[
+        rehypeRaw,
+        [rehypePrism, { ignoreMissing: true }]
+      ]}
+      components={components}
+      urlTransform={transformInternalUri}
+    >
+      {props.markdownContent}
+    </ReactMarkdown>
   );
 }

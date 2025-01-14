@@ -1,10 +1,24 @@
-import Link from 'next/link'
-import Layout from './Layout'
-import appConfig from 'app.config.json'
+import { Clock, Newspaper } from './icons'
+
 import { BlogPostAnnotation } from 'models/BlogPost'
 import BlogPostContent from './BlogPostContent'
 import BlogPostFooter from './BlogPostFooter'
 import Converter from 'utils/converter'
+import { Jumbotron } from './Jumbotron'
+import Layout from './Layout'
+import Link from 'next/link'
+import appConfig from 'app.config.json'
+import { createUseStyles } from 'react-jss'
+
+const useStyles = createUseStyles({
+  list: {
+    display: 'flex',
+    flexDirection: 'column',
+    gap: '40px',
+    listStyleType: 'none',
+    padding: 0,
+  }
+})
 
 type BlogPostsListProps = {
   subtitle: string;
@@ -12,6 +26,8 @@ type BlogPostsListProps = {
 }
 
 export default function BlogPostsList(props: BlogPostsListProps) {
+  const classes = useStyles();
+
   const keywords = props.posts
     .map(x => x.tags)
     .reduce((a, b) => a.concat(b), [])
@@ -26,12 +42,10 @@ export default function BlogPostsList(props: BlogPostsListProps) {
       keywords={ keywords.join(',') }
       pageId="blog">
 
-      <div className="jumbotron page-header">
-        <div className="container">
-          <h1>Blog <i className="fa fa-newspaper-o"></i></h1>
-          <p>{props.subtitle}</p>
-        </div>
-      </div>
+      <Jumbotron>
+        <h1>Blog <Newspaper /></h1>
+        <p>{props.subtitle}</p>
+      </Jumbotron>
 
       <div className="container">
         <section id="content">
@@ -39,7 +53,7 @@ export default function BlogPostsList(props: BlogPostsListProps) {
             <span>{ `1 - ${props.posts.length} of ${props.posts.length} posts` }</span>
           </div>
 
-          <ul className="reset list">
+          <ul className={ classes.list }>
             { props.posts.map(post => <li key={ post.urlSlug }><PostDescription post={ post } /></li>) }
           </ul>
         </section>
@@ -54,14 +68,16 @@ function PostDescription(props: { post: BlogPostAnnotation }) {
       <h1 className="post-title">
         <Link
           href="/blog/archive/[year]/[month]/[slug]"
-          as={`/blog/archive/${new Date(props.post.postedOn).getFullYear()}/${new Date(props.post.postedOn).getMonth()}/${props.post.urlSlug}`}>
-          <a title={ props.post.title }>{ props.post.title }</a>
+          as={`/blog/archive/${new Date(props.post.postedOn).getFullYear()}/${new Date(props.post.postedOn).getMonth()}/${props.post.urlSlug}`}
+          title={ props.post.title }
+        >
+          { props.post.title }
         </Link>
       </h1>
 
       {/* Posted date */}
       <div className="post-date">
-        <i className="fa fa-clock-o"></i> { Converter.formatDate(new Date(props.post.postedOn)) }
+        <Clock /> { Converter.formatDate(new Date(props.post.postedOn)) }
       </div>
 
       <div className="post-desc blog-post-content">

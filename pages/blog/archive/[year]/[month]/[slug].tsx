@@ -1,9 +1,12 @@
+import { Clock, Hourglass } from 'components/icons'
+
 import { BlogPost } from 'models/BlogPost'
 import BlogPostContent from 'components/BlogPostContent'
 import BlogPostFooter from 'components/BlogPostFooter'
 import { BlogRepository } from 'repositories/BlogRepository'
 import Converter from 'utils/converter'
 import Head from 'next/head'
+import { Jumbotron } from 'components/Jumbotron'
 import Layout from 'components/Layout'
 import appConfig from 'app.config.json'
 import { trackEvent } from 'utils/analytics'
@@ -28,7 +31,7 @@ export async function getStaticPaths() {
   };
 }
 
-export async function getStaticProps({ params }) {
+export async function getStaticProps({ params }: { params: { year: number, month: number, slug: string } }) {
   const post = blogRepository.getPost(params.year, params.month, params.slug);
   return { props: post };
 }
@@ -40,9 +43,11 @@ export default function BlogPostPage(props: BlogPost) {
     }
   });
 
-  const imageUrl = /^http(s)?:/i.test(props.image) ?
+  const imageUrl = /^http(s)?:/i.test(props.image ?? '') ?
     props.image :
-    new URL(props.image.startsWith('/') ? `/posts${props.image}` : `/posts/${props.image}`, appConfig.canonicalBaseUrl).href;
+    new URL((props.image ?? '').startsWith('/') ?
+      `/posts${props.image}` :
+      `/posts/${props.image}`, appConfig.canonicalBaseUrl).href;
 
   return (
     <Layout
@@ -59,23 +64,22 @@ export default function BlogPostPage(props: BlogPost) {
         {props.description && (<meta property="og:description" content={props.description} />)}
         {props.image && (<meta property="og:image" content={imageUrl} />)}
         <meta name="twitter:card" content={ props.image ? 'summary_large_image' : 'summary' } />
-        <meta name="twitter:site" content={appConfig.social.twitterLogin} />
-        <meta name="twitter:creator" content={appConfig.social.twitterLogin} />
+        <meta name="twitter:site" content={appConfig.social.xLogin} />
+        <meta name="twitter:creator" content={appConfig.social.xLogin} />
         <meta name="twitter:title" content={props.title} />
         {props.description && (<meta name="twitter:description" content={props.description} />)}
         {props.image && (<meta name="twitter:image" content={imageUrl} />)}
         {!props.published && (<meta name="robots" content="noindex" />)}
       </Head>
 
-      <div className="jumbotron page-header">
-        <div className="container">
-          <h1 itemProp="name">{props.title}</h1>
-          <p>
-            <i className={ props.published ? " fa fa-clock-o" : "glyphicon glyphicon-hourglass"}></i>&nbsp;
-            <span itemProp="datePublished">{ Converter.formatDate(new Date(props.postedOn)) }</span>
-          </p>
-        </div>
-      </div>
+      <Jumbotron>
+        <h1 itemProp="name">{props.title}</h1>
+        <p style={{ display: 'flex' }}>
+          { props.published ? <Clock /> : <Hourglass /> }
+          &nbsp;
+          <span itemProp="datePublished">{ Converter.formatDate(new Date(props.postedOn)) }</span>
+        </p>
+      </Jumbotron>
 
       <div className="container" itemScope itemType="http://schema.org/BlogPosting">
         <section id="content" itemProp="blogPost" className="blog-post-content">
@@ -85,16 +89,7 @@ export default function BlogPostPage(props: BlogPost) {
         <hr className="blog-post-footer-delimiter" />
 
         <BlogPostFooter post={props} />
-
-        <div className="scroll-to-top-button">
-          <i className="fa fa-arrow-circle-up" onClick={scrollToTop}></i>
-        </div>
       </div>
     </Layout>
   );
-}
-
-function scrollToTop() {
-  $("html, body").animate({ scrollTop: 0 }, "slow");
-  return false;
 }

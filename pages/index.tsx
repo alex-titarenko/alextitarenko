@@ -1,102 +1,63 @@
-import Link from 'next/link'
+import { Jumbotron } from 'components/Jumbotron';
 import Layout from 'components/Layout'
 import appConfig from 'app.config.json'
 
-
 export default function HomePage() {
+const facts: string[] = [
+    "Jogging gives me a lot of energy to push myself forward, develop, and achieve my goals",
+    "My hobby is traveling and I hope to visit as many places as possible",
+    "I'm a dreamer, and my greatest dream is space flight",
+    "I'm somewhat a perfectionist and a goal-oriented person‏",
+    "I greatly appreciate the time, because it cannot be recompensed",
+    "I love programming, and I find it hard to imagine my life without a line of code"
+  ];
+
+  const factsListItems = facts.map((fact, index) => {
+    return (
+      <li key={ index }>
+        { fact }
+      </li>
+    );
+  });
+
   return (
     <Layout
       title={ `${ appConfig.brandName } - Software Developer` }
       description="My personal website/portfolio."
       pageId="home">
-      <div className="jumbotron page-header page-header-home">
-        <div className="container">
-          <h1>HELLO FOLKS!</h1>
-          <p>My name is Alex Titarenko, and I'm a <strong>software developer</strong><br />I do a lot of <a target="_blank" rel="noopener" href={appConfig.social.gitHub}>coding</a>, learning, reading, jogging, dreaming and enjoy life!</p>
-        </div>
-      </div>
+
+      <Jumbotron className='page-header-home'>
+        <h1>HELLO FOLKS!</h1>
+        <p>My name is Alex Titarenko, and I&apos;m a <strong>software developer</strong><br />I do a lot of coding, learning, reading, jogging, dreaming, and enjoying life!</p>
+      </Jumbotron>
 
       <div className="container">
         <section id="content" className="home-content">
-          <div className="row row-content">
-            <div className="col-sm-6 text-content">
-              <h1><Link href="/projects"><a>Projects</a></Link></h1>
-              <p>
-                In my spare time, I have a passion for developing my personal projects to create something new, to make everyday life better and more productive.
-              </p>
-            </div>
-
-            <div className="col-sm-6 image-content">
-              <Link href="/projects">
-                <a><img src="/images/projects-home.png" className="img-responsive" /></a>
-              </Link>
-            </div>
+        <div className="text-center moto-block">
+            <h4>
+              <strong className="text-uppercase">My motto:</strong><br />
+              <strong>&quot;I can&apos;t&quot; needs to be excluded from your thoughts. One could do it, so can many. Nobody could - so be the first!</strong>
+            </h4>
           </div>
 
-          <div className="row row-content row-alternate">
-            <div className="col-sm-6 text-content">
-              <h1><a target="_blank" rel="noopener" href={ appConfig.social.gitHub }>Open source contribution</a></h1>
-              <p>
-                Each day in our professional work as well as in personal development we touch open source code. Millions of people around us create amazing code for sharing with other people.
-              </p>
-              <p>
-                Just proceed to my <a target="_blank" rel="noopener" href={ appConfig.social.gitHub }>GitHub</a> account to see what I'm contributing to open source community.
-              </p>
-            </div>
+          <p>
+            My name is Alex Titarenko. I live in WA, USA.
+          </p>
+          <p>
+            I&apos;m a patient, responsible, purposeful and committed engineer, who has the desire to continue evolving and discovering new technologies. Productive in team-based as well as self-managed projects. I&apos;m dedicated to maintaining up-to-date industry knowledge and IT skills.
+          </p>
+          <p>
+            My expertise spans both backend and frontend development, encompassing a range of platforms from web to desktop, mobile, and cloud computing. I feel confident working with diverse technologies and tools to create effective solutions.
+          </p>
+          <p>
+            In leisure time I develop personal projects and push code on <a target="_blank" rel="noopener" href={ appConfig.social.gitHub }>GitHub</a>.
+          </p>
 
-            <div className="col-sm-6 image-content">
-              <a target="_blank" rel="noopener" href={ appConfig.social.gitHub }>
-                <img src="/images/open-source-home.png" className="img-responsive" />
-              </a>
-            </div>
-          </div>
-
-          <div className="row row-content">
-            <div className="col-sm-6 text-content">
-              <h1><Link href="/blog"><a>Blogging</a></Link></h1>
-              <blockquote>
-                <p>and the internet allows us to engage in a lot more real-time conversations as opposed to a one-way dump of information or a message.</p>
-                <footer>Indra Nooyi</footer>
-              </blockquote>
-            </div>
-
-            <div className="col-sm-6 image-content">
-              <Link href="/blog">
-                <a><img src="/images/blogging-home.png" className="img-responsive" /></a>
-              </Link>
-            </div>
-          </div>
-
-          <div className="row row-content row-alternate">
-            <div className="col-sm-6 text-content">
-              <h1><a target="_blank" rel="noopener" href={ appConfig.contactInfo.resumeLink }>Résumé</a></h1>
-              <p>
-                I'm open for new opportunities. If you have something interesting to offer, feel free to contact me. You can find my professional experience in the <a target="_blank" rel="noopener" href={ appConfig.contactInfo.resumeLink }>resume</a> or <a target="_blank" rel="noopener" href={ appConfig.social.linkedIn }>LinkedIn</a> profile.
-              </p>
-            </div>
-
-            <div className="col-sm-6 image-content">
-              <a target="_blank" rel="noopener" href={ appConfig.contactInfo.resumeLink }>
-                <img src="/images/cv-home.png" className="img-responsive" />
-              </a>
-            </div>
-          </div>
-
-          <div className="row row-content">
-            <div className="col-sm-6 text-content">
-              <h1><Link href="/about"><a>About Me</a></Link></h1>
-              <p>
-                Maybe we already know each other, if not, visit <Link href="/about"><a>about</a></Link> page and find out more about me.
-              </p>
-            </div>
-
-            <div className="col-sm-6 image-content">
-              <Link href="/about">
-                <a>
-                  <img src="/images/about-home.png" className="img-responsive" />
-                </a>
-              </Link>
-            </div>
+          <div className="random-facts">
+            <h3>Some facts about me</h3>
+            <ul className='check-list'>
+              { factsListItems }
+            </ul>
           </div>
         </section>
       </div>

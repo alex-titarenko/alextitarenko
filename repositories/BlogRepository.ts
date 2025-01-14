@@ -35,7 +35,7 @@ export class BlogRepository {
     return BlogRepository.blogPosts.value.find(x =>
       new Date(x.postedOn).getFullYear() == year &&
       new Date(x.postedOn).getMonth() == month &&
-      x.urlSlug.toLowerCase() === slug.toLowerCase());
+      x.urlSlug.toLowerCase() === slug.toLowerCase())!;
   }
 
   public getTag(tagSlug: string): BlogTag {
@@ -123,7 +123,7 @@ export class BlogRepository {
      return new Date(b.postedOn).getTime() - new Date(a.postedOn).getTime();
     }
 
-    var posts = glob.sync(postsFilePattern).map(filePath => {
+    const posts = glob.sync(postsFilePattern).map(filePath => {
       const rawContent = fs.readFileSync(filePath, 'utf8');
       return BlogRepository.parseBlogPost(filePath, rawContent);
     });
@@ -166,7 +166,8 @@ export class BlogRepository {
 
   private static toAnnotation(post: BlogPost): BlogPostAnnotation {
     const annotation = Object.assign({}, post);
-    delete annotation.content;
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    delete (annotation as any).content;
 
     return annotation;
   }

@@ -1,10 +1,31 @@
-import React from 'react'
-import Head from 'next/head'
-import Link from 'next/link'
-import appConfig from 'app.config.json'
-import { Project } from 'models/Project'
-import { ProjectRepository } from 'repositories/ProjectRepository'
+import {
+  Bluesky,
+  GitHub,
+  Instagram,
+  X
+} from './icons'
+import React, { PropsWithChildren, useEffect, useState } from 'react'
 
+import Head from 'next/head'
+import { NavBar } from './NavBar'
+import { Threads } from './icons/Threads'
+import appConfig from 'app.config.json'
+import clsx from 'clsx'
+import { createUseStyles } from 'react-jss'
+
+const useStyles = createUseStyles({
+  footer: {
+    '& a': {
+      verticalAlign: 'text-top',
+
+      '& svg': {
+        color: 'inherit',
+        width: '1em',
+        height: '1em',
+      }
+    }
+  }
+})
 
 type LayoutProps = {
   title: string;
@@ -12,134 +33,76 @@ type LayoutProps = {
   pageId: string;
   canonicalUrl?: string;
   keywords?: string;
+  children: React.ReactNode;
 }
 
-type LayoutState = {
-  canonicalUrl?: string;
-  projects: Project[];
-}
+export default function Layout(props: LayoutProps) {
+  const classes = useStyles();
 
-export default class Layout extends React.Component<LayoutProps, LayoutState> {
-  private mainMenu = React.createRef<HTMLUListElement>();
+  const mainMenu = React.createRef<HTMLUListElement>();
+  const [canonicalUrl, setCanonicalUrl] = useState(props.canonicalUrl)
 
-  public static defaultProps = {
-    keywords: appConfig.defaultKeywords
-  }
-
-  constructor(props: LayoutProps) {
-    super(props);
-
-    const projectRepository = new ProjectRepository();
-    this.state = {
-      canonicalUrl: this.props.canonicalUrl,
-      projects: projectRepository.getAll(),
-    }
-  }
-
-  public componentDidMount() {
-    this.setState({
-      canonicalUrl: this.props.canonicalUrl || this.getDefaultCanonicalUrl()
-    });
-
-    if (this.mainMenu.current) {
-      this.selectMenuItem(this.mainMenu.current, this.props.pageId, "active");
-    }
-  }
-
-  public render() {
-    const projectElements = this.state.projects.map(proj => {
-      return (
-        <li key={ proj.id }>
-          <Link href="/projects/[alias]" as={ `/projects/${ proj.alias }` }>
-            <a title={ `${ proj.name } Project Information` }>{ proj.name }</a>
-          </Link>
-        </li>
-      )
-    });
-
-    return (
-      <div>
-        <Head>
-          <title>{ this.props.title }</title>
-          <meta name="keywords" content={ this.props.keywords } />
-          <meta name="description" content={ this.props.description } />
-          <link rel="canonical" href={ this.state.canonicalUrl } />
-        </Head>
-
-        <div>
-          <header className="navbar navbar-default navbar-static-top">
-            <div className="container">
-              <div className="navbar-header">
-                <button type="button" className="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
-                  <span className="sr-only">Toggle navigation</span>
-                  <span className="icon-bar"></span>
-                  <span className="icon-bar"></span>
-                  <span className="icon-bar"></span>
-                </button>
-                <Link href="/"><a className="navbar-brand">&lt; <span>{ appConfig.brandName }</span> /&gt;</a></Link>
-              </div>
-
-              <nav id="navbar" className="collapse navbar-collapse bs-navbar-collapse">
-                <ul id="mainmenu" ref={ this.mainMenu } className="nav navbar-nav navbar-right">
-                  <li className="projects dropdown">
-                    <a href="#" className="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
-                      Projects&nbsp;<span className="caret"></span>
-                    </a>
-
-                    <ul className="dropdown-menu" role="menu">
-                      { projectElements }
-                    </ul>
-                  </li>
-
-                  <li className="blog">
-                    <Link href="/blog"><a>Blog</a></Link>
-                  </li>
-
-                  <li className="about">
-                    <Link href="/about"><a>About</a></Link>
-                  </li>
-
-                  <li className="company">
-                    <Link href="/contact"><a>Contact</a></Link>
-                  </li>
-                </ul>
-              </nav>
-            </div>
-          </header>
-
-          { this.props.children }
-
-          <footer className="footer">
-            <div>Copyright &copy; { appConfig.brandName } 2011-{ new Date().getFullYear() }</div>
-
-            <div className="contacts">
-              <a href={ appConfig.social.facebook } target="_blank" rel="noopener" title="Facebook"><i className="fa fa-facebook-square"></i></a>
-              <a href={ appConfig.social.linkedIn } target="_blank" rel="noopener" title="LinkedIn"><i className="fa fa-linkedin"></i></a>
-              <a href={ appConfig.social.gitHub } target="_blank" rel="noopener" title="GitHub"><i className="fa fa-github"></i></a>
-              <a href={ appConfig.social.stackoverflow } target="_blank" rel="noopener" title="StackOverflow"><i className="fa fa-stack-overflow"></i></a>
-              <a href={ appConfig.social.instagram } target="_blank" rel="noopener" title="Instagram"><i className="fa fa-instagram"></i></a>
-              <a href={ appConfig.social.twitter } target="_blank" rel="noopener" title="Twitter"><i className="fa fa-twitter"></i></a>
-            </div>
-          </footer>
-        </div>
-      </div>
-    );
-  }
-
-  private getDefaultCanonicalUrl(): string {
-    const baseUrl = appConfig.canonicalBaseUrl.replace(new RegExp("[/]+$"), "");
-    const canonicalUrl = baseUrl + location.pathname + location.search;
-
-    return canonicalUrl;
-  }
-
-  private selectMenuItem(menu: HTMLElement, munuItem: string, selectClass: string) {
+  const selectMenuItem = (menu: HTMLElement, munuItem: string, selectClass: string) => {
     if (munuItem) {
       const item = menu.querySelector(`li[class~="${munuItem}"]`);
 
-      if (item != null) {
+      if (item) {
         item.classList.add(selectClass);
       }
     }
   }
+
+  useEffect(() => {
+    setCanonicalUrl(props.canonicalUrl || getDefaultCanonicalUrl());
+
+    if (mainMenu.current) {
+      selectMenuItem(mainMenu.current, props.pageId, "active");
+    }
+  }, [mainMenu, props.canonicalUrl, props.pageId]);
+
+  return (
+    <div>
+      <Head>
+        <title>{ props.title }</title>
+        <meta name="keywords" content={ props.keywords ?? appConfig.defaultKeywords } />
+        <meta name="description" content={ props.description } />
+        <link rel="canonical" href={ canonicalUrl } />
+      </Head>
+
+      <div>
+        <NavBar ref={ mainMenu } />
+
+        { props.children }
+
+        <footer className={ clsx("footer", classes.footer) }>
+          <div>Copyright &copy; { appConfig.brandName } 2011-{ new Date().getFullYear() }</div>
+
+          <div className="contacts">
+            {/* <SocialLink href={ appConfig.social.facebook } title="Facebook"><Facebook /></SocialLink>
+            <SocialLink href={ appConfig.social.linkedIn } title="LinkedIn"><LinkedIn /></SocialLink> */}
+            <SocialLink href={ appConfig.social.x } title="X"><X /></SocialLink>
+            <SocialLink href={ appConfig.social.threads } title="Threads"><Threads /></SocialLink>
+            <SocialLink href={ appConfig.social.bluesky } title="Bluesky"><Bluesky /></SocialLink>
+            <SocialLink href={ appConfig.social.gitHub } title="GitHub"><GitHub /></SocialLink>
+            <SocialLink href={ appConfig.social.instagram } title="Instagram"><Instagram /></SocialLink>
+          </div>
+        </footer>
+      </div>
+    </div>
+  )
+}
+
+function SocialLink(props: PropsWithChildren<{ href: string; title: string }>) {
+  return (
+    <a href={ props.href } target="_blank" rel="noopener" title={ props.title }>
+      { props.children }
+    </a>
+  )
+}
+
+function getDefaultCanonicalUrl() {
+  const baseUrl = appConfig.canonicalBaseUrl.replace(new RegExp("[/]+$"), "");
+  const canonicalUrl = baseUrl + location.pathname + location.search;
+
+  return canonicalUrl;
 }
