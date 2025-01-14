@@ -2,11 +2,6 @@
   "brandName": "Alex Titarenko",
   "defaultKeywords": "alex titarenko, software developer, full stack software developer, .net developer, coder, programmer, open source, blog",
   "canonicalBaseUrl": "https://www.alextitarenko.me/",
-  "emails": {
-    "replyTo": "reply-to@alextitarenko.me",
-    "contact": "contact@alextitarenko.me",
-    "support": "support@alextitarenko.me"
-  },
   "social": {
     "facebook": "https://www.facebook.com/alex.titarenko",
     "linkedIn": "http://linkedin.com/in/alextitarenko",
@@ -17,13 +12,7 @@
     "gitHub": "https://github.com/alex-titarenko",
     "instagram": "https://instagram.com/alex.titarenko"
   },
-  "api": {
-    "sendEmail": "/api/sendEmail"
-  },
   "google": {
     "analyticsId": "G-2XB4M91CQD"
-  },
-  "recaptcha": {
-    "siteKey": "6Le3wsUUAAAAABlrEvJ2cIsR61-R3LR9Rw83lGL6"
   }
 }
