@@ -48,7 +48,7 @@ export default function Layout(props: LayoutProps) {
     if (munuItem) {
       const item = menu.querySelector(`li[class~="${munuItem}"]`);
 
-      if (item != null) {
+      if (item) {
         item.classList.add(selectClass);
       }
     }
@@ -80,8 +80,8 @@ export default function Layout(props: LayoutProps) {
           <div>Copyright &copy; { appConfig.brandName } 2011-{ new Date().getFullYear() }</div>
 
           <div className="contacts">
-            <SocialLink href={ appConfig.social.facebook } title="Facebook"><Facebook /></SocialLink>
-            <SocialLink href={ appConfig.social.linkedIn } title="LinkedIn"><LinkedIn /></SocialLink>
+            {/* <SocialLink href={ appConfig.social.facebook } title="Facebook"><Facebook /></SocialLink>
+            <SocialLink href={ appConfig.social.linkedIn } title="LinkedIn"><LinkedIn /></SocialLink> */}
             <SocialLink href={ appConfig.social.x } title="X"><X /></SocialLink>
             <SocialLink href={ appConfig.social.threads } title="Threads"><Threads /></SocialLink>
             <SocialLink href={ appConfig.social.bluesky } title="Bluesky"><Bluesky /></SocialLink>
