@@ -29,7 +29,7 @@ const nextConfig: NextConfig = {
           {
             context: 'data/',
             from: 'posts/**/.attachments/*',
-            to: path.resolve(__dirname, 'public/posts/.attachments/[name].[ext]'),
+            to: path.resolve(__dirname, 'public/posts/.attachments/[name][ext]'),
             globOptions: {
               ignore: ['*.md']
             },
