@@ -1,3 +1,4 @@
+import { Jumbotron } from 'components/Jumbotron';
 import Layout from 'components/Layout'
 import appConfig from 'app.config.json'
 
@@ -24,12 +25,12 @@ const facts: string[] = [
       title={ `${ appConfig.brandName } - Software Developer` }
       description="My personal website/portfolio."
       pageId="home">
-      <div className="jumbotron page-header page-header-home">
-        <div className="container">
-          <h1>HELLO FOLKS!</h1>
-          <p>My name is Alex Titarenko, and I&apos;m a <strong>software developer</strong><br />I do a lot of coding, learning, reading, jogging, dreaming, and enjoying life!</p>
-        </div>
-      </div>
+
+      <Jumbotron className='page-header-home'>
+        <h1>HELLO FOLKS!</h1>
+        <p>My name is Alex Titarenko, and I&apos;m a <strong>software developer</strong><br />I do a lot of coding, learning, reading, jogging, dreaming, and enjoying life!</p>
+      </Jumbotron>
+
       <div className="container">
         <section id="content" className="home-content">
         <div className="text-center moto-block">

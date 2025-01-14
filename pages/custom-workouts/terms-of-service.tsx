@@ -1,0 +1,16 @@
+import { Jumbotron } from 'components/Jumbotron';
+import Layout from 'components/Layout';
+
+export default function TermsOfService() {
+  return (
+    <Layout
+      title='Terms Of Service - Custom Workouts'
+      description='Review our terms and conditions for using our services. By accessing and using our services, you agree to comply with and be bound by these terms.'
+      pageId='custom-workouts'
+    >
+      <Jumbotron>
+
+      </Jumbotron>
+    </Layout>
+  )
+}

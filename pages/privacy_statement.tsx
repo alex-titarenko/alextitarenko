@@ -1,3 +1,4 @@
+import { Jumbotron } from 'components/Jumbotron'
 import Layout from 'components/Layout'
 import { Lock } from 'components/icons'
 
@@ -7,14 +8,12 @@ export default function PrivacyStatementPage() {
       title="Privacy Statement"
       description="Privacy statement page"
       pageId="">
-      <div className="jumbotron page-header">
-        <div className="container">
-          <h1 style={{ display: 'flex', gap: 10 }}>
-            Privacy Statement <Lock />
-          </h1>
-          <p>We respect your privacy</p>
-        </div>
-      </div>
+      <Jumbotron>
+        <h1 style={{ display: 'flex', gap: 10 }}>
+          Privacy Statement <Lock />
+        </h1>
+        <p>We respect your privacy</p>
+      </Jumbotron>
 
       <div className="container">
         <section id="content">

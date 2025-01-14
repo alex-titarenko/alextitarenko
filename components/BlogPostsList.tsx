@@ -8,6 +8,7 @@ import Layout from './Layout'
 import Link from 'next/link'
 import appConfig from 'app.config.json'
 import { createUseStyles } from 'react-jss'
+import { Jumbotron } from './Jumbotron'
 
 const useStyles = createUseStyles({
   list: {
@@ -41,14 +42,12 @@ export default function BlogPostsList(props: BlogPostsListProps) {
       keywords={ keywords.join(',') }
       pageId="blog">
 
-      <div className="jumbotron page-header">
-        <div className="container">
-          <h1 style={{ display: 'flex', gap: 10 }}>
-            Blog <Newspaper />
-          </h1>
-          <p>{props.subtitle}</p>
-        </div>
-      </div>
+      <Jumbotron>
+        <h1 style={{ display: 'flex', gap: 10 }}>
+          Blog <Newspaper />
+        </h1>
+        <p>{props.subtitle}</p>
+      </Jumbotron>
 
       <div className="container">
         <section id="content">

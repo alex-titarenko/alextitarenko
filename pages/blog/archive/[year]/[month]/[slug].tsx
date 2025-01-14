@@ -6,6 +6,7 @@ import BlogPostFooter from 'components/BlogPostFooter'
 import { BlogRepository } from 'repositories/BlogRepository'
 import Converter from 'utils/converter'
 import Head from 'next/head'
+import { Jumbotron } from 'components/Jumbotron'
 import Layout from 'components/Layout'
 import appConfig from 'app.config.json'
 import { trackEvent } from 'utils/analytics'
@@ -71,16 +72,14 @@ export default function BlogPostPage(props: BlogPost) {
         {!props.published && (<meta name="robots" content="noindex" />)}
       </Head>
 
-      <div className="jumbotron page-header">
-        <div className="container">
-          <h1 itemProp="name">{props.title}</h1>
-          <p style={{ display: 'flex' }}>
-            { props.published ? <Clock /> : <Hourglass /> }
-            &nbsp;
-            <span itemProp="datePublished">{ Converter.formatDate(new Date(props.postedOn)) }</span>
-          </p>
-        </div>
-      </div>
+      <Jumbotron>
+        <h1 itemProp="name">{props.title}</h1>
+        <p style={{ display: 'flex' }}>
+          { props.published ? <Clock /> : <Hourglass /> }
+          &nbsp;
+          <span itemProp="datePublished">{ Converter.formatDate(new Date(props.postedOn)) }</span>
+        </p>
+      </Jumbotron>
 
       <div className="container" itemScope itemType="http://schema.org/BlogPosting">
         <section id="content" itemProp="blogPost" className="blog-post-content">
