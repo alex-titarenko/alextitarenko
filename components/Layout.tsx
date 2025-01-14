@@ -1,9 +1,7 @@
 import {
   Bluesky,
-  Facebook,
   GitHub,
   Instagram,
-  LinkedIn,
   X
 } from './icons'
 import React, { PropsWithChildren, useEffect, useState } from 'react'

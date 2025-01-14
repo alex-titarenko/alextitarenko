@@ -1,3 +1,4 @@
+import { Handshake } from 'components/icons';
 import { Jumbotron } from 'components/Jumbotron';
 import Layout from 'components/Layout';
 
@@ -9,7 +10,8 @@ export default function TermsOfService() {
       pageId='custom-workouts'
     >
       <Jumbotron>
-
+        <h1 style={{ display: 'flex', gap: 10 }}>Terms Of Service <Handshake /></h1>
+        <p>For <b>Custom Workouts</b> app</p>
       </Jumbotron>
     </Layout>
   )
