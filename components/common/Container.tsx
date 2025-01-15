@@ -1,8 +1,13 @@
 import { PropsWithChildren } from 'react';
+import clsx from 'clsx';
 
-export function Container(props: PropsWithChildren<unknown>) {
+type ContainerProps = {
+  className?: string
+}
+
+export function Container(props: PropsWithChildren<ContainerProps> = {}) {
   return (
-    <div className="container">
+    <div className={ clsx("container", props.className) }>
       { props.children }
     </div>
   )
