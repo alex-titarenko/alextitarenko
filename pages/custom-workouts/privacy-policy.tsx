@@ -40,7 +40,7 @@ export default function PrivacyPolicy() {
           <h3>Data Collection</h3>
           <p>
             <b>Personal Information:</b> We do not collect any personal information or analytics data from users.<br />
-            <b>iCloud Sync:</b> Our app uses Apple’s iCloud service to sync user data across their devices. This means your workout data is stored in your iCloud account and shared between your devices.
+            <b>iCloud Sync:</b> Our app uses Apple’s iCloud service to sync user data across their devices. This means your data is stored in your iCloud account and shared between your devices.
           </p>
 
           <h3>Data Usage</h3>
