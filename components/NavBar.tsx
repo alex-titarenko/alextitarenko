@@ -5,9 +5,8 @@ import { Spacer } from './common/Spacer';
 import appConfig from 'app.config.json';
 import clsx from 'clsx'
 import { createUseStyles } from 'react-jss'
+import { mediaQueries } from 'utils/mediaQueries';
 import { useMediaQuery } from 'hooks/useMediaQuery';
-
-const compactSizeMQ = '@media (max-width: 768px)';
 
 const useStyles = createUseStyles({
   navbar: {
@@ -26,7 +25,7 @@ const useStyles = createUseStyles({
     flexGrow: 1,
     alignItems: 'center',
 
-    [compactSizeMQ]: {
+    [mediaQueries.compactSize]: {
       flexDirection: 'column',
       alignItems: 'stretch'
     }
@@ -94,7 +93,7 @@ const useStyles = createUseStyles({
       borderRadius: '10px'
     },
 
-    [compactSizeMQ]: {
+    [mediaQueries.compactSize]: {
       height: 0,
 
       '& ul': {
@@ -124,7 +123,7 @@ const useStyles = createUseStyles({
       backgroundColor: '#ddd',
     },
 
-    [compactSizeMQ]: {
+    [mediaQueries.compactSize]: {
       visibility: 'visible'
     }
   },
@@ -144,7 +143,7 @@ const useStyles = createUseStyles({
   separator: {
     marginLeft: '20px',
 
-    [compactSizeMQ]: {
+    [mediaQueries.compactSize]: {
       display: 'none'
     }
   },
