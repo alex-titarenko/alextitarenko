@@ -1,9 +1,9 @@
 import { useEffect, useState } from 'react';
 
+import { Container } from './common/Container';
 import Link from 'next/link';
 import { Spacer } from './common/Spacer';
 import appConfig from 'app.config.json';
-import clsx from 'clsx'
 import { createUseStyles } from 'react-jss'
 import { mediaQueries } from 'utils/mediaQueries';
 import { useMediaQuery } from 'hooks/useMediaQuery';
@@ -170,7 +170,7 @@ export function NavBar(props: { ref: React.RefObject<HTMLUListElement | null> })
 
   return (
     <header className={ classes.navbar }>
-      <div className={ clsx(classes.navbarContainer, "container") }>
+      <Container className={ classes.navbarContainer }>
         <div className={ classes.brandContainer }>
           <Link href="/" className={ classes.brand }>
             &lt; <span>{ appConfig.brandName }</span> /&gt;
@@ -208,7 +208,7 @@ export function NavBar(props: { ref: React.RefObject<HTMLUListElement | null> })
             </li>
           </ul>
         </nav>
-      </div>
+      </Container>
     </header>
   )
 }

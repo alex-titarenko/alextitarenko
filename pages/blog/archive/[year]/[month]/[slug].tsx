@@ -4,6 +4,7 @@ import { BlogPost } from 'models/BlogPost'
 import BlogPostContent from 'components/BlogPostContent'
 import BlogPostFooter from 'components/BlogPostFooter'
 import { BlogRepository } from 'repositories/BlogRepository'
+import { Container } from 'components/common/Container'
 import Converter from 'utils/converter'
 import Head from 'next/head'
 import { Jumbotron } from 'components/Jumbotron'
@@ -81,7 +82,7 @@ export default function BlogPostPage(props: BlogPost) {
         </p>
       </Jumbotron>
 
-      <div className="container" itemScope itemType="http://schema.org/BlogPosting">
+      <Container itemScope itemType="http://schema.org/BlogPosting">
         <section id="content" itemProp="blogPost" className="blog-post-content">
           <BlogPostContent urlSlug={props.urlSlug} markdownContent={props.content} />
         </section>
@@ -89,7 +90,7 @@ export default function BlogPostPage(props: BlogPost) {
         <hr className="blog-post-footer-delimiter" />
 
         <BlogPostFooter post={props} />
-      </div>
+      </Container>
     </Layout>
   );
 }

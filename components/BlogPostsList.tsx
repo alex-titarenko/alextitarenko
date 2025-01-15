@@ -3,6 +3,7 @@ import { Clock, Newspaper } from './icons'
 import { BlogPostAnnotation } from 'models/BlogPost'
 import BlogPostContent from './BlogPostContent'
 import BlogPostFooter from './BlogPostFooter'
+import { Container } from './common/Container'
 import Converter from 'utils/converter'
 import { Jumbotron } from './Jumbotron'
 import Layout from './Layout'
@@ -47,7 +48,7 @@ export default function BlogPostsList(props: BlogPostsListProps) {
         <p>{props.subtitle}</p>
       </Jumbotron>
 
-      <div className="container">
+      <Container>
         <section id="content">
           <div className="result">
             <span>{ `1 - ${props.posts.length} of ${props.posts.length} posts` }</span>
@@ -57,7 +58,7 @@ export default function BlogPostsList(props: BlogPostsListProps) {
             { props.posts.map(post => <li key={ post.urlSlug }><PostDescription post={ post } /></li>) }
           </ul>
         </section>
-      </div>
+      </Container>
     </Layout>
   );
 }

@@ -1,3 +1,4 @@
+import { Container } from './common/Container';
 import { PropsWithChildren } from 'react';
 import clsx from 'clsx';
 import { createUseStyles } from 'react-jss';
@@ -27,9 +28,9 @@ export function Jumbotron(props: PropsWithChildren<JumbotronProps> = {}) {
 
   return (
     <div className={ clsx('jumbotron', 'page-header', props.className) }>
-      <div className={ clsx('container', classes.container) }>
+      <Container className={ classes.container }>
         { props.children }
-      </div>
+      </Container>
     </div>
   )
 }

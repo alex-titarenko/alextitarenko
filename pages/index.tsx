@@ -1,3 +1,4 @@
+import { Container } from 'components/common/Container';
 import { Jumbotron } from 'components/Jumbotron';
 import Layout from 'components/Layout'
 import appConfig from 'app.config.json'
@@ -31,7 +32,7 @@ const facts: string[] = [
         <p>My name is Alex Titarenko, and I&apos;m a <strong>software developer</strong><br />I do a lot of coding, learning, reading, jogging, dreaming, and enjoying life!</p>
       </Jumbotron>
 
-      <div className="container">
+      <Container>
         <section id="content" className="home-content">
         <div className="text-center moto-block">
             <h4>
@@ -60,7 +61,7 @@ const facts: string[] = [
             </ul>
           </div>
         </section>
-      </div>
+      </Container>
     </Layout>
   )
 }
