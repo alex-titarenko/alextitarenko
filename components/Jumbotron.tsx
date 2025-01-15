@@ -5,12 +5,41 @@ import { createUseStyles } from 'react-jss';
 import { mediaQueries } from 'utils/mediaQueries';
 
 const useStyles = createUseStyles({
-  container: {
+  jumbotron: {
+    paddingTop: '48px',
+    paddingBottom: '48px',
+    marginBottom: '30px',
+    backgroundColor: 'var(--accent-color)',
+    color: 'white',
+    borderBottom: '1px solid #eee',
+
     '& h1': {
       display: 'flex',
-      gap: 10
+      gap: 10,
+      fontSize: '63px',
     },
 
+    '& p': {
+      marginBottom: '15px',
+      fontSize: '21px',
+      fontWeight: 200
+    },
+
+    [mediaQueries.compactSize]: {
+      display: 'flex',
+      textAlign: 'center',
+      alignItems: 'center',
+
+      paddingTop: '30px',
+      paddingBottom: '30px',
+
+      '& h1': {
+        fontSize: '36px'
+      }
+    }
+  },
+
+  container: {
     [mediaQueries.compactSize]: {
       display: 'flex',
       flexDirection: 'column',
@@ -27,7 +56,7 @@ export function Jumbotron(props: PropsWithChildren<JumbotronProps> = {}) {
   const classes = useStyles();
 
   return (
-    <div className={ clsx('jumbotron', 'page-header', props.className) }>
+    <div className={ clsx(classes.jumbotron, props.className) }>
       <Container className={ classes.container }>
         { props.children }
       </Container>

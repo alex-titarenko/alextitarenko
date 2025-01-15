@@ -12,7 +12,6 @@ const useStyles = createUseStyles({
   navbar: {
     position: 'relative',
     minHeight: '50px',
-    marginBottom: '20px',
     backgroundColor: '#f8f8f8',
     border: '1px solid transparent',
     borderWidth: '0 0 1px',
