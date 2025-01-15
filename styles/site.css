@@ -295,15 +295,6 @@ ul.reset li {
   margin-bottom: 40px;
 }
 
-.check-list {
-  padding-left: 20px;
-  list-style-type: circle;
-
-  li {
-    margin: 15px 0 15px 0;
-  }
-}
-
 /*----------------------------------------------------*/
 /* Pagination */
 /*----------------------------------------------------*/
@@ -317,53 +308,6 @@ ul.reset li {
 		border-radius: 5px;
 		padding: 3px 10px;
   }
-}
-
-/*----------------------------------------------------*/
-/* Pages */
-/*----------------------------------------------------*/
-
-/* Home */
-.page-header-home {
-  background-size: cover;
-  height: 400px;
-  background-image: url(/images/home-header-bg-wide.jpg);
-  background-position: center center;
-
-  h1, p { text-shadow: var(--text-shadow); }
-  a {
-    text-shadow: 1px 1px 1px #337ab7;
-
-    &:hover, &:focus {
-      text-decoration: none;
-      text-shadow: 1px 1px 1px #1b307d;
-    }
-  }
-}
-
-@media (max-width: 768px) {
-  .page-header-home {
-    height: 300px;
-    background-image: url(/images/home-header-bg-phone.jpg);
-    background-position: center center;
-  }
-
-  .home-content img {
-    padding: 0 60px;
-  }
-}
-
-.moto-block {
-  padding-bottom: 25px;
-
-  strong:first-child {
-    line-height: 25px;
-    color: gray;
-  }
-}
-
-.random-facts {
-  margin-top: 35px;
 }
 
 /* ----------------------------------------- */

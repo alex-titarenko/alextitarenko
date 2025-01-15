@@ -2,9 +2,54 @@ import { Container } from 'components/common/Container';
 import { Jumbotron } from 'components/Jumbotron';
 import Layout from 'components/Layout'
 import appConfig from 'app.config.json'
+import { createUseStyles } from 'react-jss';
+import { mediaQueries } from 'utils/mediaQueries';
+
+const useStyles = createUseStyles({
+  homeJumbotron: {
+    backgroundSize: 'cover',
+    height: '400px',
+    backgroundImage: 'url(/images/home-header-bg-wide.jpg)',
+    backgroundPosition: 'center center',
+
+    '& h1, & p': {
+      textShadow: 'var(--text-shadow)'
+    },
+
+    [mediaQueries.compactSize]: {
+      height: '300px',
+      backgroundImage: 'url(/images/home-header-bg-phone.jpg)',
+    }
+  },
+
+  motoBlock: {
+    textAlign: 'center',
+    paddingBottom: '25px',
+
+    '& strong:first-child': {
+      lineHeight: '25px',
+      color: 'gray'
+    },
+  },
+
+  randomFacts: {
+    marginTop: '35px',
+  },
+
+  checkList: {
+    paddingLeft: '20px',
+    listStyleType: 'circle',
+
+    '& li': {
+      margin: '15px 0 15px 0',
+    }
+  }
+})
 
 export default function HomePage() {
-const facts: string[] = [
+  const classes = useStyles();
+
+  const facts: string[] = [
     "Jogging gives me a lot of energy to push myself forward, develop, and achieve my goals",
     "My hobby is traveling and I hope to visit as many places as possible",
     "I'm a dreamer, and my greatest dream is space flight",
@@ -27,16 +72,16 @@ const facts: string[] = [
       description="My personal website/portfolio."
       pageId="home">
 
-      <Jumbotron className='page-header-home'>
+      <Jumbotron className={ classes.homeJumbotron }>
         <h1>HELLO FOLKS!</h1>
         <p>My name is Alex Titarenko, and I&apos;m a <strong>software developer</strong><br />I do a lot of coding, learning, reading, jogging, dreaming, and enjoying life!</p>
       </Jumbotron>
 
       <Container>
-        <section id="content" className="home-content">
-        <div className="text-center moto-block">
+        <section id="content">
+        <div className={ classes.motoBlock }>
             <h4>
-              <strong className="text-uppercase">My motto:</strong><br />
+              <strong>MY MOTTO:</strong><br />
               <strong>&quot;I can&apos;t&quot; needs to be excluded from your thoughts. One could do it, so can many. Nobody could - so be the first!</strong>
             </h4>
           </div>
@@ -54,9 +99,9 @@ const facts: string[] = [
             In leisure time I develop personal projects and push code on <a target="_blank" rel="noopener" href={ appConfig.social.gitHub }>GitHub</a>.
           </p>
 
-          <div className="random-facts">
+          <div className={ classes.randomFacts }>
             <h3>Some facts about me</h3>
-            <ul className='check-list'>
+            <ul className={ classes.checkList }>
               { factsListItems }
             </ul>
           </div>
