@@ -36,7 +36,7 @@ export default function TermsOfService() {
 
           <h3>User Responsibilities</h3>
           <p>
-            <b>Eligibility:</b> You must be at least 13 years old to use the App. By using the App, you represent and warrant that you meet this age requirement.
+            <b>Eligibility:</b> You must be at least 13 years old to use the App. By using the App, you represent and warrant that you meet this age requirement. Younger users should seek parental guidance before using the App.
           </p>
 
           <h3>Use of the App</h3>
