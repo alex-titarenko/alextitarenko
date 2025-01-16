@@ -1,4 +1,4 @@
-import { Container } from './common/Container';
+import { Container } from './Container';
 import { PropsWithChildren } from 'react';
 import clsx from 'clsx';
 import { createUseStyles } from 'react-jss';

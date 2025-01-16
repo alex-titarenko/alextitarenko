@@ -1,5 +1,5 @@
 import { Container } from 'components/common/Container';
-import { Jumbotron } from 'components/Jumbotron';
+import { Jumbotron } from 'components/common/Jumbotron';
 import Layout from 'components/Layout';
 import { Lock } from 'components/icons'
 import { createUseStyles } from 'react-jss';

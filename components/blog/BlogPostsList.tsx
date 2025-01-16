@@ -1,12 +1,12 @@
-import { Clock, Newspaper } from './icons'
+import { Clock, Newspaper } from '../icons'
 
 import { BlogPostAnnotation } from 'models/BlogPost'
 import BlogPostContent from './BlogPostContent'
 import BlogPostFooter from './BlogPostFooter'
-import { Container } from './common/Container'
+import { Container } from '../common/Container'
 import Converter from 'utils/converter'
-import { Jumbotron } from './Jumbotron'
-import Layout from './Layout'
+import { Jumbotron } from '../common/Jumbotron'
+import Layout from '../Layout'
 import Link from 'next/link'
 import appConfig from 'app.config.json'
 import { createUseStyles } from 'react-jss'
@@ -109,7 +109,7 @@ function PostDescription(props: { post: BlogPostAnnotation }) {
         <BlogPostContent urlSlug={props.post.urlSlug} markdownContent={props.post.annotation} />
       </div>
 
-      <hr className="blog-post-footer-delimiter" />
+      <hr />
 
       <BlogPostFooter post={props.post} />
     </div>

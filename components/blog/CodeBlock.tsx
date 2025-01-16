@@ -2,7 +2,7 @@ import {
   ContentCopy as CopyIcon,
   Check as DoneIcon,
   WrapText as WrapTextIcon
-} from './icons'
+} from '../icons'
 import {
   PropsWithChildren,
   ReactNode,

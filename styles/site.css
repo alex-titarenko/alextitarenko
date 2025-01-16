@@ -221,12 +221,6 @@ hr {
   height: 0;
 }
 
-.img-responsive {
-  display: block;
-  max-width: 100%;
-  height: auto;
-}
-
 .table {
   width: 100%;
   max-width: 100%;
@@ -251,9 +245,6 @@ hr {
 /* ----------------------------------------- */
 /* Blog */
 /* ----------------------------------------- */
-.blog-post-footer-delimiter {
-  margin-bottom: 7px;
-}
 
 /* Blog Post */
 .blog-post-content {
@@ -276,6 +267,9 @@ hr {
     margin-right: auto;
 
     &.img-responsive {
+      display: block;
+      max-width: 100%;
+      height: auto;
       border-radius: 10px;
     }
   }

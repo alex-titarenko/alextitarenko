@@ -1,13 +1,13 @@
 import { Clock, Hourglass } from 'components/icons'
 
 import { BlogPost } from 'models/BlogPost'
-import BlogPostContent from 'components/BlogPostContent'
-import BlogPostFooter from 'components/BlogPostFooter'
+import BlogPostContent from 'components/blog/BlogPostContent'
+import BlogPostFooter from 'components/blog/BlogPostFooter'
 import { BlogRepository } from 'repositories/BlogRepository'
 import { Container } from 'components/common/Container'
 import Converter from 'utils/converter'
 import Head from 'next/head'
-import { Jumbotron } from 'components/Jumbotron'
+import { Jumbotron } from 'components/common/Jumbotron'
 import Layout from 'components/Layout'
 import appConfig from 'app.config.json'
 import { trackEvent } from 'utils/analytics'
@@ -87,7 +87,7 @@ export default function BlogPostPage(props: BlogPost) {
           <BlogPostContent urlSlug={props.urlSlug} markdownContent={props.content} />
         </section>
 
-        <hr className="blog-post-footer-delimiter" />
+        <hr />
 
         <BlogPostFooter post={props} />
       </Container>

@@ -1,5 +1,5 @@
-import BlogPostsList from 'components/BlogPostsList'
 import { BlogPostAnnotation } from 'models/BlogPost'
+import BlogPostsList from 'components/blog/BlogPostsList'
 import { BlogRepository } from 'repositories/BlogRepository'
 
 type BlogProps = {

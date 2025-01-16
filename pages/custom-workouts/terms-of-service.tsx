@@ -1,6 +1,6 @@
 import { Container } from 'components/common/Container';
 import { Handshake } from 'components/icons';
-import { Jumbotron } from 'components/Jumbotron';
+import { Jumbotron } from 'components/common/Jumbotron';
 import Layout from 'components/Layout';
 import { createUseStyles } from 'react-jss';
 

@@ -1,7 +1,7 @@
 import React, { ReactNode } from 'react'
 
 import { CodeBlock } from './CodeBlock'
-import { ExternalLink } from './icons'
+import { ExternalLink } from '../icons'
 import ReactMarkdown from 'react-markdown'
 import rehypePrism from './rehypePlugins/rehypePrism'
 import rehypeRaw from 'rehype-raw'

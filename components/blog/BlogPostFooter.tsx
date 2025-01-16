@@ -1,5 +1,5 @@
 import { BlogPostAnnotation } from 'models/BlogPost'
-import { Label } from './common/Label';
+import { Label } from '../common/Label';
 import Link from 'next/link'
 import { createUseStyles } from 'react-jss';
 
