@@ -71,7 +71,7 @@ export default function BlogPostsList(props: BlogPostsListProps) {
       </Jumbotron>
 
       <Container>
-        <section id="content">
+        <section>
           <div className={ classes.result }>
             <span>{ `1 - ${props.posts.length} of ${props.posts.length} posts` }</span>
           </div>

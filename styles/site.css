@@ -203,10 +203,6 @@ hr {
     }
 }
 
-#content {
-  margin-bottom: 40px;
-}
-
 /* ----------------------------------------- */
 /* Blog */
 /* ----------------------------------------- */
@@ -246,6 +242,7 @@ hr {
 
   a[target="_blank"] {
     display: inline-flex;
+    flex-wrap: wrap;
     gap: 5px;
 
     svg {

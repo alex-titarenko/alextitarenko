@@ -27,7 +27,7 @@ export default function TermsOfService() {
       </Jumbotron>
 
       <Container className={ classes.container }>
-        <section id="content">
+        <section>
           <i>Last updated: Jan 14, 2025</i>
           <h3>Acceptance of Terms</h3>
           <p>

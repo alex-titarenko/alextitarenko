@@ -27,7 +27,7 @@ export default function PrivacyPolicy() {
       </Jumbotron>
 
       <Container className={ classes.container }>
-        <section id="content">
+        <section>
           <i>Last updated: Jan 14, 2025</i>
 
           <h3>

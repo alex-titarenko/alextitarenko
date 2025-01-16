@@ -31,6 +31,7 @@ const useStyles = createUseStyles({
     paddingTop: '25px',
     width: '100%',
     height: '100px',
+    marginTop: '40px'
   },
 
   socialLinks: {

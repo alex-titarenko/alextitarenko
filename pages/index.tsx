@@ -78,7 +78,7 @@ export default function HomePage() {
       </Jumbotron>
 
       <Container>
-        <section id="content">
+        <section>
         <div className={ classes.motoBlock }>
             <h4>
               <strong>MY MOTTO:</strong><br />
