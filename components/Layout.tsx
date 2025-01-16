@@ -10,20 +10,45 @@ import Head from 'next/head'
 import { NavBar } from './NavBar'
 import { Threads } from './icons/Threads'
 import appConfig from 'app.config.json'
-import clsx from 'clsx'
 import { createUseStyles } from 'react-jss'
 
 const useStyles = createUseStyles({
   footer: {
-    '& a': {
-      verticalAlign: 'text-top',
+    textAlign: 'center',
+    backgroundColor: 'black',
+    color: 'gray',
+    paddingTop: '25px',
 
-      '& svg': {
-        color: 'inherit',
-        width: '1em',
-        height: '1em',
-      }
-    }
+    /* Sticky footer styles */
+    position: 'absolute',
+    bottom: 0,
+    width: '100%',
+    height: 'var(--footer-height)',
+  },
+
+  socialLinks: {
+    display: 'flex',
+    justifyContent: 'center'
+  },
+
+  socialLink: {
+    display: 'flex',
+    fontSize: '25px',
+    margin: '5px 7px',
+    color: 'gray',
+    opacity: 0.6,
+
+    '& svg': {
+      color: 'inherit',
+      width: '1em',
+      height: '1em',
+    },
+
+    '&:hover': {
+      color: 'gray',
+      opacity: 1,
+      textDecoration: 'none',
+    },
   }
 })
 
@@ -37,8 +62,6 @@ type LayoutProps = {
 }
 
 export default function Layout(props: LayoutProps) {
-  const classes = useStyles();
-
   const mainMenu = React.createRef<HTMLUListElement>();
   const [canonicalUrl, setCanonicalUrl] = useState(props.canonicalUrl)
 
@@ -74,29 +97,45 @@ export default function Layout(props: LayoutProps) {
 
         { props.children }
 
-        <footer className={ clsx("footer", classes.footer) }>
-          <div>Copyright &copy; { appConfig.brandName } 2011-{ new Date().getFullYear() }</div>
-
-          <div className="contacts">
-            {/* <SocialLink href={ appConfig.social.facebook } title="Facebook"><Facebook /></SocialLink>
-            <SocialLink href={ appConfig.social.linkedIn } title="LinkedIn"><LinkedIn /></SocialLink> */}
-            <SocialLink href={ appConfig.social.x } title="X"><X /></SocialLink>
-            <SocialLink href={ appConfig.social.threads } title="Threads"><Threads /></SocialLink>
-            <SocialLink href={ appConfig.social.bluesky } title="Bluesky"><Bluesky /></SocialLink>
-            <SocialLink href={ appConfig.social.gitHub } title="GitHub"><GitHub /></SocialLink>
-            <SocialLink href={ appConfig.social.instagram } title="Instagram"><Instagram /></SocialLink>
-          </div>
-        </footer>
+        <Footer />
       </div>
     </div>
   )
 }
 
 function SocialLink(props: PropsWithChildren<{ href: string; title: string }>) {
+  const classes = useStyles();
+
   return (
-    <a href={ props.href } target="_blank" rel="noopener" title={ props.title }>
+    <a
+      href={ props.href }
+      className={ classes.socialLink }
+      target="_blank"
+      rel="noopener"
+      title={ props.title }
+    >
       { props.children }
     </a>
+  )
+}
+
+function Footer() {
+  const classes = useStyles();
+
+  return (
+    <footer className={ classes.footer }>
+      <div>Copyright &copy; { appConfig.brandName } 2011-{ new Date().getFullYear() }</div>
+
+      <div className={ classes.socialLinks }>
+        {/* <SocialLink href={ appConfig.social.facebook } title="Facebook"><Facebook /></SocialLink>
+        <SocialLink href={ appConfig.social.linkedIn } title="LinkedIn"><LinkedIn /></SocialLink> */}
+        <SocialLink href={ appConfig.social.x } title="X"><X /></SocialLink>
+        <SocialLink href={ appConfig.social.threads } title="Threads"><Threads /></SocialLink>
+        <SocialLink href={ appConfig.social.bluesky } title="Bluesky"><Bluesky /></SocialLink>
+        <SocialLink href={ appConfig.social.gitHub } title="GitHub"><GitHub /></SocialLink>
+        <SocialLink href={ appConfig.social.instagram } title="Instagram"><Instagram /></SocialLink>
+      </div>
+    </footer>
   )
 }
 

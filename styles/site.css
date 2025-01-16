@@ -119,37 +119,6 @@ body {
   color: rgb(130, 136, 147);
 }
 
-.footer {
-  text-align: center;
-  background-color: black;
-  color: gray;
-  padding-top: 25px;
-
-  /* Sticky footer styles */
-  position: absolute;
-  bottom: 0;
-  width: 100%;
-  height: var(--footer-height);
-
-  .contacts {
-    display: flex;
-    justify-content: center;
-
-    a {
-      display: flex;
-      font-size: 25px;
-      margin: 5px 7px;
-      color: gray;
-      opacity: 0.6;
-
-      &:hover {
-        opacity: 1;
-        text-decoration: none;
-      }
-    }
-  }
-}
-
 a {
   color: #337ab7;
   text-decoration: none;
