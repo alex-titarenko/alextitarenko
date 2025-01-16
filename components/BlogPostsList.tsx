@@ -18,6 +18,28 @@ const useStyles = createUseStyles({
     gap: '40px',
     listStyleType: 'none',
     padding: 0,
+  },
+
+  result: {
+    color: '#a0a0a0',
+	  marginBottom: '17px',
+
+    '& span': {
+      backgroundColor: '#f0f0f0',
+      border: '1px solid #e5e5e5',
+      borderRadius: '5px',
+      padding: '3px 10px',
+    },
+  },
+
+  postTitle: {
+    fontWeight: 'bold'
+  },
+
+  postDate: {
+    display: 'flex',
+    gap: '5px',
+    color: '#7f919e',
   }
 })
 
@@ -50,7 +72,7 @@ export default function BlogPostsList(props: BlogPostsListProps) {
 
       <Container>
         <section id="content">
-          <div className="result">
+          <div className={ classes.result }>
             <span>{ `1 - ${props.posts.length} of ${props.posts.length} posts` }</span>
           </div>
 
@@ -64,9 +86,11 @@ export default function BlogPostsList(props: BlogPostsListProps) {
 }
 
 function PostDescription(props: { post: BlogPostAnnotation }) {
+  const classes = useStyles();
+
   return (
-    <div className="post-template">
-      <h1 className="post-title">
+    <div>
+      <h1 className={ classes.postTitle }>
         <Link
           href="/blog/archive/[year]/[month]/[slug]"
           as={`/blog/archive/${new Date(props.post.postedOn).getFullYear()}/${new Date(props.post.postedOn).getMonth()}/${props.post.urlSlug}`}
@@ -77,11 +101,11 @@ function PostDescription(props: { post: BlogPostAnnotation }) {
       </h1>
 
       {/* Posted date */}
-      <div className="post-date">
+      <div className={ classes.postDate }>
         <Clock /> { Converter.formatDate(new Date(props.post.postedOn)) }
       </div>
 
-      <div className="post-desc blog-post-content">
+      <div className="blog-post-content">
         <BlogPostContent urlSlug={props.post.urlSlug} markdownContent={props.post.annotation} />
       </div>
 

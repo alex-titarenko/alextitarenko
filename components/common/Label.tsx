@@ -22,6 +22,7 @@ const useStyles = createUseStyles({
 
 type LabelProps = {
   variant?: 'none' | 'primary'
+  className?: string
 }
 
 export function Label(props: PropsWithChildren<LabelProps> = {}) {
@@ -29,7 +30,8 @@ export function Label(props: PropsWithChildren<LabelProps> = {}) {
 
   const labelClasses = clsx(
     classes.label,
-    props.variant === 'primary' && classes.labelPrimary
+    props.variant === 'primary' && classes.labelPrimary,
+    props.className
   );
 
   return (
