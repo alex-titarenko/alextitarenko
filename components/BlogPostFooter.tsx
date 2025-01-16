@@ -1,4 +1,5 @@
 import { BlogPostAnnotation } from 'models/BlogPost'
+import { Label } from './common/Label';
 import Link from 'next/link'
 
 export default function BlogPostFooter({ post }: { post: BlogPostAnnotation }) {
@@ -26,7 +27,7 @@ export default function BlogPostFooter({ post }: { post: BlogPostAnnotation }) {
                 as={`/blog/tag/${tag.urlSlug}`}
                 className="post-tag"
               >
-                <span className="label label-primary">{tag.name}</span>
+                <Label variant="primary">{tag.name}</Label>
               </Link>
             ))}
           </div>

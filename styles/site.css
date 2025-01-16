@@ -171,6 +171,7 @@ a {
 
 p {
   margin: 0 0 10px;
+  line-height: 1.6;
 }
 
 table {
@@ -192,10 +193,6 @@ code {
   color: #c7254e;
   background-color: #f9f2f4;
   border-radius: 4px;
-}
-
-p {
-  line-height: 1.6;
 }
 
 h1 {
@@ -228,14 +225,6 @@ hr {
   height: 0;
 }
 
-.text-center {
-  text-align: center;
-}
-
-.text-uppercase {
-  text-transform: uppercase;
-}
-
 .img-responsive {
   display: block;
   max-width: 100%;
@@ -257,24 +246,6 @@ hr {
     vertical-align: top;
     border-top: 1px solid #ddd;
     }
-}
-
-/* Label */
-.label {
-  display: inline;
-  padding: .2em .6em .3em;
-  font-size: 75%;
-  font-weight: 700;
-  line-height: 1;
-  color: #fff;
-  text-align: center;
-  white-space: nowrap;
-  vertical-align: baseline;
-  border-radius: .25em;
-}
-
-.label-primary {
-  background-color: #337ab7;
 }
 
 /*----------------------------------------------------*/
