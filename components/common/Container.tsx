@@ -9,11 +9,6 @@ const useStyles = createUseStyles({
     marginRight: 'auto',
     marginLeft: 'auto',
 
-    '&:before, &:after': {
-      display: 'table',
-      content: '" "'
-    },
-
     '@media (min-width: 768px)': {
       width: '750px',
     },

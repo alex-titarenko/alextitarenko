@@ -15,7 +15,7 @@ const useStyles = createUseStyles({
   list: {
     display: 'flex',
     flexDirection: 'column',
-    gap: '40px',
+    gap: '50px',
     listStyleType: 'none',
     padding: 0,
   },

@@ -85,11 +85,11 @@ export default function BlogPostPage(props: BlogPost) {
       <Container itemScope itemType="http://schema.org/BlogPosting">
         <section id="content" itemProp="blogPost" className="blog-post-content">
           <BlogPostContent urlSlug={props.urlSlug} markdownContent={props.content} />
+
+          <hr />
+
+          <BlogPostFooter post={props} />
         </section>
-
-        <hr />
-
-        <BlogPostFooter post={props} />
       </Container>
     </Layout>
   );

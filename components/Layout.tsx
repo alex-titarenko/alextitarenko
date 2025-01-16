@@ -13,17 +13,24 @@ import appConfig from 'app.config.json'
 import { createUseStyles } from 'react-jss'
 
 const useStyles = createUseStyles({
+  pageContainer: {
+    minHeight: '100%',
+    display: 'flex',
+    flexDirection: 'column',
+  },
+
+  main: {
+    width: '100%',
+    flexGrow: 1
+  },
+
   footer: {
     textAlign: 'center',
     backgroundColor: 'black',
     color: 'gray',
     paddingTop: '25px',
-
-    /* Sticky footer styles */
-    position: 'absolute',
-    bottom: 0,
     width: '100%',
-    height: 'var(--footer-height)',
+    height: '100px',
   },
 
   socialLinks: {
@@ -62,6 +69,7 @@ type LayoutProps = {
 }
 
 export default function Layout(props: LayoutProps) {
+  const classes = useStyles();
   const mainMenu = React.createRef<HTMLUListElement>();
   const [canonicalUrl, setCanonicalUrl] = useState(props.canonicalUrl)
 
@@ -84,7 +92,7 @@ export default function Layout(props: LayoutProps) {
   }, [mainMenu, props.canonicalUrl, props.pageId]);
 
   return (
-    <div>
+    <div className={ classes.pageContainer }>
       <Head>
         <title>{ props.title }</title>
         <meta name="keywords" content={ props.keywords ?? appConfig.defaultKeywords } />
@@ -92,13 +100,13 @@ export default function Layout(props: LayoutProps) {
         <link rel="canonical" href={ canonicalUrl } />
       </Head>
 
-      <div>
-        <NavBar ref={ mainMenu } />
+      <NavBar ref={ mainMenu } />
 
+      <main className={ classes.main }>
         { props.children }
+      </main>
 
-        <Footer />
-      </div>
+      <Footer />
     </div>
   )
 }

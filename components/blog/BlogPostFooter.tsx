@@ -7,8 +7,7 @@ const useStyles = createUseStyles({
   blogPostFooter: {
     display: 'flex',
     flexDirection: 'column',
-    gap: '8px',
-    marginBottom: '35px'
+    gap: '5px',
   },
 
   postTagsWrapper: {
