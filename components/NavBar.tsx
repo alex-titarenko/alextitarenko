@@ -196,9 +196,9 @@ export function NavBar(props: { ref: React.RefObject<HTMLUListElement | null> })
               <Link href="https://noteshub.app">NotesHub</Link>
             </li>
 
-            {/*<li>
-              <Link href="https://multicalculator.app">MultiCalc</Link>
-            </li>*/}
+            <li>
+              <Link href="https://apps.apple.com/us/app/custom-workouts-for-watch/id6740838378">Workouts</Link>
+            </li>
 
             <span className={ classes.separator }></span>
 
