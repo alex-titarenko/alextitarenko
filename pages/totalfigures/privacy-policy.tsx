@@ -50,8 +50,8 @@ export default function PrivacyPolicy() {
           <h3>Where Your Data Is Stored</h3>
           <p>
             All data is stored locally on your device. iCloud sync is enabled by default, which means your data
-            is also stored in your personal iCloud account using Apple's CloudKit service. You can disable iCloud
-            sync at any time in your device's System Settings. Whether synced or not, your data is encrypted and
+            is also stored in your personal iCloud account using Apple&apos;s CloudKit service. You can disable iCloud
+            sync at any time in your device&apos;s System Settings. Whether synced or not, your data is encrypted and
             managed under your own Apple ID — we have no access to it.
           </p>
           <p>
@@ -61,9 +61,9 @@ export default function PrivacyPolicy() {
 
           <h3>FinanceKit and Account Data</h3>
           <p>
-            TotalFigures may use Apple's FinanceKit APIs to access financial account information (such as account
+            TotalFigures may use Apple&apos;s FinanceKit APIs to access financial account information (such as account
             details, balances, and transactions) with your explicit consent. This data is referred to as
-            "Account Data" under Apple's FinanceKit terms.
+            &quot;Account Data&quot; under Apple&apos;s FinanceKit terms.
           </p>
           <p>
             When you grant access, TotalFigures collects only the minimum Account Data necessary to provide
@@ -89,15 +89,15 @@ export default function PrivacyPolicy() {
 
           <h3>AI and On-Device Processing</h3>
           <p>
-            If TotalFigures offers any AI-powered features, they use Apple's foundation models running locally
+            If TotalFigures offers any AI-powered features, they use Apple&apos;s foundation models running locally
             on your device. Your financial data is not sent to any cloud service or third-party API for AI processing.
           </p>
 
           <h3>Shared Profiles</h3>
           <p>
             TotalFigures offers a Shared Profile feature that lets you collaborate on finance tracking with other
-            people, such as a partner or family member. Sharing is powered entirely by Apple's CloudKit sharing —
-            the shared data lives in iCloud and is exchanged directly between participants' Apple IDs.
+            people, such as a partner or family member. Sharing is powered entirely by Apple&apos;s CloudKit sharing —
+            the shared data lives in iCloud and is exchanged directly between participants&apos; Apple IDs.
           </p>
           <p>
             No shared data passes through our servers. Only the people you explicitly invite can access a Shared
@@ -117,7 +117,7 @@ export default function PrivacyPolicy() {
           <h3>Data Security</h3>
           <p>
             Because your data stays on your device and in your personal iCloud account, its security is managed
-            by Apple's built-in protections — including device encryption, iCloud encryption in transit and at
+            by Apple&apos;s built-in protections — including device encryption, iCloud encryption in transit and at
             rest, and your device passcode or biometric authentication.
           </p>
           <p>
@@ -133,14 +133,14 @@ export default function PrivacyPolicy() {
 
           <h3>Changes to This Policy</h3>
           <p>
-            This privacy policy may be updated at any time. When changes are made, the "Last updated" date at the
+            This privacy policy may be updated at any time. When changes are made, the &quot;Last updated&quot; date at the
             top of this page will be revised. We encourage you to review this page periodically.
           </p>
 
           <h3>Contact</h3>
           <p>
-            If you have questions about this privacy policy or the app's data practices, you can reach us
-            at <a href="mailto:support@atlab.co">support@atlab.co</a>.
+            If you have questions about this privacy policy or the app&apos;s data practices, you can reach us
+            at <a href="mailto:support@alextitarenko.me">support@alextitarenko.me</a>.
           </p>
         </section>
       </Container>
