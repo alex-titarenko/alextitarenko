@@ -103,9 +103,9 @@ export default function PrivacyPolicy() {
 
           <h3>Shared Profiles</h3>
           <p>
-            {appName} offers a Shared Profile feature that lets you collaborate on finance tracking with other
+            {appName} offers shared profiles functionality that lets you collaborate on finance tracking with other
             people, such as a partner or family member. Sharing is powered entirely by Apple&apos;s CloudKit sharing —
-            the shared data lives in iCloud and is exchanged directly between participants&apos; Apple IDs.
+            the shared data is stored in iCloud and made accessible to invited participants via their Apple IDs.
           </p>
           <p>
             No shared data passes through our servers. Only the people you explicitly invite can access a Shared
