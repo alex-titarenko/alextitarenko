@@ -1,3 +1,4 @@
+import { Callout } from 'components/common/Callout';
 import { Container } from 'components/common/Container';
 import { Jumbotron } from 'components/common/Jumbotron';
 import Layout from 'components/Layout';
@@ -12,33 +13,40 @@ const useStyles = createUseStyles({
   }
 })
 
+const appName = 'TotalFigures';
+const lastUpdated = 'March 30, 2026';
+
 export default function PrivacyPolicy() {
   const classes = useStyles();
 
   return (
     <Layout
-      title='Privacy Policy - TotalFigures'
-      description='Learn how TotalFigures handles your data. We do not collect any personal information.'
+      title={`Privacy Policy - ${appName}`}
+      description={`Learn how ${appName} handles your data. We do not collect any personal information.`}
       pageId='totalfigures'
     >
       <Jumbotron>
         <h1>Privacy Policy <Lock /></h1>
-        <p>For <b>TotalFigures</b> app</p>
+        <p>For <b>{appName}</b> app</p>
       </Jumbotron>
 
       <Container className={ classes.container }>
         <section>
-          <i>Last updated: March 30, 2026</i>
+          <i>Last updated: {lastUpdated}</i>
 
-          <h3>The Short Version</h3>
-          <p>
-            TotalFigures does not collect, store, or transmit your personal data to any server.
-            All of your financial information stays on your device and in your personal iCloud account.
-          </p>
+          <Callout>
+            <h4><b>The Short Version</b></h4>
+            <p>
+              <i>
+                {appName} does not collect, store, or transmit your personal data to any server.
+              All of your financial information stays on your device and in your personal iCloud account.
+              </i>
+            </p>
+          </Callout>
 
           <h3>What Data You Enter</h3>
           <p>
-            TotalFigures helps you track your finances — accounts, balances, transactions, and net worth.
+            {appName} helps you track your finances — accounts, balances, transactions, and net worth.
             All data you enter into the app is created and managed by you.
           </p>
           <p>
@@ -61,12 +69,12 @@ export default function PrivacyPolicy() {
 
           <h3>FinanceKit and Account Data</h3>
           <p>
-            TotalFigures may use Apple&apos;s FinanceKit APIs to access financial account information (such as account
+            {appName} may use Apple&apos;s FinanceKit APIs to access financial account information (such as account
             details, balances, and transactions) with your explicit consent. This data is referred to as
             &quot;Account Data&quot; under Apple&apos;s FinanceKit terms.
           </p>
           <p>
-            When you grant access, TotalFigures collects only the minimum Account Data necessary to provide
+            When you grant access, {appName} collects only the minimum Account Data necessary to provide
             the features you use. This data is processed and stored entirely on your device and in your personal
             iCloud account — it is never sent to us or any third party.
           </p>
@@ -82,22 +90,22 @@ export default function PrivacyPolicy() {
 
           <h3>Apple Shortcuts and Automations</h3>
           <p>
-            TotalFigures supports Apple Shortcuts for automating tasks such as processing information from
+            {appName} supports Apple Shortcuts for automating tasks such as processing information from
             Messages or email. All such processing happens entirely on your device. No message content, email
             content, or other personal information is sent to any external server as part of these automations.
           </p>
 
           <h3>AI and On-Device Processing</h3>
           <p>
-            If TotalFigures offers any AI-powered features, they use Apple&apos;s foundation models running locally
+            If {appName} offers any AI-powered features, they use Apple&apos;s foundation models running locally
             on your device. Your financial data is not sent to any cloud service or third-party API for AI processing.
           </p>
 
           <h3>Shared Profiles</h3>
           <p>
-            TotalFigures offers a Shared Profile feature that lets you collaborate on finance tracking with other
+            {appName} offers shared profiles functionality that lets you collaborate on finance tracking with other
             people, such as a partner or family member. Sharing is powered entirely by Apple&apos;s CloudKit sharing —
-            the shared data lives in iCloud and is exchanged directly between participants&apos; Apple IDs.
+            the shared data remains stored in the owner&apos;s iCloud account and is made accessible to invited participants via their Apple IDs.
           </p>
           <p>
             No shared data passes through our servers. Only the people you explicitly invite can access a Shared
@@ -106,7 +114,7 @@ export default function PrivacyPolicy() {
 
           <h3>Third-Party Services</h3>
           <p>
-            TotalFigures does not integrate any third-party analytics, advertising, or tracking services.
+            {appName} does not integrate any third-party analytics, advertising, or tracking services.
             The app does not contain ads and does not share your data with any external parties.
           </p>
           <p>
@@ -127,7 +135,7 @@ export default function PrivacyPolicy() {
           <h3>Deleting Your Data</h3>
           <p>
             You can delete any data within the app at any time. To remove all data entirely, delete the app from
-            your device and remove TotalFigures data from your iCloud storage in your device settings (unless you
+            your device and remove {appName} data from your iCloud storage in your device settings (unless you
             previously disabled iCloud sync).
           </p>
 
@@ -135,12 +143,6 @@ export default function PrivacyPolicy() {
           <p>
             This privacy policy may be updated at any time. When changes are made, the &quot;Last updated&quot; date at the
             top of this page will be revised. We encourage you to review this page periodically.
-          </p>
-
-          <h3>Contact</h3>
-          <p>
-            If you have questions about this privacy policy or the app&apos;s data practices, you can reach us
-            at <a href="mailto:support@alextitarenko.me">support@alextitarenko.me</a>.
           </p>
         </section>
       </Container>
