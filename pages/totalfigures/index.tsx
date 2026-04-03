@@ -1,7 +1,7 @@
 import Head from 'next/head';
 import Layout from 'components/Layout';
 import Link from 'next/link';
-import React, { useEffect, useRef } from 'react';
+import React from 'react';
 import appConfig from 'app.config.json';
 import { createUseStyles } from 'react-jss';
 
@@ -26,10 +26,6 @@ const useStyles = createUseStyles({
       '0%, 100%': { transform: 'translateY(0px)' },
       '50%': { transform: 'translateY(-12px)' },
     },
-    '@keyframes shimmer': {
-      '0%': { backgroundPosition: '-200% center' },
-      '100%': { backgroundPosition: '200% center' },
-    },
     'footer': {
       marginTop: '0 !important',
     },
@@ -38,17 +34,6 @@ const useStyles = createUseStyles({
   page: {
     fontFamily: '"Outfit", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif',
     color: textDark,
-  },
-
-  // ─── Scroll Animation ───
-  scrollReveal: {
-    opacity: 0,
-    transform: 'translateY(40px)',
-    transition: 'opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1)',
-  },
-  visible: {
-    opacity: 1,
-    transform: 'translateY(0)',
   },
 
   // ─── Hero ───
@@ -466,38 +451,6 @@ const useStyles = createUseStyles({
   },
 });
 
-function useScrollReveal() {
-  const containerRef = useRef<HTMLDivElement>(null);
-
-  useEffect(() => {
-    const container = containerRef.current;
-    if (!container) return;
-
-    const elements = container.querySelectorAll('[data-reveal]');
-
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            const el = entry.target as HTMLElement;
-            const delay = el.dataset.revealDelay || '0';
-            el.style.transitionDelay = `${delay}ms`;
-            el.classList.add('revealed');
-            observer.unobserve(el);
-          }
-        });
-      },
-      { threshold: 0.15, rootMargin: '0px 0px -40px 0px' }
-    );
-
-    elements.forEach((el) => observer.observe(el));
-
-    return () => observer.disconnect();
-  }, []);
-
-  return containerRef;
-}
-
 const features = [
   {
     icon: '🔒',
@@ -533,7 +486,6 @@ const features = [
 
 export default function TotalFiguresPage() {
   const classes = useStyles();
-  const revealRef = useScrollReveal();
 
   return (
     <Layout
@@ -551,19 +503,22 @@ export default function TotalFiguresPage() {
           rel="stylesheet"
         />
         <style>{`
-          [data-reveal] {
-            opacity: 0;
-            transform: translateY(40px);
-            transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+          @keyframes scrollFadeUp {
+            from { opacity: 0; transform: translateY(120px); }
+            to { opacity: 1; transform: translateY(0); }
           }
-          [data-reveal].revealed {
-            opacity: 1;
-            transform: translateY(0);
+          .scroll-reveal {
+            animation-name: scrollFadeUp;
+            animation-duration: 1ms;
+            animation-timing-function: linear;
+            animation-fill-mode: both;
+            animation-timeline: view();
+            animation-range: entry 0% cover 30%;
           }
         `}</style>
       </Head>
 
-      <div className={classes.page} ref={revealRef}>
+      <div className={classes.page}>
         {/* ─── Hero ─── */}
         <section className={classes.hero}>
           <div className={classes.heroInner}>
@@ -595,7 +550,7 @@ export default function TotalFiguresPage() {
         {/* ─── Features Grid ─── */}
         <section className={classes.featuresSection}>
           <div className={classes.sectionInner}>
-            <div data-reveal>
+            <div className="scroll-reveal">
               <div className={classes.sectionLabel}>Features</div>
               <h2 className={classes.sectionTitle}>Everything you need.<br />Nothing you don&apos;t.</h2>
               <p className={classes.sectionSubtitle}>
@@ -606,9 +561,7 @@ export default function TotalFiguresPage() {
               {features.map((f, i) => (
                 <div
                   key={f.title}
-                  className={classes.featureCard}
-                  data-reveal
-                  data-reveal-delay={String(i * 100)}
+                  className={`${classes.featureCard} scroll-reveal`}
                 >
                   <div className={classes.featureIcon}>{f.icon}</div>
                   <h3 className={classes.featureTitle}>{f.title}</h3>
@@ -622,7 +575,7 @@ export default function TotalFiguresPage() {
         {/* ─── Screenshots Showcase ─── */}
         <section className={classes.screenshotsSection}>
           <div className={classes.sectionInner}>
-            <div data-reveal>
+            <div className="scroll-reveal">
               <div className={classes.sectionLabel}>At a glance</div>
               <h2 className={classes.sectionTitle}>Designed with care.</h2>
               <p className={classes.sectionSubtitle}>
@@ -630,7 +583,7 @@ export default function TotalFiguresPage() {
               </p>
             </div>
             <div className={classes.screenshotsGrid}>
-              <div className={classes.screenshotItem} data-reveal data-reveal-delay="100">
+              <div className={`${classes.screenshotItem} scroll-reveal`}>
                 <div className={classes.screenshotPhone}>
                   <img
                     src="/images/totalfigures/finances.webp"
@@ -643,7 +596,7 @@ export default function TotalFiguresPage() {
                   Track your net worth with detailed balance history
                 </span>
               </div>
-              <div className={classes.screenshotItem} data-reveal data-reveal-delay="250">
+              <div className={`${classes.screenshotItem} scroll-reveal`}>
                 <div className={`${classes.screenshotPhone} ${classes.screenshotPhoneOffset}`}>
                   <img
                     src="/images/totalfigures/activities.webp"
@@ -662,7 +615,7 @@ export default function TotalFiguresPage() {
 
         {/* ─── Deep Dive: Auto Updates ─── */}
         <section className={classes.deepDiveSection} style={{ background: grayBg }}>
-          <div className={classes.deepDiveInner} data-reveal>
+          <div className={`${classes.deepDiveInner} scroll-reveal`}>
             <div className={classes.deepDiveContent}>
               <div className={classes.deepDiveLabel}>Automation</div>
               <h2 className={classes.deepDiveTitle}>Effortless balance updates</h2>
@@ -680,7 +633,7 @@ export default function TotalFiguresPage() {
 
         {/* ─── Deep Dive: Households ─── */}
         <section className={classes.deepDiveSection} style={{ background: '#ffffff' }}>
-          <div className={`${classes.deepDiveInner} ${classes.deepDiveReversed}`} data-reveal>
+          <div className={`${classes.deepDiveInner} ${classes.deepDiveReversed} scroll-reveal`}>
             <div className={classes.deepDiveContent}>
               <div className={classes.deepDiveLabel}>Collaboration</div>
               <h2 className={classes.deepDiveTitle}>Built for households</h2>
@@ -698,7 +651,7 @@ export default function TotalFiguresPage() {
 
         {/* ─── Deep Dive: Privacy ─── */}
         <section className={classes.deepDiveSection} style={{ background: grayBg }}>
-          <div className={classes.deepDiveInner} data-reveal>
+          <div className={`${classes.deepDiveInner} scroll-reveal`}>
             <div className={classes.deepDiveContent}>
               <div className={classes.deepDiveLabel}>Security</div>
               <h2 className={classes.deepDiveTitle}>Privacy first. Always.</h2>
@@ -716,7 +669,7 @@ export default function TotalFiguresPage() {
 
         {/* ─── CTA ─── */}
         <section className={classes.ctaSection}>
-          <div data-reveal>
+          <div className="scroll-reveal">
             <h2 className={classes.ctaTitle}>Coming soon.</h2>
             <p className={classes.ctaSubtitle}>
               TotalFigures is being crafted with care and will be available on the App Store soon.
