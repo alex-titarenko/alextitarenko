@@ -212,7 +212,6 @@ const useStyles = createUseStyles({
     justifyContent: 'center',
     background: tealBg,
     marginBottom: 20,
-    fontSize: 22,
   },
   featureTitle: {
     fontSize: 18,
@@ -375,14 +374,12 @@ const useStyles = createUseStyles({
     display: 'flex',
     alignItems: 'center',
     justifyContent: 'center',
-    fontSize: 72,
     boxShadow: `0 20px 60px -20px rgba(20, 184, 166, 0.3)`,
 
     '@media (max-width: 768px)': {
       width: 140,
       height: 140,
       borderRadius: 30,
-      fontSize: 52,
     },
   },
 
@@ -451,34 +448,74 @@ const useStyles = createUseStyles({
   },
 });
 
+const IconShield = () => (
+  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke={teal} strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+    <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+    <path d="M9 12l2 2 4-4" />
+  </svg>
+);
+const IconChart = () => (
+  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke={teal} strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+    <path d="M3 3v18h18" />
+    <path d="M7 16l4-8 4 4 5-9" />
+  </svg>
+);
+const IconMail = () => (
+  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke={teal} strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+    <rect x="2" y="4" width="20" height="16" rx="2" />
+    <path d="M22 7l-10 6L2 7" />
+  </svg>
+);
+const IconUsers = () => (
+  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke={teal} strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+    <path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2" />
+    <circle cx="9" cy="7" r="4" />
+    <path d="M23 21v-2a4 4 0 00-3-3.87" />
+    <path d="M16 3.13a4 4 0 010 7.75" />
+  </svg>
+);
+const IconGlobe = () => (
+  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke={teal} strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+    <circle cx="12" cy="12" r="10" />
+    <path d="M2 12h20" />
+    <path d="M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z" />
+  </svg>
+);
+const IconTag = () => (
+  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke={teal} strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+    <path d="M20.59 13.41l-7.17 7.17a2 2 0 01-2.83 0L2 12V2h10l8.59 8.59a2 2 0 010 2.82z" />
+    <line x1="7" y1="7" x2="7.01" y2="7" />
+  </svg>
+);
+
 const features = [
   {
-    icon: '🔒',
+    icon: <IconShield />,
     title: 'Privacy First',
     desc: 'All data stays on your device and in your personal iCloud. No third-party servers, no tracking, no compromises.',
   },
   {
-    icon: '📊',
+    icon: <IconChart />,
     title: 'Net Worth Tracking',
     desc: 'Track every asset and liability. See your total net worth at a glance and watch it grow over time.',
   },
   {
-    icon: '📧',
+    icon: <IconMail />,
     title: 'Auto Balance Updates',
     desc: 'Forward your daily bank emails and balances update automatically. No manual entry needed.',
   },
   {
-    icon: '👨‍👩‍👧',
+    icon: <IconUsers />,
     title: 'Built for Households',
     desc: 'Share a profile with your partner or family. Collaborate with privacy controls for surprise purchases.',
   },
   {
-    icon: '💱',
+    icon: <IconGlobe />,
     title: 'Multi-Currency',
     desc: 'Track finances across different currencies. International accounts and travel handled naturally.',
   },
   {
-    icon: '🏷️',
+    icon: <IconTag />,
     title: 'Smart Transactions',
     desc: 'Flexible categorization, custom tags, merchant tracking, and powerful search with instant filters.',
   },
@@ -626,7 +663,12 @@ export default function TotalFiguresPage() {
               </p>
             </div>
             <div className={classes.deepDiveVisual}>
-              <div className={classes.deepDiveIcon}>📧</div>
+              <div className={classes.deepDiveIcon}>
+                <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke={teal} strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+                  <rect x="2" y="4" width="20" height="16" rx="2" />
+                  <path d="M22 7l-10 6L2 7" />
+                </svg>
+              </div>
             </div>
           </div>
         </section>
@@ -644,7 +686,14 @@ export default function TotalFiguresPage() {
               </p>
             </div>
             <div className={classes.deepDiveVisual}>
-              <div className={classes.deepDiveIcon}>👨‍👩‍👧</div>
+              <div className={classes.deepDiveIcon}>
+                <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke={teal} strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+                  <path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2" />
+                  <circle cx="9" cy="7" r="4" />
+                  <path d="M23 21v-2a4 4 0 00-3-3.87" />
+                  <path d="M16 3.13a4 4 0 010 7.75" />
+                </svg>
+              </div>
             </div>
           </div>
         </section>
@@ -662,7 +711,12 @@ export default function TotalFiguresPage() {
               </p>
             </div>
             <div className={classes.deepDiveVisual}>
-              <div className={classes.deepDiveIcon}>🔒</div>
+              <div className={classes.deepDiveIcon}>
+                <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke={teal} strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+                  <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+                  <path d="M9 12l2 2 4-4" />
+                </svg>
+              </div>
             </div>
           </div>
         </section>
