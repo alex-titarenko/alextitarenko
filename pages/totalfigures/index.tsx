@@ -30,12 +30,14 @@ const useStyles = createUseStyles({
       '0%': { backgroundPosition: '-200% center' },
       '100%': { backgroundPosition: '200% center' },
     },
+    'footer': {
+      marginTop: '0 !important',
+    },
   },
 
   page: {
     fontFamily: '"Outfit", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif',
     color: textDark,
-    overflowX: 'hidden',
   },
 
   // ─── Scroll Animation ───
