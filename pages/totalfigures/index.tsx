@@ -332,7 +332,7 @@ const useStyles = createUseStyles({
   // ─── CTA Section ───
   ctaSection: {
     padding: '120px 24px',
-    background: 'radial-gradient(ellipse 80% 60% at 50% 110%, var(--brand-bg) 0%, transparent 70%), #ffffff',
+    background: `radial-gradient(ellipse 80% 60% at 50% 110%, var(--brand-bg) 0%, transparent 70%), ${grayBg}`,
     textAlign: 'center',
 
     '@media (max-width: 768px)': {
