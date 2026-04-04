@@ -60,6 +60,13 @@ export default class MyDocument extends Document {
           <meta name="copyright" content={ `© ${ new Date().getFullYear() } ${ appConfig.brandName }` } />
           <meta name="audience" content="all" />
 
+          <link rel="preconnect" href="https://fonts.googleapis.com" />
+          <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+          <link
+            href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700&display=swap"
+            rel="stylesheet"
+          />
+
           <link rel="icon" href="/favicon.ico" type="image/x-icon" />
           <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
         </Head>
