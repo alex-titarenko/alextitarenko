@@ -445,7 +445,7 @@ const features = [
   {
     icon: <IconMail />,
     title: 'Auto Balance Updates',
-    desc: 'Forward your daily bank emails and balances update automatically. No manual entry needed.',
+    desc: 'Automatically extract balances from your daily bank emails using Apple Shortcuts. No manual entry needed.',
   },
   {
     icon: <IconUsers />,
@@ -549,9 +549,9 @@ export default function TotalFiguresPage() {
               <div className={classes.deepDiveLabel}>Automation</div>
               <h2 className={classes.deepDiveTitle}>Effortless balance updates</h2>
               <p className={classes.deepDiveText}>
-                Forward your daily bank emails and TotalFigures automatically updates
-                your balances. Support for Chase, Redfin, Fidelity, and more — with
-                intelligent matching that learns new formats over time.
+                TotalFigures uses Apple Shortcuts to automatically extract balances and
+                estimates from your daily bank and financial emails — right on your device.
+                Support for Chase, Fidelity, Redfin, and more.
               </p>
             </div>
             <div className={classes.deepDiveVisual}>
