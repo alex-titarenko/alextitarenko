@@ -543,7 +543,7 @@ export default function TotalFiguresPage() {
         </section>
 
         {/* ─── Deep Dive: Auto Updates ─── */}
-        <section className={classes.deepDiveSection} style={{ background: grayBg }}>
+        <section className={classes.deepDiveSection} style={{ background: '#ffffff' }}>
           <div className={`${classes.deepDiveInner} scroll-reveal`}>
             <div className={classes.deepDiveContent}>
               <div className={classes.deepDiveLabel}>Automation</div>
@@ -566,7 +566,7 @@ export default function TotalFiguresPage() {
         </section>
 
         {/* ─── Deep Dive: Households ─── */}
-        <section className={classes.deepDiveSection} style={{ background: '#ffffff' }}>
+        <section className={classes.deepDiveSection} style={{ background: grayBg }}>
           <div className={`${classes.deepDiveInner} ${classes.deepDiveReversed} scroll-reveal`}>
             <div className={classes.deepDiveContent}>
               <div className={classes.deepDiveLabel}>Collaboration</div>
@@ -591,7 +591,7 @@ export default function TotalFiguresPage() {
         </section>
 
         {/* ─── Deep Dive: Privacy ─── */}
-        <section className={classes.deepDiveSection} style={{ background: grayBg }}>
+        <section className={classes.deepDiveSection} style={{ background: '#ffffff' }}>
           <div className={`${classes.deepDiveInner} scroll-reveal`}>
             <div className={classes.deepDiveContent}>
               <div className={classes.deepDiveLabel}>Security</div>
