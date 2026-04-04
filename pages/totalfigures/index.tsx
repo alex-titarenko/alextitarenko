@@ -5,9 +5,6 @@ import React from 'react';
 import appConfig from 'app.config.json';
 import { createUseStyles } from 'react-jss';
 
-const teal = '#03C2D1';
-const tealLight = '#1AD4E2';
-const tealBg = 'rgba(3, 194, 209, 0.08)';
 const grayBg = '#f8f8f6';
 const textDark = '#1a1a2e';
 const textMuted = '#64748b';
@@ -42,6 +39,15 @@ const useStyles = createUseStyles({
   },
 
   page: {
+    '--brand-l': '0.72',
+    '--brand-c': '0.14',
+    '--brand-h': '200',
+    '--brand': 'oklch(var(--brand-l) var(--brand-c) var(--brand-h))',
+    '--brand-light': 'oklch(calc(var(--brand-l) + 0.08) var(--brand-c) var(--brand-h))',
+    '--brand-bg': 'oklch(var(--brand-l) var(--brand-c) var(--brand-h) / 0.08)',
+    '--brand-bg-strong': 'oklch(var(--brand-l) var(--brand-c) var(--brand-h) / 0.15)',
+    '--brand-shadow': 'oklch(var(--brand-l) var(--brand-c) var(--brand-h) / 0.3)',
+
     fontFamily: '"Outfit", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif',
     color: textDark,
   },
@@ -55,10 +61,7 @@ const useStyles = createUseStyles({
     textAlign: 'center',
     padding: '120px 24px 80px',
     position: 'relative',
-    background: `
-      radial-gradient(ellipse 80% 60% at 50% -10%, ${tealBg} 0%, transparent 70%),
-      #ffffff
-    `,
+    background: 'radial-gradient(ellipse 80% 60% at 50% -10%, var(--brand-bg) 0%, transparent 70%), #ffffff',
 
     '@media (max-width: 768px)': {
       minHeight: 'auto',
@@ -75,8 +78,8 @@ const useStyles = createUseStyles({
     gap: 8,
     padding: '8px 20px',
     borderRadius: 100,
-    background: tealBg,
-    color: teal,
+    background: 'var(--brand-bg)',
+    color: 'var(--brand)',
     fontSize: 14,
     fontWeight: 600,
     letterSpacing: '0.02em',
@@ -87,7 +90,7 @@ const useStyles = createUseStyles({
     width: 8,
     height: 8,
     borderRadius: '50%',
-    background: teal,
+    background: 'var(--brand)',
   },
   heroTitle: {
     fontSize: 72,
@@ -103,7 +106,7 @@ const useStyles = createUseStyles({
     },
   },
   heroTitleAccent: {
-    background: `linear-gradient(135deg, ${teal}, ${tealLight})`,
+    background: 'linear-gradient(135deg, var(--brand), var(--brand-light))',
     WebkitBackgroundClip: 'text',
     WebkitTextFillColor: 'transparent',
     backgroundClip: 'text',
@@ -164,7 +167,7 @@ const useStyles = createUseStyles({
     fontWeight: 600,
     letterSpacing: '0.1em',
     textTransform: 'uppercase' as const,
-    color: teal,
+    color: 'var(--brand)',
     marginBottom: 16,
   },
   sectionTitle: {
@@ -220,7 +223,8 @@ const useStyles = createUseStyles({
     display: 'flex',
     alignItems: 'center',
     justifyContent: 'center',
-    background: tealBg,
+    background: 'var(--brand-bg)',
+    color: 'var(--brand)',
     marginBottom: 20,
   },
   featureTitle: {
@@ -351,7 +355,7 @@ const useStyles = createUseStyles({
     fontWeight: 600,
     letterSpacing: '0.1em',
     textTransform: 'uppercase' as const,
-    color: teal,
+    color: 'var(--brand)',
     marginBottom: 12,
   },
   deepDiveTitle: {
@@ -380,11 +384,12 @@ const useStyles = createUseStyles({
     width: 200,
     height: 200,
     borderRadius: 40,
-    background: `linear-gradient(135deg, ${tealBg}, rgba(3, 194, 209, 0.15))`,
+    background: 'linear-gradient(135deg, var(--brand-bg), var(--brand-bg-strong))',
     display: 'flex',
     alignItems: 'center',
     justifyContent: 'center',
-    boxShadow: `0 20px 60px -20px rgba(3, 194, 209, 0.3)`,
+    color: 'var(--brand)',
+    boxShadow: '0 20px 60px -20px var(--brand-shadow)',
 
     '@media (max-width: 768px)': {
       width: 140,
@@ -396,10 +401,7 @@ const useStyles = createUseStyles({
   // ─── CTA Section ───
   ctaSection: {
     padding: '120px 24px',
-    background: `
-      radial-gradient(ellipse 80% 60% at 50% 110%, ${tealBg} 0%, transparent 70%),
-      #ffffff
-    `,
+    background: 'radial-gradient(ellipse 80% 60% at 50% 110%, var(--brand-bg) 0%, transparent 70%), #ffffff',
     textAlign: 'center',
 
     '@media (max-width: 768px)': {
@@ -451,33 +453,33 @@ const useStyles = createUseStyles({
     transition: 'color 0.2s ease, border-color 0.2s ease',
 
     '&:hover': {
-      color: teal,
-      borderColor: teal,
+      color: 'var(--brand)',
+      borderColor: 'var(--brand)',
       textDecoration: 'none',
     },
   },
 });
 
 const IconShield = () => (
-  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke={teal} strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
     <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
     <path d="M9 12l2 2 4-4" />
   </svg>
 );
 const IconChart = () => (
-  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke={teal} strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
     <path d="M3 3v18h18" />
     <path d="M7 16l4-8 4 4 5-9" />
   </svg>
 );
 const IconMail = () => (
-  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke={teal} strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
     <rect x="2" y="4" width="20" height="16" rx="2" />
     <path d="M22 7l-10 6L2 7" />
   </svg>
 );
 const IconUsers = () => (
-  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke={teal} strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
     <path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2" />
     <circle cx="9" cy="7" r="4" />
     <path d="M23 21v-2a4 4 0 00-3-3.87" />
@@ -485,14 +487,14 @@ const IconUsers = () => (
   </svg>
 );
 const IconGlobe = () => (
-  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke={teal} strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
     <circle cx="12" cy="12" r="10" />
     <path d="M2 12h20" />
     <path d="M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z" />
   </svg>
 );
 const IconTag = () => (
-  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke={teal} strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
     <path d="M20.59 13.41l-7.17 7.17a2 2 0 01-2.83 0L2 12V2h10l8.59 8.59a2 2 0 010 2.82z" />
     <line x1="7" y1="7" x2="7.01" y2="7" />
   </svg>
@@ -674,7 +676,7 @@ export default function TotalFiguresPage() {
             </div>
             <div className={classes.deepDiveVisual}>
               <div className={classes.deepDiveIcon}>
-                <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke={teal} strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+                <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
                   <rect x="2" y="4" width="20" height="16" rx="2" />
                   <path d="M22 7l-10 6L2 7" />
                 </svg>
@@ -697,7 +699,7 @@ export default function TotalFiguresPage() {
             </div>
             <div className={classes.deepDiveVisual}>
               <div className={classes.deepDiveIcon}>
-                <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke={teal} strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+                <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
                   <path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2" />
                   <circle cx="9" cy="7" r="4" />
                   <path d="M23 21v-2a4 4 0 00-3-3.87" />
@@ -722,7 +724,7 @@ export default function TotalFiguresPage() {
             </div>
             <div className={classes.deepDiveVisual}>
               <div className={classes.deepDiveIcon}>
-                <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke={teal} strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+                <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
                   <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
                   <path d="M9 12l2 2 4-4" />
                 </svg>
