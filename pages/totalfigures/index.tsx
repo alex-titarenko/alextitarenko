@@ -123,18 +123,12 @@ const useStyles = createUseStyles({
       fontSize: 17,
     },
   },
-  heroPhone: {
+  heroImage: {
     animation: 'fadeUp 1s 0.5s ease both',
     display: 'flex',
     justifyContent: 'center',
-  },
-  phoneFrame: {
-    width: 280,
-    borderRadius: 36,
-    overflow: 'hidden',
-    boxShadow: 'none',
-    animation: 'float 6s ease-in-out infinite',
-    background: '#fff',
+    maxWidth: 1000,
+    margin: '0 auto',
 
     '& img': {
       width: '100%',
@@ -143,8 +137,7 @@ const useStyles = createUseStyles({
     },
 
     '@media (max-width: 768px)': {
-      width: 220,
-      borderRadius: 28,
+      maxWidth: '100%',
     },
   },
 
@@ -239,68 +232,6 @@ const useStyles = createUseStyles({
     lineHeight: 1.7,
     color: textMuted,
     margin: 0,
-  },
-
-  // ─── Screenshots Section ───
-  screenshotsSection: {
-    padding: '120px 24px',
-    background: '#ffffff',
-    textAlign: 'center',
-
-    '@media (max-width: 768px)': {
-      padding: '80px 20px',
-    },
-  },
-  screenshotsGrid: {
-    display: 'flex',
-    justifyContent: 'center',
-    alignItems: 'flex-start',
-    gap: 48,
-    marginTop: 64,
-
-    '@media (max-width: 768px)': {
-      flexDirection: 'column',
-      alignItems: 'center',
-      gap: 40,
-      marginTop: 40,
-    },
-  },
-  screenshotItem: {
-    display: 'flex',
-    flexDirection: 'column',
-    alignItems: 'center',
-    gap: 24,
-  },
-  screenshotPhone: {
-    width: 260,
-    borderRadius: 32,
-    overflow: 'hidden',
-    boxShadow: 'none',
-    background: '#fff',
-
-    '& img': {
-      width: '100%',
-      height: 'auto',
-      display: 'block',
-    },
-
-    '@media (max-width: 768px)': {
-      width: 220,
-      borderRadius: 26,
-    },
-  },
-  screenshotPhoneOffset: {
-    marginTop: 48,
-
-    '@media (max-width: 768px)': {
-      marginTop: 0,
-    },
-  },
-  screenshotCaption: {
-    fontSize: 15,
-    color: textMuted,
-    fontWeight: 500,
-    maxWidth: 220,
   },
 
   // ─── Deep Dive Sections ───
@@ -577,15 +508,11 @@ export default function TotalFiguresPage() {
               Track every asset, liability, and transaction in one private,
               beautifully designed app. Your finances, your iCloud, your control.
             </p>
-            <div className={classes.heroPhone}>
-              <div className={classes.phoneFrame}>
-                <img
-                  src="/images/totalfigures/finances.webp"
-                  alt="TotalFigures Net Worth screen"
-                  width={280}
-                  height={606}
-                />
-              </div>
+            <div className={classes.heroImage}>
+              <img
+                src="/images/totalfigures/hero.webp"
+                alt="TotalFigures app showing Net Worth and Activities screens"
+              />
             </div>
           </div>
         </section>
@@ -611,47 +538,6 @@ export default function TotalFiguresPage() {
                   <p className={classes.featureDesc}>{f.desc}</p>
                 </div>
               ))}
-            </div>
-          </div>
-        </section>
-
-        {/* ─── Screenshots Showcase ─── */}
-        <section className={classes.screenshotsSection}>
-          <div className={classes.sectionInner}>
-            <div className="scroll-reveal">
-              <div className={classes.sectionLabel}>At a glance</div>
-              <h2 className={classes.sectionTitle}>Designed with care.</h2>
-              <p className={classes.sectionSubtitle}>
-                Clean interfaces that make managing your finances feel effortless.
-              </p>
-            </div>
-            <div className={classes.screenshotsGrid}>
-              <div className={`${classes.screenshotItem} scroll-reveal`}>
-                <div className={classes.screenshotPhone}>
-                  <img
-                    src="/images/totalfigures/finances.webp"
-                    alt="Net Worth overview with balance history chart"
-                    width={260}
-                    height={563}
-                  />
-                </div>
-                <span className={classes.screenshotCaption}>
-                  Track your net worth with detailed balance history
-                </span>
-              </div>
-              <div className={`${classes.screenshotItem} scroll-reveal`}>
-                <div className={`${classes.screenshotPhone} ${classes.screenshotPhoneOffset}`}>
-                  <img
-                    src="/images/totalfigures/activities.webp"
-                    alt="Activities view with categorized transactions"
-                    width={260}
-                    height={563}
-                  />
-                </div>
-                <span className={classes.screenshotCaption}>
-                  Categorize and search transactions instantly
-                </span>
-              </div>
             </div>
           </div>
         </section>
