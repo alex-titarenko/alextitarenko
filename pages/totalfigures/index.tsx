@@ -545,12 +545,6 @@ export default function TotalFiguresPage() {
     >
       <Head>
         <meta name="robots" content="noindex, nofollow" />
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
-        <link
-          href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700&display=swap"
-          rel="stylesheet"
-        />
         <style>{`
           @keyframes scrollFadeUp {
             from { opacity: 0; transform: translateY(120px); }
