@@ -320,7 +320,7 @@ const useStyles = createUseStyles({
     alignItems: 'center',
     justifyContent: 'center',
     color: 'var(--brand)',
-    boxShadow: '0 20px 60px -20px var(--brand-shadow)',
+    boxShadow: '0 12px 40px -10px var(--brand-bg)',
 
     '@media (max-width: 768px)': {
       width: 140,
@@ -556,7 +556,7 @@ export default function TotalFiguresPage() {
             </div>
             <div className={classes.deepDiveVisual}>
               <div className={classes.deepDiveIcon}>
-                <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+                <svg width="72" height="72" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
                   <rect x="2" y="4" width="20" height="16" rx="2" />
                   <path d="M22 7l-10 6L2 7" />
                 </svg>
@@ -579,7 +579,7 @@ export default function TotalFiguresPage() {
             </div>
             <div className={classes.deepDiveVisual}>
               <div className={classes.deepDiveIcon}>
-                <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+                <svg width="72" height="72" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
                   <path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2" />
                   <circle cx="9" cy="7" r="4" />
                   <path d="M23 21v-2a4 4 0 00-3-3.87" />
@@ -604,7 +604,7 @@ export default function TotalFiguresPage() {
             </div>
             <div className={classes.deepDiveVisual}>
               <div className={classes.deepDiveIcon}>
-                <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+                <svg width="72" height="72" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
                   <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
                   <path d="M9 12l2 2 4-4" />
                 </svg>
