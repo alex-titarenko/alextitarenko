@@ -5,9 +5,9 @@ import React from 'react';
 import appConfig from 'app.config.json';
 import { createUseStyles } from 'react-jss';
 
-const teal = '#14B8A6';
-const tealLight = '#2DD4BF';
-const tealBg = 'rgba(20, 184, 166, 0.08)';
+const teal = '#03C2D1';
+const tealLight = '#1AD4E2';
+const tealBg = 'rgba(3, 194, 209, 0.08)';
 const grayBg = '#f8f8f6';
 const textDark = '#1a1a2e';
 const textMuted = '#64748b';
@@ -25,6 +25,16 @@ const useStyles = createUseStyles({
     '@keyframes float': {
       '0%, 100%': { transform: 'translateY(0px)' },
       '50%': { transform: 'translateY(-12px)' },
+    },
+    'header': {
+      position: 'fixed !important',
+      top: 0,
+      left: 0,
+      right: 0,
+      backgroundColor: 'rgba(255, 255, 255, 0.8) !important',
+      backdropFilter: 'blur(12px)',
+      WebkitBackdropFilter: 'blur(12px)',
+      borderColor: 'rgba(0, 0, 0, 0.06) !important',
     },
     'footer': {
       marginTop: '0 !important',
@@ -370,11 +380,11 @@ const useStyles = createUseStyles({
     width: 200,
     height: 200,
     borderRadius: 40,
-    background: `linear-gradient(135deg, ${tealBg}, rgba(20, 184, 166, 0.15))`,
+    background: `linear-gradient(135deg, ${tealBg}, rgba(3, 194, 209, 0.15))`,
     display: 'flex',
     alignItems: 'center',
     justifyContent: 'center',
-    boxShadow: `0 20px 60px -20px rgba(20, 184, 166, 0.3)`,
+    boxShadow: `0 20px 60px -20px rgba(3, 194, 209, 0.3)`,
 
     '@media (max-width: 768px)': {
       width: 140,
@@ -595,7 +605,7 @@ export default function TotalFiguresPage() {
               </p>
             </div>
             <div className={classes.featuresGrid}>
-              {features.map((f, i) => (
+              {features.map((f) => (
                 <div
                   key={f.title}
                   className={`${classes.featureCard} scroll-reveal`}
