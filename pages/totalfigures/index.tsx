@@ -1,6 +1,5 @@
 import Head from 'next/head';
 import Layout from 'components/Layout';
-import Link from 'next/link';
 import React from 'react';
 import appConfig from 'app.config.json';
 import { createUseStyles } from 'react-jss';
@@ -374,21 +373,6 @@ const useStyles = createUseStyles({
   ctaApple: {
     fontSize: 22,
   },
-  privacyLink: {
-    display: 'inline-block',
-    fontSize: 14,
-    color: textMuted,
-    textDecoration: 'none',
-    borderBottom: '1px solid rgba(0,0,0,0.1)',
-    paddingBottom: 2,
-    transition: 'color 0.2s ease, border-color 0.2s ease',
-
-    '&:hover': {
-      color: 'var(--brand)',
-      borderColor: 'var(--brand)',
-      textDecoration: 'none',
-    },
-  },
 });
 
 const IconShield = () => (
@@ -624,10 +608,6 @@ export default function TotalFiguresPage() {
               <span className={classes.ctaApple}></span>
               Available soon on the App Store
             </div>
-            <br />
-            <Link href="/totalfigures/privacy-policy" className={classes.privacyLink}>
-              Privacy Policy
-            </Link>
           </div>
         </section>
       </div>
