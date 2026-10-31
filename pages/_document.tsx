@@ -45,16 +45,12 @@ export default class MyDocument extends Document {
     return (
       <Html lang="en-us">
         <Head>
-          <script async src={`https://www.googletagmanager.com/gtag/js?id=${appConfig.google.analyticsId}`}></script>
-          <script dangerouslySetInnerHTML={{
-            __html: `
-              window.dataLayer = window.dataLayer || [];
-              function gtag(){dataLayer.push(arguments);}
-              gtag('js', new Date());
-
-              gtag('config', '${appConfig.google.analyticsId}');
-            `
-          }} />
+          {/* data-domains keeps local development out of the numbers. */}
+          <script
+            defer
+            src={appConfig.umami.scriptUrl}
+            data-website-id={appConfig.umami.websiteId}
+            data-domains={new URL(appConfig.canonicalBaseUrl).hostname}></script>
 
           <meta name="author" content={ appConfig.brandName } />
           <meta name="copyright" content={ `© ${ new Date().getFullYear() } ${ appConfig.brandName }` } />

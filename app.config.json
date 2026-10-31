@@ -12,7 +12,8 @@
     "gitHub": "https://github.com/alex-titarenko",
     "instagram": "https://instagram.com/alex.titarenko"
   },
-  "google": {
-    "analyticsId": "G-2XB4M91CQD"
+  "umami": {
+    "websiteId": "e24b6553-f7b0-4b4a-ab47-6ac8374cc5d3",
+    "scriptUrl": "https://stats.alextitarenko.me/script.js"
   }
 }

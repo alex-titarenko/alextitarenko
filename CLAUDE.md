@@ -22,7 +22,7 @@ No test framework is configured.
 - **Blog system**: Markdown files in `data/posts/` with YAML frontmatter, parsed via `gray-matter` and rendered with `react-markdown`. Posts use `<!--more-->` as excerpt marker.
 - **Data layer**: `repositories/BlogRepository.ts` singleton with lazy loading — reads posts from filesystem at build time via `getStaticProps`/`getStaticPaths`
 - **Post attachments**: Webpack CopyPlugin copies `data/posts/**/.attachments/*` into `public/posts/.attachments/` at build time
-- **Site config**: `app.config.json` holds brand name, social links, analytics ID, and canonical URL
+- **Site config**: `app.config.json` holds brand name, social links, Umami website ID, and canonical URL
 
 ## Key Conventions
 

@@ -32,7 +32,7 @@ export default function PrivacyStatementPage() {
 
           <h4>Do we use &apos;cookies&apos;?</h4>
 
-          <p>Yes. Cookies are small files that a site or its service provider transfers to your computer&apos;s hard drive through your Web browser (if you allow) that enables the site&apos;s or service provider&apos;s systems to recognize your browser and capture and remember certain information. For instance, cookies allow us, among other things, to store your preferences and settings; enable you to sign-in. We also use cookies to help us compile aggregate data about site traffic and site interaction so that we can offer better site experiences and tools in the future.</p>
+          <p>Yes. Cookies are small files that a site or its service provider transfers to your computer&apos;s hard drive through your Web browser (if you allow) that enables the site&apos;s or service provider&apos;s systems to recognize your browser and capture and remember certain information. For instance, cookies allow us, among other things, to store your preferences and settings; enable you to sign-in. We count visits with Umami, which runs on our own server, sets no cookies and does not store your IP address.</p>
 
           <h4>We use cookies to:</h4>
           <ul>

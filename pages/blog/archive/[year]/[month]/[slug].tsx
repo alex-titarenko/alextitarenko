@@ -10,8 +10,6 @@ import Head from 'next/head'
 import { Jumbotron } from 'components/common/Jumbotron'
 import Layout from 'components/Layout'
 import appConfig from 'app.config.json'
-import { trackEvent } from 'utils/analytics'
-import { useEffect } from 'react'
 
 const blogRepository = new BlogRepository();
 
@@ -38,12 +36,6 @@ export async function getStaticProps({ params }: { params: { year: number, month
 }
 
 export default function BlogPostPage(props: BlogPost) {
-  useEffect(() => {
-    if (props.published) {
-      trackEvent('blogpost_view', { 'blog_post_title': props.title });
-    }
-  });
-
   const imageUrl = /^http(s)?:/i.test(props.image ?? '') ?
     props.image :
     new URL((props.image ?? '').startsWith('/') ?
