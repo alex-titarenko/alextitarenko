@@ -39,7 +39,7 @@ export default function PrivacyPolicy() {
           <p>
             <b>Account information:</b> access tokens that Meta issues for our own accounts.<br />
             <b>Content and statistics:</b> our posts, their statistics, and the replies and mentions on them, including the public name, profile picture and text of the people who wrote them.<br />
-            <b>Public information:</b> where Meta has approved this access, public Threads profiles and posts, including usernames, names, profile pictures, bios, follower counts and post statistics.
+            <b>Public information:</b> where Meta has approved this access, public profiles, Pages and posts on Threads, Facebook and Instagram, including usernames, names, profile pictures, bios, follower counts and post statistics.
           </p>
 
           <h3>How We Use Information</h3>
@@ -49,7 +49,7 @@ export default function PrivacyPolicy() {
 
           <h3>Sharing</h3>
           <p>
-            We do not sell this information. It is processed by service providers that help us run Agent Stack, including Anthropic, which provides the AI assistant.
+            We do not sell this information. It is processed by service providers that help us run Agent Stack.
           </p>
 
           <h3>Data Retention</h3>
